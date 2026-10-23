@@ -143,3 +143,55 @@ db.rocketchat_settings.updateOne(
 	{ $set: { value: 'extended', _updatedAt: new Date() } }
 );
 print('sidebar default view: extended');
+
+// Meet calls and untitled groups have an id as `name`; with this flag every client shows the readable `fname` instead
+db.rocketchat_settings.updateOne(
+	{ _id: 'UI_Allow_room_names_with_special_chars' },
+	{ $set: { value: true, _updatedAt: new Date() } }
+);
+print('room titles: fname');
+
+// ROMEO meet calls become ended Rocket.Chat video conferences, so each call is a record tied to its room and to the invite message
+const firstInvite = {};
+db.rocketchat_message
+	.find({ t: 'meet', meetRoomId: { $exists: true } }, { meetRoomId: 1, ts: 1, u: 1 })
+	.sort({ ts: 1 })
+	.forEach(m => {
+		if (!firstInvite[m.meetRoomId]) firstInvite[m.meetRoomId] = m;
+	});
+const rooms = {};
+db.rocketchat_room.find({}, { t: 1, fname: 1, name: 1, u: 1 }).forEach(r => {
+	rooms[r._id] = r;
+});
+const userOf = ({ id, _id, username, name }) => ({ _id: id || _id, username, name: name || username });
+
+let videoConferences = [];
+db.exentriq_meet_calls.find({}).forEach(call => {
+	const room = rooms[call.rid];
+	if (!room || !(call.users || []).length) return;
+	const createdAt = call.startedAt || call.started || now;
+	const invite = firstInvite[call._id];
+	const members = call.users.filter(u => u.username).map(userOf);
+	const createdBy = (invite && invite.u && userOf(invite.u)) || (room.u && members.find(u => u._id === room.u._id)) || members[0];
+	if (!createdBy) return;
+	const video = {
+		type: room.t === 'd' ? 'direct' : 'videoconference',
+		rid: call.rid,
+		users: members.map(u => ({ ...u, avatarETag: null, ts: createdAt, joined: true, joinedAt: createdAt })),
+		status: 3,
+		messages: invite ? { started: invite._id } : {},
+		createdBy,
+		createdAt,
+		endedAt: call.lastActive || createdAt,
+		providerName: 'romeo',
+		providerData: { uuid: call.uuid },
+		_updatedAt: call.exUpdatedAt || call.lastActive || createdAt
+	};
+	if (video.type === 'videoconference') {
+		video.anonymousUsers = 0;
+		video.title = call.name || room.fname || room.name || '';
+	}
+	videoConferences.push({ replaceOne: { filter: { _id: call._id }, replacement: video, upsert: true } });
+});
+const written = videoConferences.length ? db.rocketchat_video_conference.bulkWrite(videoConferences, { ordered: false }) : null;
+print(`video conferences: upserted ${written ? written.upsertedCount : 0}, modified ${written ? written.modifiedCount : 0} of ${db.exentriq_meet_calls.countDocuments({})} calls`);
