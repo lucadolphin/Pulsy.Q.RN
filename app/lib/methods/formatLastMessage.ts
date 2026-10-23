@@ -6,8 +6,12 @@ export const formatLastMessage = ({ lastMessage, type, showLastMessage, username
 	if (!showLastMessage) {
 		return '';
 	}
-	if (!lastMessage || !lastMessage.u) {
+	if (!lastMessage) {
 		return I18n.t('No_Message');
+	}
+	// Previews migrated from ROMEO may lack the sender: the text alone is still worth showing
+	if (!lastMessage.u) {
+		return lastMessage.msg || I18n.t('No_Message');
 	}
 	if (lastMessage.t === 'jitsi_call_started') {
 		const { u } = lastMessage;
