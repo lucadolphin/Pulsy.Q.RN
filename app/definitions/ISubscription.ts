@@ -19,6 +19,12 @@ export enum SubscriptionType {
 	THREAD = 'thread' // FIXME: this is not a type of subscription
 }
 
+export interface ITypingUser {
+	_id: string;
+	username: string;
+	name?: string;
+}
+
 export interface IVisitor {
 	_id?: string;
 	token?: string;
@@ -117,6 +123,8 @@ export interface ISubscription {
 	disableNotifications?: boolean;
 	federated?: boolean;
 	category?: string;
+	isTyping?: boolean;
+	typingUsers?: ITypingUser[];
 	abacAttributes?: { key: string; values: string[] }[];
 	federation?: {
 		version: number;
@@ -153,6 +161,8 @@ export interface IServerSubscription extends IRocketChatRecord {
 	ls: Date;
 	f?: true;
 	category?: string;
+	isTyping?: boolean;
+	typingUsers?: ITypingUser[];
 	lr: Date;
 	hideUnreadStatus?: true;
 	teamMain?: boolean;

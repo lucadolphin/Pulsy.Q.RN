@@ -7,7 +7,8 @@ import {
 	type ILastMessage,
 	type SubscriptionType,
 	type IOmnichannelSource,
-	type ISubscription
+	type ISubscription,
+	type ITypingUser
 } from '~/definitions';
 
 export interface ILeftActionsProps {
@@ -131,6 +132,8 @@ export interface IRoomItemProps extends IBaseRoomItem {
 }
 
 export interface ILastMessageProps {
+	isTyping?: boolean;
+	typingUsers?: ITypingUser[];
 	lastMessage: ILastMessage;
 	type: SubscriptionType;
 	showLastMessage: boolean;

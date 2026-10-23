@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
 
 type TRoomHeaderSubTitle = {
 	usersTyping: IUsersTyping;
+	isDirect?: boolean;
 	subtitle?: string;
 	formattedStatusExpiry?: string;
 	renderFunc?: () => ReactElement;
@@ -94,10 +95,17 @@ interface IRoomHeader {
 
 type IRoomHeaderProps = IRoomHeader;
 
-const SubTitle = memo(({ usersTyping, subtitle, formattedStatusExpiry, renderFunc, scale }: TRoomHeaderSubTitle) => {
+const SubTitle = memo(({ usersTyping, isDirect, subtitle, formattedStatusExpiry, renderFunc, scale }: TRoomHeaderSubTitle) => {
 	const { colors } = useTheme();
 	const fontSize = getSubTitleSize(scale);
 	// typing
+	if (usersTyping.length && isDirect) {
+		return (
+			<Text style={[styles.subtitle, { fontSize, color: colors.fontSecondaryInfo }]} numberOfLines={1}>
+				{I18n.t('is_typing')}...
+			</Text>
+		);
+	}
 	if (usersTyping.length) {
 		let usersText;
 		if (usersTyping.length === 2) {
@@ -254,6 +262,7 @@ const Header = ({
 				</View>
 				<SubTitle
 					usersTyping={tmid ? [] : usersTyping}
+					isDirect={type === 'd' && !isGroupChat}
 					subtitle={subtitle}
 					formattedStatusExpiry={formattedStatusExpiry}
 					renderFunc={renderFunc}

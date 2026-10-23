@@ -365,6 +365,24 @@ export default schemaMigrations({
 				}),
 				unsafeExecuteSql(`INSERT OR REPLACE INTO local_storage (key, value) VALUES ('${FULL_ROOMS_SYNC_KEY}', 'true');`)
 			]
+		},
+		{
+			toVersion: 31,
+			steps: [
+				addColumns({
+					table: 'subscriptions',
+					columns: [{ name: 'is_typing', type: 'boolean', isOptional: true }]
+				})
+			]
+		},
+		{
+			toVersion: 32,
+			steps: [
+				addColumns({
+					table: 'subscriptions',
+					columns: [{ name: 'typing_users', type: 'string', isOptional: true }]
+				})
+			]
 		}
 	]
 });

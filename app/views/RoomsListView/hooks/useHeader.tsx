@@ -13,7 +13,7 @@ import { isTablet } from '~/lib/methods/helpers';
 import { events, logEvent } from '~/lib/methods/helpers/log';
 import { getUserSelector } from '~/selectors/login';
 import { useTheme } from '~/theme';
-import RoomsListHeaderView from '../components/Header';
+import RoomsListHeaderView from '~/custom/talk/RoomsListHeader'; // TALK: was '../components/Header'
 import { RoomsSearchContext } from '../contexts/RoomsSearchProvider';
 
 export const useHeader = () => {

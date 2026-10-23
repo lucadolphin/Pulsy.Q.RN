@@ -155,6 +155,10 @@ export default class Subscription extends Model {
 
 	@field('category') category;
 
+	@field('is_typing') isTyping;
+
+	@json('typing_users', sanitizer, { memo: true }) typingUsers;
+
 	@json('abac_attributes', sanitizer, { memo: true }) abacAttributes;
 
 	@json('federation', sanitizer, { memo: true }) federation;
@@ -231,6 +235,8 @@ export default class Subscription extends Model {
 			disableNotifications: this.disableNotifications,
 			federated: this.federated,
 			category: this.category,
+			isTyping: this.isTyping,
+			typingUsers: this.typingUsers,
 			abacAttributes: this.abacAttributes,
 			federation: this.federation,
 			status: this.status,

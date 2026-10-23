@@ -314,7 +314,7 @@ export const ComposerInput = memo(
 
 		const debouncedOnChangeText = useDebouncedCallback(async (text: string) => {
 			const isTextEmpty = text.length === 0;
-			handleTyping(!isTextEmpty);
+			handleTyping(text.trim().length > 0);
 			if (isTextEmpty || !focused) {
 				stopAutocomplete();
 				return;

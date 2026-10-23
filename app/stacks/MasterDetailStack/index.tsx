@@ -13,7 +13,7 @@ import withNavigation from '~/lib/navigation/withNavigation';
 import { isIOS } from '~/lib/methods/helpers';
 import { ModalContainer } from './ModalContainer';
 import { type MasterDetailChatsStackParamList, type MasterDetailInsideStackParamList, type ModalStackParamList } from './types';
-import RoomView from '~/views/RoomView';
+import RoomView from '~/custom/talk/RoomView'; // TALK: was '~/views/RoomView'
 import RoomsListView from '~/views/RoomsListView';
 import RoomActionsView from '~/views/RoomActionsView';
 import RoomInfoView from '~/views/RoomInfoView';

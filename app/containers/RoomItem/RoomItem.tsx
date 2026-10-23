@@ -37,6 +37,8 @@ const RoomItem = ({
 	date,
 	favorite,
 	lastMessage,
+	isTyping,
+	typingUsers,
 	alert,
 	hideUnreadStatus,
 	unread,
@@ -125,6 +127,8 @@ const RoomItem = ({
 						</View>
 						<View style={styles.row} testID='room-item-last-message-container'>
 							<LastMessage
+								isTyping={isTyping}
+								typingUsers={typingUsers}
 								lastMessage={lastMessage}
 								type={type}
 								showLastMessage={showLastMessage}

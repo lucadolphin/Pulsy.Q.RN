@@ -7,7 +7,7 @@ import { useAppSelector } from '~/lib/hooks/useAppSelector';
 import { isGroupChat } from '~/lib/methods/helpers';
 import { formatDate, formatDateAccessibility } from '~/lib/methods/helpers/room';
 import { type IRoomItemContainerProps } from './interfaces';
-import RoomItem from './RoomItem';
+import RoomItem from '~/custom/talk/RoomItem'; // TALK: was './RoomItem'
 import { getRoomActionsOptions } from './getRoomActionsOptions';
 import { isInviteSubscription } from '~/lib/methods/isInviteSubscription';
 import { isExternalKeyboardConnected } from '~/lib/methods/helpers/externalInput';
@@ -106,6 +106,8 @@ const RoomItemContainer = memo(
 				hideUnreadStatus={item.hideUnreadStatus}
 				hideMentionStatus={item.hideMentionStatus}
 				alert={alert}
+				isTyping={item.isTyping}
+				typingUsers={item.typingUsers}
 				lastMessage={item.lastMessage}
 				showLastMessage={showLastMessage}
 				username={username}

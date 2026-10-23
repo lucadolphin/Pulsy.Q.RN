@@ -111,7 +111,9 @@ export const createOrUpdateSubscription = async (subscription: ISubscription, ro
 					avatarETag: s.avatarETag,
 					onHold: s.onHold,
 					hideMentionStatus: s.hideMentionStatus,
-					category: s.category
+					category: s.category,
+					isTyping: s.isTyping,
+					typingUsers: s.typingUsers
 				} as ISubscription;
 			} catch (error) {
 				try {

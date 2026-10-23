@@ -17,7 +17,7 @@ import { ThemeContext } from './theme';
 import { setCurrentScreen } from './lib/methods/helpers/log';
 import { themes } from './lib/constants/colors';
 import { emitter } from './lib/methods/helpers';
-import MediaCallHeader from './containers/MediaCallHeader/MediaCallHeader';
+import MediaCallHeader from './custom/talk/MediaCallHeader'; // TALK: was './containers/MediaCallHeader/MediaCallHeader'
 
 const useIsLoading = () =>
 	useSelector(

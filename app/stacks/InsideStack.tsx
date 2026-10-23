@@ -14,7 +14,7 @@ import withNavigation from '../lib/navigation/withNavigation';
 import Sidebar from '../views/SidebarView';
 import { isIOS } from '../lib/methods/helpers';
 import { type TNavigation } from './stackType';
-import RoomView from '../views/RoomView';
+import RoomView from '~/custom/talk/RoomView'; // TALK: was '../views/RoomView'
 import RoomsListView from '../views/RoomsListView';
 import RoomActionsView from '../views/RoomActionsView';
 import RoomInfoView from '../views/RoomInfoView';

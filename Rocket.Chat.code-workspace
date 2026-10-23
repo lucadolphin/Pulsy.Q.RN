@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Rocket.Chat"
+		},
+		{
+			"path": "../Exentriq-MSP"
+		},
+		{
+			"path": "../Exentriq-ROMEO"
+		},
+		{
+			"path": "../IOS/Talk26"
+		}
+	]
+}

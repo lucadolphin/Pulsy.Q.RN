@@ -16,6 +16,8 @@ export const merge = (
 	const serverVersion = reduxStore.getState().server.version as string;
 	const mergedSubscription: ISubscription = EJSON.fromJSONValue(subscription);
 	mergedSubscription.category = subscription.category;
+	mergedSubscription.isTyping = subscription.isTyping;
+	mergedSubscription.typingUsers = subscription.typingUsers;
 
 	if (room) {
 		room = EJSON.fromJSONValue(room);

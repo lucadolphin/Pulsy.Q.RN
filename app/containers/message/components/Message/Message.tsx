@@ -1,5 +1,5 @@
 import CompactMessage from './CompactMessage';
-import FullMessage from './FullMessage';
+import FullMessage from '~/custom/talk/BubbleMessage'; // TALK: was './FullMessage'
 import { useIsInfoMessage, useMessageIgnored, useThreadPosition } from '~/containers/message/stores/MessageStore';
 
 export type TMessageProps = {

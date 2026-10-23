@@ -1,3 +1,4 @@
+import './custom'; // TALK: Talk26 look (theme overrides)
 import { Component } from 'react';
 import { Linking } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

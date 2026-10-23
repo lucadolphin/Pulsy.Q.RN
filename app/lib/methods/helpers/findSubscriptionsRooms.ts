@@ -58,7 +58,9 @@ export default async function findSubscriptionsRooms(subscriptions: IServerSubsc
 			E2EKey: s.E2EKey,
 			avatarETag: s.avatarETag,
 			roles: s.roles,
-			category: s.category
+			category: s.category,
+			isTyping: s.isTyping,
+			typingUsers: s.typingUsers
 		}));
 		// Assign
 		sub = subscriptions.concat(mappedExistingSubs as unknown as IServerSubscription);
