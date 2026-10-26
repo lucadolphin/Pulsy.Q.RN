@@ -38,10 +38,18 @@ migrate('users', db.users, {}, { _updatedAt: 1, createdAt: 1, roles: 1, exUpdate
 // End-to-end ciphertext cannot be read without the owners' keys, so it is dropped before the rooms' last messages are recomputed
 print(`e2e messages deleted: ${db.rocketchat_message.deleteMany({ t: 'e2e' }).deletedCount}`);
 
-// messages: _updatedAt, msg
-migrate('messages', db.rocketchat_message, {}, { _updatedAt: 1, msg: 1, editedAt: 1, ts: 1 }, m =>
-	missing(m, { _updatedAt: m.editedAt || m.ts, msg: '' })
-);
+// real name of each user by username: the message bubbles show it, never the username
+const names = {};
+db.users.find({ username: { $exists: true }, name: { $exists: true } }, { username: 1, name: 1 }).forEach(u => {
+	names[u.username] = u.name;
+});
+
+// messages: _updatedAt, msg, u.name
+migrate('messages', db.rocketchat_message, {}, { _updatedAt: 1, msg: 1, editedAt: 1, ts: 1, u: 1 }, m => {
+	const set = missing(m, { _updatedAt: m.editedAt || m.ts, msg: '' });
+	if (m.u && m.u.username && !m.u.name && names[m.u.username]) set['u.name'] = names[m.u.username];
+	return set;
+});
 
 // rooms: lm + lastMessage from the latest visible message (always recomputed)
 const lastMessages = {};
@@ -90,10 +98,6 @@ migrate('rooms', db.rocketchat_room, {}, {}, r => {
 const roomTs = {};
 db.rocketchat_room.find({}, { ts: 1 }).forEach(r => {
 	roomTs[r._id] = r.ts;
-});
-const names = {};
-db.users.find({ username: { $exists: true }, name: { $exists: true } }, { username: 1, name: 1 }).forEach(u => {
-	names[u.username] = u.name;
 });
 migrate('subscriptions', db.rocketchat_subscription, {}, {}, s => {
 	const ts = s.ts || roomTs[s.rid] || now;
@@ -195,3 +199,10 @@ db.exentriq_meet_calls.find({}).forEach(call => {
 });
 const written = videoConferences.length ? db.rocketchat_video_conference.bulkWrite(videoConferences, { ordered: false }) : null;
 print(`video conferences: upserted ${written ? written.upsertedCount : 0}, modified ${written ? written.modifiedCount : 0} of ${db.exentriq_meet_calls.countDocuments({})} calls`);
+
+// The copied settings still name the ROMEO workspace and its port
+['Site_Name', 'Site_Url'].forEach(_id => {
+	const value = _id === 'Site_Name' ? 'Pulsy.Q' : 'http://localhost:3100';
+	db.rocketchat_settings.updateOne({ _id }, { $set: { value, _updatedAt: new Date() } });
+});
+print('workspace: Pulsy.Q on http://localhost:3100');
