@@ -44,12 +44,8 @@ export const merge = (
 			mergedSubscription.roomUpdatedAt = Math.max(updatedAt, lastMessageTs);
 		} else {
 			// https://github.com/RocketChat/Rocket.Chat/blob/develop/app/ui-sidenav/client/roomList.js#L180
-			const lastRoomUpdate = room?.lm || mergedSubscription.ts || mergedSubscription._updatedAt;
-			// @ts-ignore Same as above scenario
-			mergedSubscription.roomUpdatedAt = mergedSubscription.lr
-				? // @ts-ignore Same as above scenario
-					Math.max(new Date(mergedSubscription.lr), new Date(lastRoomUpdate))
-				: lastRoomUpdate;
+			// The list is ordered only by the room's last message (`lm`), the same as the web client: rooms without messages go last
+			mergedSubscription.roomUpdatedAt = (room?.lm ? new Date(room.lm) : 0) as Date;
 		}
 		mergedSubscription.ro = room?.ro ?? false;
 		if (room && 'broadcast' in room) {
