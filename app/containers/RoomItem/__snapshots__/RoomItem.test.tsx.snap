@@ -22,6 +22,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -40,7 +44,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -56,7 +62,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -151,7 +157,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -170,7 +177,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -266,7 +275,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -676,6 +687,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -694,7 +709,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -710,7 +727,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -805,7 +822,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -824,7 +842,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -920,7 +940,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -1374,6 +1396,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -1392,7 +1418,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -1408,7 +1436,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -1503,7 +1531,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -1522,7 +1551,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -1618,7 +1649,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -2072,6 +2105,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -2090,7 +2127,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -2106,7 +2145,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -2201,7 +2240,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -2220,7 +2260,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -2316,7 +2358,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -2770,6 +2814,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -2788,7 +2836,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -2804,7 +2854,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -2899,7 +2949,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -2918,7 +2969,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -3014,7 +3067,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -3468,6 +3523,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -3486,7 +3545,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -3502,7 +3563,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -3597,7 +3658,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -3616,7 +3678,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -3712,7 +3776,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -4166,6 +4232,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -4184,7 +4254,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -4200,7 +4272,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -4295,7 +4367,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -4314,7 +4387,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -4410,7 +4485,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -4864,6 +4941,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -4882,7 +4963,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -4898,7 +4981,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -4993,7 +5076,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -5012,7 +5096,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -5108,7 +5194,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -5562,6 +5650,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -5580,7 +5672,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -5596,7 +5690,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -5691,7 +5785,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -5710,7 +5805,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -5806,7 +5903,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -6260,6 +6359,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -6278,7 +6381,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -6294,7 +6399,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -6389,7 +6494,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -6408,7 +6514,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -6504,7 +6612,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -6958,6 +7068,10 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -6976,7 +7090,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -6992,7 +7108,7 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -7087,7 +7203,8 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -7106,7 +7223,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -7202,7 +7321,9 @@ exports[`Story Snapshots: Alerts should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -7660,6 +7781,10 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
           "position": "absolute",
           "right": 0,
         },
+        {
+          "bottom": 0,
+          "top": 0,
+        },
       ]
     }
   >
@@ -7678,7 +7803,9 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
             "width": 1500,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -7694,7 +7821,7 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
               "top": 0,
             },
             {
-              "height": 75,
+              "bottom": 0,
             },
           ]
         }
@@ -7789,7 +7916,8 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
           "right": 0,
         },
         {
-          "height": 75,
+          "bottom": 0,
+          "top": 0,
         },
       ]
     }
@@ -7808,7 +7936,9 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
             "width": 750,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -7904,7 +8034,9 @@ exports[`Story Snapshots: Basic should match snapshot 1`] = `
             "width": 1500,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -8297,6 +8429,10 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -8315,7 +8451,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -8331,7 +8469,7 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -8426,7 +8564,8 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -8445,7 +8584,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -8541,7 +8682,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -8995,6 +9138,10 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -9013,7 +9160,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -9029,7 +9178,7 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -9124,7 +9273,8 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -9143,7 +9293,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -9239,7 +9391,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -9693,6 +9847,10 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -9711,7 +9869,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -9727,7 +9887,7 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -9822,7 +9982,8 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -9841,7 +10002,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -9937,7 +10100,9 @@ exports[`Story Snapshots: CondensedRoomItem should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -10370,6 +10535,10 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -10388,7 +10557,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -10404,7 +10575,7 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -10499,7 +10670,8 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -10518,7 +10690,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -10614,7 +10788,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11012,6 +11188,10 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -11030,7 +11210,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11046,7 +11228,7 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -11141,7 +11323,8 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -11160,7 +11343,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11256,7 +11441,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11589,6 +11776,10 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -11607,7 +11798,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11623,7 +11816,7 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -11718,7 +11911,8 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -11737,7 +11931,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -11833,7 +12029,9 @@ exports[`Story Snapshots: CondensedRoomItemWithoutAvatar should match snapshot 1
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -12210,6 +12408,10 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -12228,7 +12430,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -12244,7 +12448,7 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -12339,7 +12543,8 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -12358,7 +12563,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -12454,7 +12661,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -12904,6 +13113,10 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -12922,7 +13135,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -12938,7 +13153,7 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -13033,7 +13248,8 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -13052,7 +13268,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -13148,7 +13366,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -13598,6 +13818,10 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -13616,7 +13840,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -13632,7 +13858,7 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -13727,7 +13953,8 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -13746,7 +13973,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -13842,7 +14071,9 @@ exports[`Story Snapshots: ExpandedRoomItemWithoutAvatar should match snapshot 1`
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -14253,6 +14484,10 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -14271,7 +14506,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -14287,7 +14524,7 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -14382,7 +14619,8 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -14401,7 +14639,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -14497,7 +14737,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -14914,6 +15156,10 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -14932,7 +15178,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -14948,7 +15196,7 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 60,
+                "bottom": 0,
               },
             ]
           }
@@ -15043,7 +15291,8 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 60,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -15062,7 +15311,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -15158,7 +15409,9 @@ exports[`Story Snapshots: InvitedRoom should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 60,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -15580,6 +15833,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -15598,7 +15855,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -15614,7 +15873,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -15709,7 +15968,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -15728,7 +15988,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -15824,7 +16086,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -16250,6 +16514,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -16268,7 +16536,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -16284,7 +16554,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -16379,7 +16649,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -16398,7 +16669,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -16494,7 +16767,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -16920,6 +17195,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -16938,7 +17217,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -16954,7 +17235,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -17049,7 +17330,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -17068,7 +17350,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -17164,7 +17448,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -17590,6 +17876,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -17608,7 +17898,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -17624,7 +17916,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -17719,7 +18011,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -17738,7 +18031,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -17834,7 +18129,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -18260,6 +18557,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -18278,7 +18579,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -18294,7 +18597,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -18389,7 +18692,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -18408,7 +18712,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -18504,7 +18810,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -18995,6 +19303,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -19013,7 +19325,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -19029,7 +19343,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -19124,7 +19438,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -19143,7 +19458,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -19239,7 +19556,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -19730,6 +20049,10 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -19748,7 +20071,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -19764,7 +20089,7 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -19859,7 +20184,8 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -19878,7 +20204,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -19974,7 +20302,9 @@ exports[`Story Snapshots: LastMessage should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -20470,6 +20800,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -20488,7 +20822,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -20504,7 +20840,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -20599,7 +20935,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -20618,7 +20955,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -20714,7 +21053,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21103,6 +21444,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -21121,7 +21466,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21137,7 +21484,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -21232,7 +21579,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -21251,7 +21599,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21347,7 +21697,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21736,6 +22088,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -21754,7 +22110,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21770,7 +22128,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -21865,7 +22223,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -21884,7 +22243,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -21980,7 +22341,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -22369,6 +22732,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -22387,7 +22754,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -22403,7 +22772,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -22498,7 +22867,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -22517,7 +22887,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -22613,7 +22985,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23002,6 +23376,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -23020,7 +23398,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23036,7 +23416,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -23131,7 +23511,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -23150,7 +23531,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23246,7 +23629,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23635,6 +24020,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -23653,7 +24042,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23669,7 +24060,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -23764,7 +24155,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -23783,7 +24175,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -23879,7 +24273,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -24268,6 +24664,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -24286,7 +24686,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -24302,7 +24704,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -24397,7 +24799,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -24416,7 +24819,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -24512,7 +24917,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -24901,6 +25308,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -24919,7 +25330,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -24935,7 +25348,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -25030,7 +25443,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -25049,7 +25463,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -25145,7 +25561,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -25534,6 +25952,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -25552,7 +25974,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -25568,7 +25992,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -25663,7 +26087,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -25682,7 +26107,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -25778,7 +26205,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -26167,6 +26596,10 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -26185,7 +26618,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -26201,7 +26636,7 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -26296,7 +26731,8 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -26315,7 +26751,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -26411,7 +26849,9 @@ exports[`Story Snapshots: OmnichannelIcon should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -26805,6 +27245,10 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -26823,7 +27267,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -26839,7 +27285,7 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -26934,7 +27380,8 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -26953,7 +27400,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -27049,7 +27498,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -27477,6 +27928,10 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -27495,7 +27950,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -27511,7 +27968,7 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -27606,7 +28063,8 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -27625,7 +28083,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -27721,7 +28181,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -28187,6 +28649,10 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -28205,7 +28671,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -28221,7 +28689,7 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -28316,7 +28784,8 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -28335,7 +28804,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -28431,7 +28902,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -28859,6 +29332,10 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -28877,7 +29354,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -28893,7 +29372,7 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -28988,7 +29467,8 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -29007,7 +29487,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -29103,7 +29585,9 @@ exports[`Story Snapshots: Tag should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -29573,6 +30057,10 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
           "position": "absolute",
           "right": 0,
         },
+        {
+          "bottom": 0,
+          "top": 0,
+        },
       ]
     }
   >
@@ -29591,7 +30079,9 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
             "width": 1500,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -29607,7 +30097,7 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
               "top": 0,
             },
             {
-              "height": 75,
+              "bottom": 0,
             },
           ]
         }
@@ -29702,7 +30192,8 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
           "right": 0,
         },
         {
-          "height": 75,
+          "bottom": 0,
+          "top": 0,
         },
       ]
     }
@@ -29721,7 +30212,9 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
             "width": 750,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -29817,7 +30310,9 @@ exports[`Story Snapshots: Touch should match snapshot 1`] = `
             "width": 1500,
           },
           {
-            "height": 75,
+            "borderRadius": 0,
+            "bottom": 0,
+            "top": 0,
           },
           [Function],
         ]
@@ -30210,6 +30705,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -30228,7 +30727,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -30244,7 +30745,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -30339,7 +30840,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -30358,7 +30860,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -30454,7 +30958,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -30851,6 +31357,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -30869,7 +31379,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -30885,7 +31397,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -30980,7 +31492,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -30999,7 +31512,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -31095,7 +31610,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 4,
+              "bottom": 8,
+              "top": 8,
             },
             [Function],
           ]
@@ -31484,6 +32001,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -31502,7 +32023,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -31518,7 +32041,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -31613,7 +32136,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -31632,7 +32156,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -31728,7 +32254,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32117,6 +32645,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -32135,7 +32667,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32151,7 +32685,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -32246,7 +32780,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -32265,7 +32800,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32361,7 +32898,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32750,6 +33289,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -32768,7 +33311,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32784,7 +33329,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -32879,7 +33424,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -32898,7 +33444,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -32994,7 +33542,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -33383,6 +33933,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -33401,7 +33955,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -33417,7 +33973,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -33512,7 +34068,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -33531,7 +34088,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -33627,7 +34186,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34016,6 +34577,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -34034,7 +34599,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34050,7 +34617,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -34145,7 +34712,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -34164,7 +34732,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34260,7 +34830,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34649,6 +35221,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -34667,7 +35243,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34683,7 +35261,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -34778,7 +35356,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -34797,7 +35376,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -34893,7 +35474,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -35282,6 +35865,10 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -35300,7 +35887,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -35316,7 +35905,7 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -35411,7 +36000,8 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -35430,7 +36020,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -35526,7 +36118,9 @@ exports[`Story Snapshots: Type should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -35920,6 +36514,10 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -35938,7 +36536,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -35954,7 +36554,7 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -36049,7 +36649,8 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -36068,7 +36669,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -36164,7 +36767,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -36561,6 +37166,10 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
             "position": "absolute",
             "right": 0,
           },
+          {
+            "bottom": 0,
+            "top": 0,
+          },
         ]
       }
     >
@@ -36579,7 +37188,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -36595,7 +37206,7 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
                 "top": 0,
               },
               {
-                "height": 75,
+                "bottom": 0,
               },
             ]
           }
@@ -36690,7 +37301,8 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
             "right": 0,
           },
           {
-            "height": 75,
+            "bottom": 0,
+            "top": 0,
           },
         ]
       }
@@ -36709,7 +37321,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 750,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]
@@ -36805,7 +37419,9 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
               "width": 1500,
             },
             {
-              "height": 75,
+              "borderRadius": 0,
+              "bottom": 0,
+              "top": 0,
             },
             [Function],
           ]

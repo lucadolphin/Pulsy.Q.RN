@@ -1,5 +1,6 @@
 import { memo, useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import Avatar from '~/containers/Avatar';
 import { CustomIcon } from '~/containers/CustomIcon';
@@ -181,6 +182,8 @@ const RoomItem = ({
 	const accessibilityLabel = `${name}. ${statusAccessibilityLabel}. ${accessibilityDate}. ${memoizedMessage}`;
 
 	const { hasUnread, count, label } = getUnreadInfo({ unread, tunread, alert, hideUnreadStatus });
+	// Talk26 draws type 'c' rooms as activity cards (Minicard)
+	const isActivity = type === 'c';
 	const isGroup = GROUP_TYPES.includes(type) || !!isGroupChat;
 
 	return (
@@ -196,53 +199,144 @@ const RoomItem = ({
 			isFocused={!!isFocused}
 			swipeEnabled={swipeEnabled}
 			displayMode={displayMode}>
-			<View
-				style={[styles.row, { backgroundColor: talk.chatBackground }]}
-				accessible
-				accessibilityRole='button'
-				accessibilityLabel={accessibilityLabel}
-				accessibilityHint={I18n.t('Long_press_for_more_actions')}>
-				<RoomAvatar avatar={avatar} type={type} rid={rid} isGroup={isGroup} status={status} favorite={favorite} talk={talk} />
-				<View style={styles.content}>
-					<View style={styles.titleRow}>
-						<Text numberOfLines={1} style={[styles.title, { color: talk.bubbleText }]}>
-							{name}
-						</Text>
-						<Text numberOfLines={1} style={[styles.date, { color: hasUnread ? talk.primary : talk.bubbleTime }]}>
-							{dateText}
-						</Text>
-					</View>
-					{showLastMessage && displayMode !== DisplayMode.Condensed ? (
-						<View style={styles.messageRow}>
-							<View style={styles.message}>
-								{attachmentPreview ? (
-									<AttachmentPreview
-										{...attachmentPreview}
-										color={alert && !hideUnreadStatus ? colors.fontDefault : colors.fontSecondaryInfo}
-									/>
-								) : (
-									<LastMessage
-										isTyping={isTyping}
-										typingUsers={typingUsers}
-										lastMessage={lastMessage}
-										type={type}
-										showLastMessage={showLastMessage}
-										username={username || ''}
-										alert={alert && !hideUnreadStatus}
-										useRealName={useRealName}
-									/>
-								)}
-							</View>
-							{hasUnread && count > 0 ? <UnreadPill label={label} color={talk.primary} /> : null}
+			{isActivity ? (
+				<View style={[styles.activityWrap, { backgroundColor: talk.chatBackground }]}>
+					<View
+						style={[styles.activityCard, { backgroundColor: talk.bubbleReceived, borderLeftColor: talk.primary }]}
+						accessible
+						accessibilityRole='button'
+						accessibilityLabel={accessibilityLabel}
+						accessibilityHint={I18n.t('Long_press_for_more_actions')}>
+						<View style={[styles.activityAction, { borderRightColor: talk.bubbleTime }]}>
+							<Ionicons name='checkbox-outline' size={34} color={talk.primary} />
+							<Text numberOfLines={1} style={[styles.activityLabel, { color: talk.primary }]}>
+								{I18n.t('Open_activity')}
+							</Text>
 						</View>
-					) : null}
+						<View style={styles.activityContent}>
+							<View style={styles.content}>
+								<View style={styles.titleRow}>
+									<Text numberOfLines={1} style={[styles.title, { color: talk.bubbleText }]}>
+										{name}
+									</Text>
+									{favorite ? <Text style={[styles.activityFavorite, { color: talk.primary }]}>★</Text> : null}
+									<Text numberOfLines={1} style={[styles.date, { color: hasUnread ? talk.primary : talk.bubbleTime }]}>
+										{dateText}
+									</Text>
+								</View>
+								{showLastMessage && displayMode !== DisplayMode.Condensed ? (
+									<View style={styles.messageRow}>
+										<View style={styles.message}>
+											{attachmentPreview ? (
+												<AttachmentPreview
+													{...attachmentPreview}
+													color={alert && !hideUnreadStatus ? colors.fontDefault : colors.fontSecondaryInfo}
+												/>
+											) : (
+												<LastMessage
+													isTyping={isTyping}
+													typingUsers={typingUsers}
+													lastMessage={lastMessage}
+													type={type}
+													showLastMessage={showLastMessage}
+													username={username || ''}
+													alert={alert && !hideUnreadStatus}
+													useRealName={useRealName}
+												/>
+											)}
+										</View>
+										{hasUnread && count > 0 ? <UnreadPill label={label} color={talk.primary} /> : null}
+									</View>
+								) : null}
+							</View>
+						</View>
+					</View>
 				</View>
-			</View>
+			) : (
+				<View
+					style={[styles.row, { backgroundColor: talk.chatBackground }]}
+					accessible
+					accessibilityRole='button'
+					accessibilityLabel={accessibilityLabel}
+					accessibilityHint={I18n.t('Long_press_for_more_actions')}>
+					<RoomAvatar avatar={avatar} type={type} rid={rid} isGroup={isGroup} status={status} favorite={favorite} talk={talk} />
+					<View style={styles.content}>
+						<View style={styles.titleRow}>
+							<Text numberOfLines={1} style={[styles.title, { color: talk.bubbleText }]}>
+								{name}
+							</Text>
+							<Text numberOfLines={1} style={[styles.date, { color: hasUnread ? talk.primary : talk.bubbleTime }]}>
+								{dateText}
+							</Text>
+						</View>
+						{showLastMessage && displayMode !== DisplayMode.Condensed ? (
+							<View style={styles.messageRow}>
+								<View style={styles.message}>
+									{attachmentPreview ? (
+										<AttachmentPreview
+											{...attachmentPreview}
+											color={alert && !hideUnreadStatus ? colors.fontDefault : colors.fontSecondaryInfo}
+										/>
+									) : (
+										<LastMessage
+											isTyping={isTyping}
+											typingUsers={typingUsers}
+											lastMessage={lastMessage}
+											type={type}
+											showLastMessage={showLastMessage}
+											username={username || ''}
+											alert={alert && !hideUnreadStatus}
+											useRealName={useRealName}
+										/>
+									)}
+								</View>
+								{hasUnread && count > 0 ? <UnreadPill label={label} color={talk.primary} /> : null}
+							</View>
+						) : null}
+					</View>
+				</View>
+			)}
 		</Touchable>
 	);
 };
 
 const styles = StyleSheet.create({
+	activityFavorite: {
+		marginRight: 4,
+		fontSize: 13
+	},
+	activityWrap: {
+		paddingVertical: 8,
+		paddingHorizontal: 8
+	},
+	activityCard: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		minHeight: 76,
+		paddingRight: 8,
+		borderRadius: 4,
+		borderLeftWidth: 4,
+		shadowColor: 'rgba(0, 0, 0, 0.5)',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.22,
+		shadowRadius: 2.22,
+		elevation: 3
+	},
+	activityAction: {
+		width: 68,
+		alignSelf: 'stretch',
+		paddingVertical: 8,
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRightWidth: 0.5
+	},
+	activityLabel: {
+		fontSize: 10,
+		textDecorationLine: 'underline'
+	},
+	activityContent: {
+		flex: 1
+	},
 	row: {
 		flexDirection: 'row',
 		alignItems: 'center',

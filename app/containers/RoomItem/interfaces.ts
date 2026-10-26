@@ -17,6 +17,7 @@ export interface ILeftActionsProps {
 	width: number;
 	onToggleReadPress(): void;
 	displayMode: string;
+	inset?: number;
 }
 
 export interface IRightActionsProps {
@@ -26,6 +27,7 @@ export interface IRightActionsProps {
 	toggleFav(): void;
 	onHidePress(): void;
 	displayMode: string;
+	inset?: number;
 }
 
 export interface ITitleProps {

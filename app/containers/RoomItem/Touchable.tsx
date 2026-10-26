@@ -9,7 +9,7 @@ import {
 import { scheduleOnRN } from 'react-native-worklets';
 
 import Touch from '../Touch';
-import { ACTION_WIDTH, LONG_SWIPE, SMALL_SWIPE } from './styles';
+import { ACTION_WIDTH, ACTIVITY_CARD_INSET, LONG_SWIPE, SMALL_SWIPE } from './styles';
 import { LeftActions, RightActions } from './Actions';
 import { type ITouchableProps } from './interfaces';
 import { useTheme } from '~/theme';
@@ -196,6 +196,9 @@ const Touchable = ({
 		transform: [{ translateX: transX.value }]
 	}));
 
+	// Activity cards (type 'c') sit inside a padded wrapper: the swipe buttons line up with the card, not the whole row
+	const actionsInset = type === 'c' ? ACTIVITY_CARD_INSET : 0;
+
 	return (
 		<GestureDetector gesture={composedGesture}>
 			<Animated.View>
@@ -205,6 +208,7 @@ const Touchable = ({
 					width={width}
 					onToggleReadPress={onToggleReadPress}
 					displayMode={displayMode}
+					inset={actionsInset}
 				/>
 				<RightActions
 					transX={transX}
@@ -213,6 +217,7 @@ const Touchable = ({
 					toggleFav={handleToggleFav}
 					onHidePress={onHidePress}
 					displayMode={displayMode}
+					inset={actionsInset}
 				/>
 				<Animated.View style={animatedStyles}>
 					<Touch

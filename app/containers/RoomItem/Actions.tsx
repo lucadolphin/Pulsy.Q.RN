@@ -17,26 +17,24 @@ import styles, { ACTION_WIDTH, LONG_SWIPE } from './styles';
 import { type ILeftActionsProps, type IRightActionsProps } from './interfaces';
 import { useTheme } from '~/theme';
 import I18n from '~/i18n';
-import { useResponsiveLayout } from '~/lib/hooks/useResponsiveLayout/useResponsiveLayout';
 
 const CONDENSED_ICON_SIZE = 24;
 const EXPANDED_ICON_SIZE = 28;
 
-export const LeftActions = memo(({ transX, isRead, width, onToggleReadPress, displayMode }: ILeftActionsProps) => {
+export const LeftActions = memo(({ transX, isRead, width, onToggleReadPress, displayMode, inset = 0 }: ILeftActionsProps) => {
 	const { colors } = useTheme();
-
-	const { rowHeight, rowHeightCondensed } = useResponsiveLayout();
 
 	const animatedStyles = useAnimatedStyle(() => ({
 		transform: [{ translateX: transX.value }]
 	}));
 
 	const isCondensed = displayMode === DisplayMode.Condensed;
-	const viewHeight = { height: isCondensed ? rowHeightCondensed : rowHeight };
+	// Fills the row (its height varies with the row type) instead of a fixed height
+	const viewHeight = { top: inset, bottom: inset, borderRadius: inset ? 4 : 0 };
 
 	return (
 		<View
-			style={[styles.actionsContainer, styles.actionsLeftContainer]}
+			style={[styles.actionsContainer, styles.actionsLeftContainer, { top: 0, bottom: 0 }]}
 			pointerEvents='box-none'
 			accessibilityElementsHidden
 			importantForAccessibility='no'>
@@ -47,7 +45,7 @@ export const LeftActions = memo(({ transX, isRead, width, onToggleReadPress, dis
 					viewHeight,
 					animatedStyles
 				]}>
-				<View style={[styles.actionLeftButtonContainer, viewHeight]}>
+				<View style={[styles.actionLeftButtonContainer, { bottom: 0 }]}>
 					<RectButton
 						accessible={false}
 						accessibilityLabel={I18n.t(isRead ? 'Mark_unread' : 'Mark_read')}
@@ -65,116 +63,117 @@ export const LeftActions = memo(({ transX, isRead, width, onToggleReadPress, dis
 	);
 });
 
-export const RightActions = memo(({ transX, favorite, width, toggleFav, onHidePress, displayMode }: IRightActionsProps) => {
-	const { colors } = useTheme();
+export const RightActions = memo(
+	({ transX, favorite, width, toggleFav, onHidePress, displayMode, inset = 0 }: IRightActionsProps) => {
+		const { colors } = useTheme();
 
-	const { rowHeight, rowHeightCondensed } = useResponsiveLayout();
+		const animatedFavStyles = useAnimatedStyle(() => ({ transform: [{ translateX: transX.value }] }));
 
-	const animatedFavStyles = useAnimatedStyle(() => ({ transform: [{ translateX: transX.value }] }));
+		const translateXHide = useSharedValue(0);
 
-	const translateXHide = useSharedValue(0);
+		const triggerHideAnimation = (toValue: number) => {
+			Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+			translateXHide.value = withSpring(toValue, { overshootClamping: true, mass: 0.7 });
+		};
 
-	const triggerHideAnimation = (toValue: number) => {
-		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-		translateXHide.value = withSpring(toValue, { overshootClamping: true, mass: 0.7 });
-	};
-
-	useAnimatedReaction(
-		() => transX.value,
-		(currentTransX, previousTransX) => {
-			// Triggers the animation and hapticFeedback if swipe reaches/unreaches the threshold.
-			if (I18n.isRTL) {
-				if (previousTransX && currentTransX > LONG_SWIPE && previousTransX <= LONG_SWIPE) {
-					scheduleOnRN(triggerHideAnimation, ACTION_WIDTH);
-				} else if (previousTransX && currentTransX <= LONG_SWIPE && previousTransX > LONG_SWIPE) {
+		useAnimatedReaction(
+			() => transX.value,
+			(currentTransX, previousTransX) => {
+				// Triggers the animation and hapticFeedback if swipe reaches/unreaches the threshold.
+				if (I18n.isRTL) {
+					if (previousTransX && currentTransX > LONG_SWIPE && previousTransX <= LONG_SWIPE) {
+						scheduleOnRN(triggerHideAnimation, ACTION_WIDTH);
+					} else if (previousTransX && currentTransX <= LONG_SWIPE && previousTransX > LONG_SWIPE) {
+						scheduleOnRN(triggerHideAnimation, 0);
+					}
+				} else if (previousTransX && currentTransX < -LONG_SWIPE && previousTransX >= -LONG_SWIPE) {
+					scheduleOnRN(triggerHideAnimation, -ACTION_WIDTH);
+				} else if (previousTransX && currentTransX >= -LONG_SWIPE && previousTransX < -LONG_SWIPE) {
 					scheduleOnRN(triggerHideAnimation, 0);
 				}
-			} else if (previousTransX && currentTransX < -LONG_SWIPE && previousTransX >= -LONG_SWIPE) {
-				scheduleOnRN(triggerHideAnimation, -ACTION_WIDTH);
-			} else if (previousTransX && currentTransX >= -LONG_SWIPE && previousTransX < -LONG_SWIPE) {
-				scheduleOnRN(triggerHideAnimation, 0);
 			}
-		}
-	);
+		);
 
-	const animatedHideStyles = useAnimatedStyle(() => {
-		if (I18n.isRTL) {
-			if (transX.value < LONG_SWIPE && transX.value >= 2 * ACTION_WIDTH) {
+		const animatedHideStyles = useAnimatedStyle(() => {
+			if (I18n.isRTL) {
+				if (transX.value < LONG_SWIPE && transX.value >= 2 * ACTION_WIDTH) {
+					const parallaxSwipe = interpolate(
+						transX.value,
+						[2 * ACTION_WIDTH, LONG_SWIPE],
+						[ACTION_WIDTH, ACTION_WIDTH + 0.1 * transX.value]
+					);
+					return { transform: [{ translateX: parallaxSwipe + translateXHide.value }] };
+				}
+				return { transform: [{ translateX: transX.value - ACTION_WIDTH + translateXHide.value }] };
+			}
+			if (transX.value > -LONG_SWIPE && transX.value <= -2 * ACTION_WIDTH) {
 				const parallaxSwipe = interpolate(
 					transX.value,
-					[2 * ACTION_WIDTH, LONG_SWIPE],
-					[ACTION_WIDTH, ACTION_WIDTH + 0.1 * transX.value]
+					[-2 * ACTION_WIDTH, -LONG_SWIPE],
+					[-ACTION_WIDTH, -ACTION_WIDTH + 0.1 * transX.value]
 				);
 				return { transform: [{ translateX: parallaxSwipe + translateXHide.value }] };
 			}
-			return { transform: [{ translateX: transX.value - ACTION_WIDTH + translateXHide.value }] };
-		}
-		if (transX.value > -LONG_SWIPE && transX.value <= -2 * ACTION_WIDTH) {
-			const parallaxSwipe = interpolate(
-				transX.value,
-				[-2 * ACTION_WIDTH, -LONG_SWIPE],
-				[-ACTION_WIDTH, -ACTION_WIDTH + 0.1 * transX.value]
-			);
-			return { transform: [{ translateX: parallaxSwipe + translateXHide.value }] };
-		}
-		return { transform: [{ translateX: transX.value + ACTION_WIDTH + translateXHide.value }] };
-	});
+			return { transform: [{ translateX: transX.value + ACTION_WIDTH + translateXHide.value }] };
+		});
 
-	const isCondensed = displayMode === DisplayMode.Condensed;
-	const viewHeight = { height: isCondensed ? rowHeightCondensed : rowHeight };
+		const isCondensed = displayMode === DisplayMode.Condensed;
+		// Fills the row (its height varies with the row type) instead of a fixed height
+		const viewHeight = { top: inset, bottom: inset, borderRadius: inset ? 4 : 0 };
 
-	return (
-		<View
-			style={[styles.actionsLeftContainer, viewHeight]}
-			pointerEvents='box-none'
-			accessibilityElementsHidden
-			importantForAccessibility='no'>
-			<Animated.View
-				style={[
-					styles.actionRightButtonContainer,
-					{
-						width,
-						backgroundColor: colors.statusFontWarning,
-						left: '100%'
-					},
-					viewHeight,
-					animatedFavStyles
-				]}>
-				<RectButton
-					accessible={false}
-					accessibilityLabel={I18n.t(favorite ? 'Unfavorite' : 'Favorite')}
-					style={[styles.actionButton, { backgroundColor: colors.statusFontWarning }]}
-					onPress={toggleFav}>
-					<CustomIcon
-						size={isCondensed ? CONDENSED_ICON_SIZE : EXPANDED_ICON_SIZE}
-						name={favorite ? 'star-filled' : 'star'}
-						color={colors.fontWhite}
-					/>
-				</RectButton>
-			</Animated.View>
-			<Animated.View
-				style={[
-					styles.actionRightButtonContainer,
-					{
-						width: width * 2,
-						backgroundColor: colors.buttonBackgroundSecondaryPress,
-						left: '100%'
-					},
-					viewHeight,
-					animatedHideStyles
-				]}>
-				<RectButton
-					accessible={false}
-					accessibilityLabel={I18n.t('Hide')}
-					style={[styles.actionButton, { backgroundColor: colors.buttonBackgroundSecondaryPress }]}
-					onPress={onHidePress}>
-					<CustomIcon
-						size={isCondensed ? CONDENSED_ICON_SIZE : EXPANDED_ICON_SIZE}
-						name='unread-on-top-disabled'
-						color={colors.fontWhite}
-					/>
-				</RectButton>
-			</Animated.View>
-		</View>
-	);
-});
+		return (
+			<View
+				style={[styles.actionsLeftContainer, { top: 0, bottom: 0 }]}
+				pointerEvents='box-none'
+				accessibilityElementsHidden
+				importantForAccessibility='no'>
+				<Animated.View
+					style={[
+						styles.actionRightButtonContainer,
+						{
+							width,
+							backgroundColor: colors.statusFontWarning,
+							left: '100%'
+						},
+						viewHeight,
+						animatedFavStyles
+					]}>
+					<RectButton
+						accessible={false}
+						accessibilityLabel={I18n.t(favorite ? 'Unfavorite' : 'Favorite')}
+						style={[styles.actionButton, { backgroundColor: colors.statusFontWarning }]}
+						onPress={toggleFav}>
+						<CustomIcon
+							size={isCondensed ? CONDENSED_ICON_SIZE : EXPANDED_ICON_SIZE}
+							name={favorite ? 'star-filled' : 'star'}
+							color={colors.fontWhite}
+						/>
+					</RectButton>
+				</Animated.View>
+				<Animated.View
+					style={[
+						styles.actionRightButtonContainer,
+						{
+							width: width * 2,
+							backgroundColor: colors.buttonBackgroundSecondaryPress,
+							left: '100%'
+						},
+						viewHeight,
+						animatedHideStyles
+					]}>
+					<RectButton
+						accessible={false}
+						accessibilityLabel={I18n.t('Hide')}
+						style={[styles.actionButton, { backgroundColor: colors.buttonBackgroundSecondaryPress }]}
+						onPress={onHidePress}>
+						<CustomIcon
+							size={isCondensed ? CONDENSED_ICON_SIZE : EXPANDED_ICON_SIZE}
+							name='unread-on-top-disabled'
+							color={colors.fontWhite}
+						/>
+					</RectButton>
+				</Animated.View>
+			</View>
+		);
+	}
+);
