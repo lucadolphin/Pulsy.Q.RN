@@ -1,19 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { InteractionManager, View } from 'react-native';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import { useSharedValue } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import type { AudioStatus } from 'expo-audio';
 
-import { useTheme } from '~/theme';
 import styles from './styles';
 import Seek from './Seek';
 import PlaybackSpeed from './PlaybackSpeed';
 import PlayButton from './PlayButton';
 import AudioManager from '~/lib/methods/AudioManager';
 import { AUDIO_PLAYBACK_SPEED, AVAILABLE_SPEEDS } from './constants';
+import { fallbackBarHeights, samplesToBarHeights } from './waveform';
 import { type TDownloadState } from '~/lib/methods/handleMediaDownload';
-import { emitter } from '~/lib/methods/helpers/emitter';
 import { type TAudioState } from './types';
 import { useUserPreferences } from '~/lib/methods/userPreferences';
 import log from '~/lib/methods/helpers/log';
@@ -26,6 +25,8 @@ interface IAudioPlayerProps {
 	rid: string;
 	// It's optional when comes from MessagesView
 	msgId?: string;
+	// Amplitudes (0-1) of the recording, when known; otherwise the bars are a fixed pattern per message
+	waveformSamples?: number[];
 }
 
 const AudioPlayer = ({
@@ -34,19 +35,22 @@ const AudioPlayer = ({
 	onPlayButtonPress = () => {},
 	downloadState,
 	msgId,
-	rid
+	rid,
+	waveformSamples
 }: IAudioPlayerProps) => {
 	const isLoading = downloadState === 'loading';
 	const isDownloaded = downloadState === 'downloaded';
 
 	const [playbackSpeed] = useUserPreferences<number>(AUDIO_PLAYBACK_SPEED, AVAILABLE_SPEEDS[1]);
 	const [paused, setPaused] = useState(true);
-	const [focused, setFocused] = useState(false);
 	const duration = useSharedValue(0);
 	const currentTime = useSharedValue(0);
-	const { colors } = useTheme();
 	const audioUri = useRef<string>('');
 	const navigation = useNavigation();
+	const barHeights = useMemo(
+		() => (waveformSamples?.length ? samplesToBarHeights(waveformSamples) : fallbackBarHeights(msgId || fileUri || 'audio')),
+		[waveformSamples, msgId, fileUri]
+	);
 
 	const onPlaybackStatusUpdate = (status: AudioStatus): void => {
 		if (status) {
@@ -154,16 +158,6 @@ const AudioPlayer = ({
 		};
 	}, [navigation]);
 
-	useEffect(() => {
-		const audioFocusedEventHandler = (audioFocused: string) => {
-			setFocused(!!audioFocused && audioFocused === audioUri.current);
-		};
-		emitter.on('audioFocused', audioFocusedEventHandler);
-		return () => {
-			emitter.off('audioFocused', audioFocusedEventHandler);
-		};
-	}, []);
-
 	let audioState: TAudioState = 'to-download';
 	if (isLoading) {
 		audioState = 'loading';
@@ -176,10 +170,16 @@ const AudioPlayer = ({
 	}
 
 	return (
-		<View style={[styles.audioContainer, { backgroundColor: colors.surfaceLight, borderColor: colors.strokeExtraLight }]}>
+		<View style={styles.audioContainer}>
 			<PlayButton disabled={disabled} audioState={audioState} onPress={onPress} />
-			<Seek currentTime={currentTime} duration={duration} loaded={!disabled && isDownloaded} onChangeTime={setPosition} />
-			{audioState === 'playing' || focused ? <PlaybackSpeed /> : null}
+			<Seek
+				currentTime={currentTime}
+				duration={duration}
+				loaded={!disabled && isDownloaded}
+				onChangeTime={setPosition}
+				barHeights={barHeights}
+				trailing={<PlaybackSpeed />}
+			/>
 		</View>
 	);
 };

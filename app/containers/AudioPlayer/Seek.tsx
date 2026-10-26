@@ -1,3 +1,4 @@
+import { type ReactNode, useMemo, useState } from 'react';
 import { type LayoutChangeEvent, View, TextInput, type TextInputProps, TouchableNativeFeedback } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -13,6 +14,7 @@ import { scheduleOnRN } from 'react-native-worklets';
 import styles from './styles';
 import { useTheme } from '~/theme';
 import { SEEK_HIT_SLOP, THUMB_SEEK_SIZE, ACTIVE_OFFSET_X, DEFAULT_TIME_LABEL } from './constants';
+import { fallbackBarHeights } from './waveform';
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
@@ -21,7 +23,21 @@ interface ISeek {
 	currentTime: SharedValue<number>;
 	loaded: boolean;
 	onChangeTime: (time: number) => void;
+	// Heights of the waveform bars; without them the same pattern is drawn every time
+	barHeights?: number[];
+	// Shown under the waveform, on the right of the time
+	trailing?: ReactNode;
 }
+
+const Bars = ({ heights, color }: { heights: number[]; color: string }) => (
+	<View style={styles.waveBars} pointerEvents='none'>
+		{heights.map((height, index) => (
+			<View key={index} style={styles.waveBarSlot}>
+				<View style={[styles.waveBar, { height, backgroundColor: color }]} />
+			</View>
+		))}
+	</View>
+);
 
 function clamp(value: number, min: number, max: number) {
 	'worklet';
@@ -40,8 +56,10 @@ const formatTime = (ms: number) => {
 	return `${formattedMinutes}:${formattedSeconds}`;
 };
 
-const Seek = ({ currentTime, duration, loaded = false, onChangeTime }: ISeek) => {
+const Seek = ({ currentTime, duration, loaded = false, onChangeTime, barHeights, trailing }: ISeek) => {
 	const { colors } = useTheme();
+	const [trackWidth, setTrackWidth] = useState(0);
+	const heights = useMemo(() => barHeights ?? fallbackBarHeights('audio'), [barHeights]);
 
 	const maxWidth = useSharedValue(1);
 	const translateX = useSharedValue(0);
@@ -63,6 +81,7 @@ const Seek = ({ currentTime, duration, loaded = false, onChangeTime }: ISeek) =>
 	const onLayout = (event: LayoutChangeEvent) => {
 		const { width } = event.nativeEvent.layout;
 		maxWidth.value = width;
+		setTrackWidth(width);
 	};
 
 	const panGesture = Gesture.Pan()
@@ -119,19 +138,25 @@ const Seek = ({ currentTime, duration, loaded = false, onChangeTime }: ISeek) =>
 	return (
 		<TouchableNativeFeedback>
 			<View style={styles.seekContainer}>
-				<AnimatedTextInput
-					defaultValue={DEFAULT_TIME_LABEL}
-					editable={false}
-					style={[styles.duration, { color: colors.fontDefault }]}
-					animatedProps={timeLabelAnimatedProps}
-				/>
 				<View style={styles.seek} onLayout={onLayout}>
-					<View style={[styles.line, { backgroundColor: colors.strokeLight }]}>
-						<Animated.View style={[styles.line, styleLine, { backgroundColor: colors.buttonBackgroundPrimaryDefault }]} />
-					</View>
+					<Bars heights={heights} color={colors.strokeMedium} />
+					<Animated.View style={[styles.wavePlayed, styleLine]} pointerEvents='none'>
+						<View style={{ width: trackWidth }}>
+							<Bars heights={heights} color={colors.buttonBackgroundPrimaryDefault} />
+						</View>
+					</Animated.View>
 					<GestureDetector gesture={panGesture}>
 						<Animated.View hitSlop={SEEK_HIT_SLOP} style={[styles.thumbSeek, { backgroundColor: thumbColor }, styleThumb]} />
 					</GestureDetector>
+				</View>
+				<View style={styles.footer}>
+					<AnimatedTextInput
+						defaultValue={DEFAULT_TIME_LABEL}
+						editable={false}
+						style={[styles.duration, { color: colors.fontSecondaryInfo }]}
+						animatedProps={timeLabelAnimatedProps}
+					/>
+					{trailing}
 				</View>
 			</View>
 		</TouchableNativeFeedback>

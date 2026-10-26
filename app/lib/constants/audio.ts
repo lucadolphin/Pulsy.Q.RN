@@ -5,6 +5,7 @@ export const RECORDING_EXTENSION = '.aac';
 
 export const RECORDING_SETTINGS: RecordingOptions = {
 	extension: RECORDING_EXTENSION,
+	isMeteringEnabled: true,
 	sampleRate: 44100,
 	numberOfChannels: 2,
 	bitRate: isIOS ? 64000 : 128000,

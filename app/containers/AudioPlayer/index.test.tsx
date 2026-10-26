@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 
 import AudioPlayer from '.';
 import AudioManager from '~/lib/methods/AudioManager';
-import { emitter } from '~/lib/methods/helpers/emitter';
 
 jest.mock('~/lib/methods/AudioManager', () => ({
 	__esModule: true,
@@ -31,10 +30,6 @@ jest.mock('expo-keep-awake', () => ({
 	deactivateKeepAwake: jest.fn()
 }));
 
-jest.mock('~/lib/methods/helpers/emitter', () => ({
-	emitter: { on: jest.fn(), off: jest.fn(), emit: jest.fn() }
-}));
-
 jest.mock('~/theme', () => ({
 	useTheme: () => ({ theme: 'light', colors: { surfaceLight: '#ffffff', strokeExtraLight: '#eeeeee' } })
 }));
@@ -43,7 +38,6 @@ const mockTaskCancel = jest.fn();
 let capturedFocusCb: (() => void) | undefined;
 let capturedBlurCb: (() => void) | undefined;
 let mockUnsubscribe: jest.Mock;
-let capturedAudioFocusedCb: ((audioFocused: string) => void) | undefined;
 
 const defaultProps = {
 	fileUri: 'file:///audio.mp3',
@@ -73,11 +67,6 @@ describe('AudioPlayer', () => {
 			return mockUnsubscribe;
 		});
 		(useNavigation as jest.Mock).mockReturnValue({ navigate: jest.fn(), addListener: mockAddListener });
-
-		capturedAudioFocusedCb = undefined;
-		(emitter.on as jest.Mock).mockImplementation((event: string, cb: (audioFocused: string) => void) => {
-			if (event === 'audioFocused') capturedAudioFocusedCb = cb;
-		});
 	});
 
 	afterEach(() => {
@@ -335,37 +324,17 @@ describe('AudioPlayer', () => {
 		});
 	});
 
-	describe('audioState computation and conditional rendering', () => {
-		it('does not render PlaybackSpeed when downloadState is to-download', () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} downloadState='to-download' />);
+	describe('playback speed', () => {
+		it.each(['to-download', 'loading', 'downloaded'] as const)(
+			'always renders PlaybackSpeed when downloadState is %s',
+			async downloadState => {
+				const { queryByTestId } = render(<AudioPlayer {...defaultProps} downloadState={downloadState} />);
 
-			expect(queryByTestId('playback-speed')).toBeNull();
-		});
+				await act(async () => {});
 
-		it('does not render PlaybackSpeed when downloaded and paused', async () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} />);
-
-			await act(async () => {});
-
-			expect(queryByTestId('playback-speed')).toBeNull();
-		});
-
-		it('renders PlaybackSpeed when downloaded and playing', async () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} />);
-
-			await waitFor(() => expect(AudioManager.setOnPlaybackStatusUpdate).toHaveBeenCalled());
-			const statusCb = (AudioManager.setOnPlaybackStatusUpdate as jest.Mock).mock.calls[0][1] as Function;
-
-			act(() => statusCb({ isLoaded: true, playing: true }));
-
-			await waitFor(() => expect(queryByTestId('playback-speed')).not.toBeNull());
-		});
-
-		it('does not render PlaybackSpeed when downloadState is loading', () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} downloadState='loading' />);
-
-			expect(queryByTestId('playback-speed')).toBeNull();
-		});
+				expect(queryByTestId('playback-speed')).not.toBeNull();
+			}
+		);
 	});
 
 	describe('keep-awake effect', () => {
@@ -427,44 +396,6 @@ describe('AudioPlayer', () => {
 		});
 	});
 
-	describe('audioFocused emitter', () => {
-		it('subscribes to the audioFocused event on mount', () => {
-			render(<AudioPlayer {...defaultProps} />);
-
-			expect(emitter.on).toHaveBeenCalledWith('audioFocused', expect.any(Function));
-		});
-
-		it('unsubscribes from the audioFocused event on unmount', () => {
-			const { unmount } = render(<AudioPlayer {...defaultProps} />);
-
-			act(() => unmount());
-
-			expect(emitter.off).toHaveBeenCalledWith('audioFocused', expect.any(Function));
-		});
-
-		it("renders PlaybackSpeed when emitter fires with this component's audio key", async () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} />);
-
-			await waitFor(() => expect(AudioManager.loadAudio).toHaveBeenCalled());
-
-			act(() => capturedAudioFocusedCb!('mock-audio-key'));
-
-			await waitFor(() => expect(queryByTestId('playback-speed')).not.toBeNull());
-		});
-
-		it('does not render PlaybackSpeed when emitter fires with a different audio key', async () => {
-			const { queryByTestId } = render(<AudioPlayer {...defaultProps} />);
-
-			await waitFor(() => expect(AudioManager.loadAudio).toHaveBeenCalled());
-
-			act(() => capturedAudioFocusedCb!('some-other-audio-key'));
-
-			await act(async () => {});
-
-			expect(queryByTestId('playback-speed')).toBeNull();
-		});
-	});
-
 	describe('onPlaybackStatusUpdate callback chain', () => {
 		it('sets paused to false (audioState: playing) when status has playing: true', async () => {
 			const { queryByTestId } = render(<AudioPlayer {...defaultProps} />);
@@ -474,7 +405,7 @@ describe('AudioPlayer', () => {
 
 			act(() => statusCb({ isLoaded: true, playing: true }));
 
-			await waitFor(() => expect(queryByTestId('playback-speed')).not.toBeNull());
+			await waitFor(() => expect(queryByTestId('play-button')?.props.accessibilityLabel).toBe('Pause'));
 		});
 
 		it('keeps paused true when status has playing: false', async () => {
@@ -487,7 +418,7 @@ describe('AudioPlayer', () => {
 
 			await act(async () => {});
 
-			expect(queryByTestId('playback-speed')).toBeNull();
+			expect(queryByTestId('play-button')?.props.accessibilityLabel).toBe('Play');
 		});
 
 		it('updates duration.value and currentTime.value from the status object', async () => {
@@ -547,7 +478,7 @@ describe('AudioPlayer', () => {
 			act(() => statusCb({ isLoaded: true, playing: false, didJustFinish: true, currentTime: 5, duration: 5 }));
 
 			await waitFor(() => {
-				expect(queryByTestId('playback-speed')).toBeNull();
+				expect(queryByTestId('play-button')?.props.accessibilityLabel).toBe('Play');
 				expect(currentTimeValue.value).toBe(0);
 			});
 		});

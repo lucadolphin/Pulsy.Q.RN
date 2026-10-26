@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import { useEffect, useState, type ReactElement } from 'react';
+import { useEffect, useRef, useState, type ReactElement } from 'react';
 import { requestRecordingPermissionsAsync, setAudioModeAsync, useAudioRecorder } from 'expo-audio';
 import { getInfoAsync } from 'expo-file-system/legacy';
 import { useKeepAwake } from 'expo-keep-awake';
@@ -19,6 +19,8 @@ import { type IUpload } from '~/definitions';
 import { useComposerRid, useComposerTmid } from '~/containers/MessageComposer/ComposerStore';
 import { useCanUploadFile } from '~/containers/MessageComposer/hooks';
 import { Duration } from './Duration';
+import { LiveWaveform } from './LiveWaveform';
+import { bucketPeaks } from '~/containers/AudioPlayer/waveform';
 import AudioPlayer from '~/containers/AudioPlayer';
 import { CancelButton } from './CancelButton';
 import i18n from '~/i18n';
@@ -28,6 +30,8 @@ export const RecordAudio = (): ReactElement | null => {
 	const audioRecorder = useAudioRecorder(RECORDING_SETTINGS);
 
 	const [status, setStatus] = useState<'recording' | 'reviewing'>('recording');
+	const samplesRef = useRef<number[]>([]);
+	const [waveformSamples, setWaveformSamples] = useState<number[]>([]);
 	const { setRecordingAudio } = useMessageComposerApi();
 	const rid = useComposerRid();
 	const tmid = useComposerTmid();
@@ -78,6 +82,7 @@ export const RecordAudio = (): ReactElement | null => {
 	const goReview = async () => {
 		try {
 			await audioRecorder.stop();
+			setWaveformSamples(samplesRef.current.length ? bucketPeaks(samplesRef.current, 64) : []);
 			setStatus('reviewing');
 		} catch {
 			// Do nothing
@@ -117,7 +122,7 @@ export const RecordAudio = (): ReactElement | null => {
 		return (
 			<View style={styles.review}>
 				<View style={styles.audioPlayer}>
-					<AudioPlayer fileUri={audioRecorder.uri ?? ''} rid={rid} downloadState='downloaded' />
+					<AudioPlayer fileUri={audioRecorder.uri ?? ''} rid={rid} downloadState='downloaded' waveformSamples={waveformSamples} />
 				</View>
 				<View style={styles.buttons}>
 					<CancelButton onPress={cancelRecording} />
@@ -139,6 +144,7 @@ export const RecordAudio = (): ReactElement | null => {
 			<View style={styles.duration}>
 				<CustomIcon name='mic' size={24} color={colors.fontDanger} />
 				<Duration audioRecorder={audioRecorder} />
+				<LiveWaveform audioRecorder={audioRecorder} samplesRef={samplesRef} />
 			</View>
 			<View style={styles.buttons}>
 				<CancelButton onPress={cancelRecording} cancelAndDelete />
@@ -170,8 +176,8 @@ function useStyle() {
 		},
 		duration: {
 			flexDirection: 'row',
-			paddingVertical: 24,
-			justifyContent: 'center',
+			paddingVertical: 20,
+			paddingHorizontal: 8,
 			alignItems: 'center'
 		},
 		audioPlayer: {

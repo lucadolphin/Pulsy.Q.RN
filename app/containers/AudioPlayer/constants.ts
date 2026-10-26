@@ -4,7 +4,14 @@ export const AUDIO_BUTTON_HIT_SLOP = { top: 8, right: 8, bottom: 8, left: 8 };
 
 export const SEEK_HIT_SLOP = { top: 12, right: 8, bottom: 12, left: 8 };
 
-export const THUMB_SEEK_SIZE = 12;
+export const THUMB_SEEK_SIZE = 10;
+
+export const WAVE_HEIGHT = 28;
+
+export const PLAY_BUTTON_SIZE = 36;
+
+// The message bubble wraps its content, so the waveform needs the player to be wide enough on its own
+export const AUDIO_MIN_WIDTH = 260;
 
 export const AUDIO_PLAYBACK_SPEED = 'audioPlaybackSpeed';
 
