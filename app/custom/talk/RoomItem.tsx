@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Avatar from '~/containers/Avatar';
+import { CustomIcon } from '~/containers/CustomIcon';
 import LastMessage from '~/containers/RoomItem/LastMessage';
 import Touchable from '~/containers/RoomItem/Touchable';
 import { type IRoomItemProps } from '~/containers/RoomItem/interfaces';
@@ -37,6 +38,38 @@ export const getUnreadInfo = ({
 		label: count > 99 ? '99+' : `${count}`
 	};
 };
+
+type TAttachmentIcon = 'image' | 'video' | 'mic' | 'attach';
+
+const MEDIA_KINDS = [
+	{ prefix: 'audio', url: 'audio_url', icon: 'mic', fallback: 'Audio', useCaption: false },
+	{ prefix: 'image', url: 'image_url', icon: 'image', fallback: 'Image', useCaption: true },
+	{ prefix: 'video', url: 'video_url', icon: 'video', fallback: 'Video', useCaption: true }
+] as const;
+
+/** Talk26 `RoomRowMessagePreview`: a last message with a file shows an icon and what it is, not "X sent an attachment" */
+export const getAttachmentPreview = (
+	lastMessage: IRoomItemProps['lastMessage']
+): { icon: TAttachmentIcon; label: string } | null => {
+	const attachment = lastMessage?.attachments?.[0];
+	const file = (lastMessage as { file?: { name?: string; type?: string } } | undefined)?.file;
+	if (!attachment && !file) return null;
+	const mime = `${attachment?.type || file?.type || ''}`;
+	const caption = lastMessage?.msg?.trim();
+	const kind = MEDIA_KINDS.find(({ prefix, url }) => attachment?.[url] || mime.startsWith(prefix));
+	if (kind) return { icon: kind.icon, label: (kind.useCaption && caption) || I18n.t(kind.fallback) };
+	const name = attachment?.title?.replace(/^File Uploaded: /, '') || file?.name;
+	return { icon: 'attach', label: name || caption || I18n.t('Files') };
+};
+
+const AttachmentPreview = ({ icon, label, color }: { icon: TAttachmentIcon; label: string; color: string }) => (
+	<View style={styles.attachmentPreview}>
+		<CustomIcon name={icon} size={16} color={color} />
+		<Text numberOfLines={1} style={[styles.attachmentText, { color }]}>
+			{label}
+		</Text>
+	</View>
+);
 
 const RoomAvatar = ({
 	avatar,
@@ -126,8 +159,9 @@ const RoomItem = ({
 	displayMode,
 	accessibilityDate
 }: IRoomItemProps) => {
-	const { theme } = useTheme();
+	const { theme, colors } = useTheme();
 	const talk = getTalkColors(theme);
+	const attachmentPreview = isTyping ? null : getAttachmentPreview(lastMessage);
 	// Same date as Talk26: of the last message, not upstream's read-aware one
 	const dateText = formatTalkDate(lastMessage?.ts, I18n.t('Yesterday')) || date;
 
@@ -181,16 +215,23 @@ const RoomItem = ({
 					{showLastMessage && displayMode !== DisplayMode.Condensed ? (
 						<View style={styles.messageRow}>
 							<View style={styles.message}>
-								<LastMessage
-									isTyping={isTyping}
-									typingUsers={typingUsers}
-									lastMessage={lastMessage}
-									type={type}
-									showLastMessage={showLastMessage}
-									username={username || ''}
-									alert={alert && !hideUnreadStatus}
-									useRealName={useRealName}
-								/>
+								{attachmentPreview ? (
+									<AttachmentPreview
+										{...attachmentPreview}
+										color={alert && !hideUnreadStatus ? colors.fontDefault : colors.fontSecondaryInfo}
+									/>
+								) : (
+									<LastMessage
+										isTyping={isTyping}
+										typingUsers={typingUsers}
+										lastMessage={lastMessage}
+										type={type}
+										showLastMessage={showLastMessage}
+										username={username || ''}
+										alert={alert && !hideUnreadStatus}
+										useRealName={useRealName}
+									/>
+								)}
 							</View>
 							{hasUnread && count > 0 ? <UnreadPill label={label} color={talk.primary} /> : null}
 						</View>
@@ -290,6 +331,15 @@ const styles = StyleSheet.create({
 	},
 	message: {
 		flex: 1
+	},
+	attachmentPreview: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: 4
+	},
+	attachmentText: {
+		flexShrink: 1,
+		fontSize: 14
 	},
 	badgeOuter: {
 		flexShrink: 0,
