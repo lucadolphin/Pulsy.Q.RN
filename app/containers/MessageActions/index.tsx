@@ -37,10 +37,14 @@ import {
 } from '~/lib/services/restApi';
 import { createDirectMessage } from '~/lib/methods/createDirectMessage';
 import { withMasterDetail } from '~/lib/hooks/useMasterDetail';
+import { hasMessageMenu, measureBubble, showMessageMenu } from '~/custom/talk/messageMenuStore'; // TALK
 
 // Extra delay on top of the action sheet animation so accessibility focus is restored
 // only after the sheet is fully dismissed.
 const REFOCUS_BUFFER = 50;
+
+// Reactions of the bar over the pressed bubble (IOS/Talk26 QUICK_REACTIONS)
+const QUICK_REACTIONS = [':thumbsup:', ':heart:', ':joy:', ':open_mouth:', ':cry:', ':pray:'];
 
 const isVideoConf = (message: TAnyMessageModel) => message.t === 'videoconf';
 
@@ -622,6 +626,27 @@ const MessageActions = memo(
 				await getPermissions();
 				// Buffer so focus lands after the action sheet is fully dismissed, not mid-animation.
 				const onClose = restoreFocusOnClose(ACTION_SHEET_ANIMATION_DURATION + REFOCUS_BUFFER);
+				// TALK: over a bubble, the menu sits next to it; elsewhere it is the action sheet
+				const anchor = hasMessageMenu() ? await measureBubble(message.id) : null;
+				if (anchor) {
+					const canReact = !isReadOnly || getRoom().reactWhenReadOnly;
+					showMessageMenu({
+						anchor,
+						isOwn: message.u?._id === user.id,
+						options: getOptions(message),
+						quickReactions: canReact ? QUICK_REACTIONS : undefined,
+						onReaction: shortname => {
+							logEvent(events.ROOM_MSG_ACTION_REACTION);
+							onReactionPress(shortname as IEmoji, message.id);
+						},
+						onMoreReactions: () => {
+							logEvent(events.ROOM_MSG_ACTION_REACTION);
+							setTimeout(() => reactionInit(message.id), ACTION_SHEET_ANIMATION_DURATION);
+						},
+						onClose
+					});
+					return;
+				}
 				showActionSheet({
 					options: getOptions(message),
 					headerHeight: HEADER_HEIGHT,

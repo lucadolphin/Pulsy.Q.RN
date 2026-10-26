@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 import { AUDIO_MIN_WIDTH } from '~/containers/AudioPlayer/constants';
@@ -7,6 +7,7 @@ import MessageAccessibleIndex from '~/containers/message/components/MessageAcces
 import { WidthAwareView } from '~/containers/message/components/WidthAwareView';
 import { ContentLayout } from '~/containers/message/components/Layout/ContentLayout';
 import Thread from '~/containers/message/components/Thread';
+import { registerBubble } from './messageMenuStore';
 import BubbleReactions, { REACTIONS_OVERHANG } from './BubbleReactions';
 import Broadcast from '~/containers/message/components/Broadcast';
 import BubbleMeta from './BubbleMeta';
@@ -99,6 +100,7 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const talk = getTalkColors(theme);
 	const isOwn = useIsOwnMessage();
 	const hasReactions = !!useReactions()?.length;
+	const bubbleRef = useRef<View>(null);
 	const isHeader = useMessageGrouping();
 	const id = useMessageField(item => item.id);
 	const type = useMessageField(item => item.t);
@@ -110,6 +112,7 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const hasAudio = !!attachments?.some(file => file?.audio_url);
 	// The audio player shows the time on its own duration line
 	const audioHasMeta = hasAudio && attachments?.length === 1;
+	useEffect(() => registerBubble(id, bubbleRef), [id]);
 	const { isPlainText, messageText } = usePlainText(!!attachments?.length);
 	const { width: windowWidth } = useWindowDimensions();
 	const bubbleMaxWidth = (windowWidth - ROW_PADDING * 2 - (isOwn ? 0 : AVATAR_SIZE + AVATAR_MARGIN)) * BUBBLE_MAX_RATIO;
@@ -127,6 +130,8 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 			{!isOwn ? <BubbleAvatar /> : null}
 			<MessageAccessibleIndex>
 				<View
+					ref={bubbleRef}
+					collapsable={false}
 					style={[
 						styles.bubble,
 						BUBBLE_SHADOW,
