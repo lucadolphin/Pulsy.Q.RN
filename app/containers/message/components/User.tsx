@@ -7,7 +7,6 @@ import RightIcons from './RightIcons';
 import { messageHaveAuthorName } from '../utils';
 import MessageTime from './Time';
 import { useResponsiveLayout } from '~/lib/hooks/useResponsiveLayout/useResponsiveLayout';
-import { useSetting } from '~/lib/hooks/useSetting';
 import { useIsOwnMessage, useMessageAuthor, useMessageGrouping, useMessageHeaderMeta } from '../stores/MessageStore';
 import { useNavToRoomInfo } from '../stores/MessageRoomStore';
 
@@ -33,15 +32,10 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		gap: 4
-	},
-	alias: {
-		fontSize: 14,
-		...sharedStyles.textRegular
 	}
 });
 
 const User = () => {
-	const useRealName = useSetting('UI_Use_Real_Name') as boolean;
 	const navToRoomInfo = useNavToRoomInfo();
 	const { colors } = useTheme();
 	const { isLargeFontScale } = useResponsiveLayout();
@@ -51,8 +45,8 @@ const User = () => {
 	const itsMe = useIsOwnMessage();
 
 	if (isHeader) {
-		const username = (useRealName && author?.name) || author?.username;
-		const aliasUsername = alias ? <Text style={[styles.alias, { color: colors.fontSecondaryInfo }]}> @{username}</Text> : null;
+		// The bubble always shows the user's name; the username is only a fallback for messages that carry no name
+		const username = author?.name || author?.username;
 
 		const onUserPress = () => {
 			navToRoomInfo?.({
@@ -62,12 +56,7 @@ const User = () => {
 			});
 		};
 
-		const textContent = (
-			<>
-				{alias || username}
-				{aliasUsername}
-			</>
-		);
+		const textContent = <>{alias || username}</>;
 
 		if (messageHaveAuthorName(type as MessageTypesValues)) {
 			return (

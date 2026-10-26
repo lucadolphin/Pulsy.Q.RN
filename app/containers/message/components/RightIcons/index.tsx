@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
 	}
 });
 
-const RightIcons = (): ReactElement => {
+// The Talk bubble draws its own ticks after the time
+const RightIcons = ({ hideReadReceipt }: { hideReadReceipt?: boolean }): ReactElement => {
 	return (
 		<View style={styles.actionIcons}>
 			<Pinned />
@@ -22,7 +23,7 @@ const RightIcons = (): ReactElement => {
 			<Edited />
 			<MessageError />
 			<Translated />
-			<ReadReceipt />
+			{hideReadReceipt ? null : <ReadReceipt />}
 		</View>
 	);
 };

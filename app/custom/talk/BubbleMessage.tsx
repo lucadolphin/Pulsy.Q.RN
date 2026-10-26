@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
+import { AUDIO_MIN_WIDTH } from '~/containers/AudioPlayer/constants';
 import FullMessage from '~/containers/message/components/Message/FullMessage';
 import MessageAccessibleIndex from '~/containers/message/components/MessageAccessibleIndex';
 import { WidthAwareView } from '~/containers/message/components/WidthAwareView';
@@ -10,6 +11,7 @@ import Reactions from '~/containers/message/components/Reactions';
 import Broadcast from '~/containers/message/components/Broadcast';
 import MessageTime from '~/containers/message/components/Time';
 import RightIcons from '~/containers/message/components/RightIcons';
+import MessageTicks from './MessageTicks';
 import Avatar from '~/containers/Avatar';
 import { SubscriptionType } from '~/definitions';
 import { useMessageUser, useNavToRoomInfo } from '~/containers/message/stores/MessageRoomStore';
@@ -25,7 +27,6 @@ import {
 	useMessageGrouping
 } from '~/containers/message/stores/MessageStore';
 import TextWithInlineTime from './TextWithInlineTime';
-import { useSetting } from '~/lib/hooks/useSetting';
 import { useTheme } from '~/theme';
 import {
 	BUBBLE_MAX_WIDTH,
@@ -68,12 +69,12 @@ const BubbleAvatar = () => {
 };
 
 const Author = ({ color }: { color: string }) => {
-	const useRealName = useSetting('UI_Use_Real_Name') as boolean;
 	const { u: author } = useMessageAuthor();
-	const username = (useRealName && author?.name) || author?.username;
-	return username ? (
+	// Always the user's name; the username only when the message carries no name
+	const name = author?.name || author?.username;
+	return name ? (
 		<Text numberOfLines={1} style={[styles.author, { color }]}>
-			{username}
+			{name}
 		</Text>
 	) : null;
 };
@@ -105,14 +106,17 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const attachments = useMessageField(item => item.attachments);
 	// Talk26: the bubble is as wide as its image/video box (WidthAwareView has no intrinsic width)
 	const hasMedia = !!attachments?.some(file => file?.image_url || file?.video_url);
+	// Same for the audio player, which is as wide as its waveform needs
+	const hasAudio = !!attachments?.some(file => file?.audio_url);
 	const { isPlainText, messageText } = usePlainText(!!attachments?.length);
 	const { width: windowWidth } = useWindowDimensions();
 	const bubbleMaxWidth = (windowWidth - ROW_PADDING * 2 - (isOwn ? 0 : AVATAR_SIZE + AVATAR_MARGIN)) * BUBBLE_MAX_RATIO;
 
 	const meta = (
 		<View style={styles.metaInfo}>
-			<RightIcons />
+			<RightIcons hideReadReceipt />
 			<MessageTime />
+			<MessageTicks />
 		</View>
 	);
 
@@ -131,6 +135,7 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 						isPlainText && { maxWidth: bubbleMaxWidth, minWidth: undefined },
 						// maxWidth is a % of the wrapper, which is itself sized by the bubble: it would shrink it to 84% of the box
 						hasMedia && { width: MEDIA_BOX + BUBBLE_PADDING_H * 2, maxWidth: undefined },
+						hasAudio && { width: AUDIO_MIN_WIDTH + BUBBLE_PADDING_H * 2, maxWidth: undefined },
 						isOwn
 							? { backgroundColor: talk.bubbleSent, borderBottomRightRadius: BUBBLE_TAIL_RADIUS }
 							: { backgroundColor: talk.bubbleReceived, borderBottomLeftRadius: BUBBLE_TAIL_RADIUS }

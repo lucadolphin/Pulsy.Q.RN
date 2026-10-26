@@ -5423,7 +5423,7 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
         "gap": 4,
       }
     }
-    testID="username-header-rocket.cat"
+    testID="username-header-Rocket Cat"
   >
     <Text
       numberOfLines={1}
@@ -5447,7 +5447,7 @@ exports[`Story Snapshots: User should match snapshot 1`] = `
         ]
       }
     >
-      rocket.cat
+      Rocket Cat
     </Text>
     <Text
       style={
