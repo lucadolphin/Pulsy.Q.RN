@@ -1,5 +1,6 @@
-import { type ReactElement } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Image } from 'expo-image';
 
 import { type IUserMessage } from '~/definitions';
 import { type IAttachment } from '~/definitions/IAttachment';
@@ -22,7 +23,45 @@ import messageStyles from '~/containers/message/styles';
 const SUPPORTED_TYPES = ['video/quicktime', 'video/mp4', ...(isIOS ? [] : ['video/3gp', 'video/mkv'])];
 const isTypeSupported = (type: string) => SUPPORTED_TYPES.indexOf(type) !== -1;
 
+// uri of the video -> uri of its first frame, or null when there is none
+const previews = new Map<string, string | null>();
+
+/** First frame of the video, to show it in the bubble instead of an empty placeholder */
+const useVideoPreview = (source?: string): string | null => {
+	const [preview, setPreview] = useState<string | null>(source ? (previews.get(source) ?? null) : null);
+
+	useEffect(() => {
+		if (!source) {
+			setPreview(null);
+			return;
+		}
+		if (previews.has(source)) {
+			setPreview(previews.get(source) ?? null);
+			return;
+		}
+		let active = true;
+		(async () => {
+			try {
+				const { getThumbnailAsync } = require('expo-video-thumbnails');
+				const { uri } = await getThumbnailAsync(source, { time: 0 });
+				previews.set(source, uri);
+				if (active) {
+					setPreview(uri);
+				}
+			} catch {
+				// No preview: the placeholder stays
+			}
+		})();
+		return () => {
+			active = false;
+		};
+	}, [source]);
+
+	return preview;
+};
+
 const styles = StyleSheet.create({
+	preview: StyleSheet.absoluteFillObject,
 	cancelContainer: {
 		position: 'absolute',
 		top: 8,
@@ -50,7 +89,15 @@ const CancelIndicator = () => {
 	);
 };
 
-const Thumbnail = ({ status, encrypted = false }: { status: TDownloadState; encrypted: boolean }) => {
+const Thumbnail = ({
+	status,
+	encrypted = false,
+	preview
+}: {
+	status: TDownloadState;
+	encrypted: boolean;
+	preview: string | null;
+}) => {
 	const { colors } = useTheme();
 	let icon: TIconsName = status === 'downloaded' ? 'play-filled' : 'arrow-down-circle';
 	if (encrypted && status === 'downloaded') {
@@ -59,9 +106,11 @@ const Thumbnail = ({ status, encrypted = false }: { status: TDownloadState; encr
 
 	return (
 		<>
+			{preview && !encrypted ? <Image source={{ uri: preview }} style={styles.preview} contentFit='cover' /> : null}
 			<BlurComponent
 				iconName={icon}
 				loading={status === 'loading'}
+				showBackground={!preview || encrypted}
 				style={[messageStyles.image, { borderColor: colors.strokeLight, borderWidth: 1 }]}
 			/>
 			{status === 'loading' ? <CancelIndicator /> : null}
@@ -72,6 +121,7 @@ const Thumbnail = ({ status, encrypted = false }: { status: TDownloadState; encr
 const Video = ({ file, showAttachment, author, msg }: IMessageVideo): ReactElement | null => {
 	const user = useMessageUser();
 	const { status, onPress, url, isEncrypted, currentFile } = useMediaAutoDownload({ file, author, showAttachment });
+	const preview = useVideoPreview(isEncrypted ? undefined : status === 'downloaded' ? currentFile.title_link : url);
 
 	const _onPress = async () => {
 		if (currentFile.video_type && !isTypeSupported(currentFile.video_type)) {
@@ -100,7 +150,7 @@ const Video = ({ file, showAttachment, author, msg }: IMessageVideo): ReactEleme
 		<View style={{ gap: 4 }}>
 			{msg ? <Markdown msg={msg} username={user?.username} /> : null}
 			<MessageActionTouchable onPress={_onPress} style={messageStyles.image}>
-				<Thumbnail status={status} encrypted={isEncrypted} />
+				<Thumbnail status={status} encrypted={isEncrypted} preview={preview} />
 			</MessageActionTouchable>
 		</View>
 	);
