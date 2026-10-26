@@ -8,6 +8,8 @@ import RoomHeader from './RoomHeader';
 import { useResponsiveLayout } from '~/lib/hooks/useResponsiveLayout/useResponsiveLayout';
 
 interface IRoomHeaderContainerProps {
+	rid?: string;
+	avatarText?: string;
 	title?: string;
 	subtitle?: string;
 	type: string;
@@ -27,6 +29,8 @@ interface IRoomHeaderContainerProps {
 
 const RoomHeaderContainer = memo(
 	({
+		rid,
+		avatarText,
 		isGroupChat,
 		onPress,
 		parentTitle,
@@ -83,6 +87,8 @@ const RoomHeaderContainer = memo(
 
 		return (
 			<RoomHeader
+				rid={rid}
+				avatarText={avatarText}
 				roomUserId={roomUserId}
 				prid={prid}
 				tmid={tmid}

@@ -9,6 +9,7 @@ import I18n from '~/i18n';
 import sharedStyles from '~/views/Styles';
 import { MarkdownPreview } from '../markdown';
 import RoomTypeIcon from '../RoomTypeIcon';
+import Avatar from '../Avatar';
 import { CustomIcon } from '../CustomIcon';
 import { type TUserStatus, type IOmnichannelSource, type ISubscription } from '~/definitions';
 import { formatStatusExpiry } from '~/lib/methods/helpers/formatStatusExpiry';
@@ -25,6 +26,9 @@ const HIT_SLOP = {
 };
 const TITLE_SIZE = 16;
 const SUBTITLE_SIZE = 12;
+// IOS/Talk26 ExHeaderDetailV2: avatar 40, name 20 bold
+const AVATAR_SIZE = 40;
+const TALK_TITLE_SIZE = 20;
 
 const getSubTitleSize = (scale: number) => SUBTITLE_SIZE * scale;
 
@@ -48,6 +52,12 @@ const styles = StyleSheet.create({
 	typingUsers: {
 		...sharedStyles.textSemibold
 	},
+	avatar: {
+		marginRight: 10
+	},
+	titleColumn: {
+		flexShrink: 1
+	},
 	clockIcon: {
 		marginRight: 4
 	}
@@ -64,6 +74,7 @@ type TRoomHeaderSubTitle = {
 
 type TRoomHeaderHeaderTitle = {
 	title?: string;
+	talk?: boolean;
 	tmid?: string;
 	prid?: string;
 	scale: number;
@@ -71,6 +82,8 @@ type TRoomHeaderHeaderTitle = {
 };
 
 interface IRoomHeader {
+	rid?: string;
+	avatarText?: string;
 	title?: string;
 	subtitle?: string;
 	statusExpiresAt?: string;
@@ -142,11 +155,15 @@ const SubTitle = memo(({ usersTyping, isDirect, subtitle, formattedStatusExpiry,
 	return null;
 });
 
-const HeaderTitle = memo(({ title, tmid, prid, scale, testID }: TRoomHeaderHeaderTitle) => {
+const HeaderTitle = memo(({ title, talk, tmid, prid, scale, testID }: TRoomHeaderHeaderTitle) => {
 	const { colors } = useTheme();
 	const { isLargeFontScale } = useResponsiveLayout();
 
-	const titleStyle = { fontSize: TITLE_SIZE * scale, color: colors.fontTitlesLabels };
+	const titleStyle = {
+		fontSize: (talk ? TALK_TITLE_SIZE : TITLE_SIZE) * scale,
+		color: colors.fontTitlesLabels,
+		...(talk && { fontWeight: '700' as const })
+	};
 	if (!tmid && !prid) {
 		return (
 			<Text style={[styles.title, titleStyle]} numberOfLines={isLargeFontScale ? 2 : 1} testID={testID}>
@@ -159,6 +176,8 @@ const HeaderTitle = memo(({ title, tmid, prid, scale, testID }: TRoomHeaderHeade
 });
 
 const Header = ({
+	rid,
+	avatarText,
 	title,
 	subtitle,
 	statusExpiresAt,
@@ -241,33 +260,48 @@ const Header = ({
 			enableA11yFocus={autoFocusHeader && !disabled}
 			focusable={!disabled}
 			canBeFocused={!disabled}
-			style={[styles.container, { opacity: disabled ? 0.5 : 1, height: 36.9 * fontScale }]}
+			style={[styles.container, { opacity: disabled ? 0.5 : 1, height: (rid && !tmid ? 44 : 36.9) * fontScale }]}
 			accessible
 			accessibilityLabel={accessibilityLabel}
 			accessibilityRole='header'>
 			<TouchableOpacity testID='room-header' onPress={handleOnPress} disabled={disabled} hitSlop={HIT_SLOP}>
+				{/* TALK: the room's picture instead of the type icon (IOS/Talk26 ExHeaderDetailV2), name and status on its right */}
 				<View style={styles.titleContainer}>
-					{tmid ? null : (
-						<RoomTypeIcon
-							userId={roomUserId}
-							type={prid ? 'discussion' : type}
-							isGroupChat={isGroupChat}
-							status={status}
-							teamMain={teamMain}
-							sourceType={sourceType}
-							abacAttributes={abacAttributes}
+					{tmid ? null : rid ? (
+						<Avatar
+							text={type === 'd' ? avatarText || title : title}
+							type={type}
+							rid={rid}
+							size={AVATAR_SIZE}
+							borderRadius={AVATAR_SIZE / 2}
+							style={styles.avatar}
 						/>
-					)}
-					<HeaderTitle title={title} tmid={tmid} prid={prid} scale={scale} testID={testID} />
+					) : null}
+					<View style={styles.titleColumn}>
+						<View style={styles.titleContainer}>
+							{tmid || rid ? null : (
+								<RoomTypeIcon
+									userId={roomUserId}
+									type={prid ? 'discussion' : type}
+									isGroupChat={isGroupChat}
+									status={status}
+									teamMain={teamMain}
+									sourceType={sourceType}
+									abacAttributes={abacAttributes}
+								/>
+							)}
+							<HeaderTitle title={title} talk={!!rid && !tmid} tmid={tmid} prid={prid} scale={scale} testID={testID} />
+						</View>
+						<SubTitle
+							usersTyping={tmid ? [] : usersTyping}
+							isDirect={type === 'd' && !isGroupChat}
+							subtitle={subtitle}
+							formattedStatusExpiry={formattedStatusExpiry}
+							renderFunc={renderFunc}
+							scale={scale}
+						/>
+					</View>
 				</View>
-				<SubTitle
-					usersTyping={tmid ? [] : usersTyping}
-					isDirect={type === 'd' && !isGroupChat}
-					subtitle={subtitle}
-					formattedStatusExpiry={formattedStatusExpiry}
-					renderFunc={renderFunc}
-					scale={scale}
-				/>
 			</TouchableOpacity>
 		</KeyboardFocusView>
 	);

@@ -26,6 +26,7 @@ interface IUseHeaderParams {
 interface IHeaderFields {
 	prid?: string;
 	title: string;
+	avatarText?: string;
 	parentTitle: string;
 	teamMain: boolean;
 	subtitle?: string;
@@ -52,6 +53,7 @@ export const useHeader = ({ rid, tmid, name: roomName, roomStore }: IUseHeaderPa
 			return {
 				prid: room?.prid,
 				title,
+				avatarText: room?.name,
 				teamMain: fromSubscription(r => !!r.teamMain, false)(s),
 				parentTitle,
 				subtitle: fromSubscription(r => r.topic, undefined)(s),
@@ -87,6 +89,8 @@ export const useHeader = ({ rid, tmid, name: roomName, roomStore }: IUseHeaderPa
 		navigation.setOptions({
 			headerTitle: () => (
 				<RoomHeader
+					rid={rid}
+					avatarText={headerFields.avatarText}
 					prid={headerFields.prid}
 					tmid={tmid}
 					title={headerFields.title}

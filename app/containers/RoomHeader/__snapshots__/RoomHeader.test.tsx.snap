@@ -92,110 +92,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#158D65",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#158D65",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Online"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Online"
+              >
+                Online
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Online"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Online"
-          >
-            Online
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -290,110 +307,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#AC892F",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#AC892F",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Away"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Away"
+              >
+                Away
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Away"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Away"
-          >
-            Away
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -488,110 +522,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#D40C26",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#D40C26",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Busy"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Busy"
+              >
+                Busy
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Busy"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Busy"
-          >
-            Busy
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -686,110 +737,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#6C727A",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#6C727A",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Offline"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Offline"
+              >
+                Offline
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Offline"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Offline"
-          >
-            Offline
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -884,110 +952,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#158D65",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#158D65",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="In a meeting"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-In a meeting"
+              >
+                In a meeting
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="In a meeting"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-In a meeting"
-          >
-            In a meeting
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -1082,146 +1167,163 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#158D65",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#158D65",
+                        "fontSize": 16,
                       },
                       [
                         {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#6C727A",
+                        "fontSize": 12,
+                      },
+                      [
+                        {
+                          "lineHeight": 12,
+                        },
+                        {
                           "marginRight": 4,
                         },
-                        undefined,
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
-          </View>
-          <View
-            style={
-              {
-                "alignItems": "center",
-                "flexDirection": "row",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                [
-                  {
-                    "color": "#6C727A",
-                    "fontSize": 12,
-                  },
-                  [
-                    {
-                      "lineHeight": 12,
-                    },
-                    {
-                      "marginRight": 4,
-                    },
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              accessibilityLabel="In a meeting"
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "fontFamily": "Inter",
-                    "fontSize": 16,
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "lineHeight": 22,
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#2F343D",
-                    "lineHeight": undefined,
-                  },
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#6C727A",
-                    "fontSize": 12,
-                  },
-                ]
-              }
-              testID="markdown-preview-In a meeting"
-            >
-              In a meeting
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  accessibilityLabel="In a meeting"
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "fontFamily": "Inter",
+                        "fontSize": 16,
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "lineHeight": 22,
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#2F343D",
+                        "lineHeight": undefined,
+                      },
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#6C727A",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                  testID="markdown-preview-In a meeting"
+                >
+                  In a meeting
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -1317,146 +1419,163 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#AC892F",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#AC892F",
+                        "fontSize": 16,
                       },
                       [
                         {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#6C727A",
+                        "fontSize": 12,
+                      },
+                      [
+                        {
+                          "lineHeight": 12,
+                        },
+                        {
                           "marginRight": 4,
                         },
-                        undefined,
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
-          </View>
-          <View
-            style={
-              {
-                "alignItems": "center",
-                "flexDirection": "row",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                [
-                  {
-                    "color": "#6C727A",
-                    "fontSize": 12,
-                  },
-                  [
-                    {
-                      "lineHeight": 12,
-                    },
-                    {
-                      "marginRight": 4,
-                    },
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              accessibilityLabel="having lunch (clock icon should be visible)"
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "fontFamily": "Inter",
-                    "fontSize": 16,
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "lineHeight": 22,
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#2F343D",
-                    "lineHeight": undefined,
-                  },
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#6C727A",
-                    "fontSize": 12,
-                  },
-                ]
-              }
-              testID="markdown-preview-having lunch (clock icon should be visible)"
-            >
-              having lunch (clock icon should be visible)
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  accessibilityLabel="having lunch (clock icon should be visible)"
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "fontFamily": "Inter",
+                        "fontSize": 16,
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "lineHeight": 22,
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#2F343D",
+                        "lineHeight": undefined,
+                      },
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#6C727A",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                  testID="markdown-preview-having lunch (clock icon should be visible)"
+                >
+                  having lunch (clock icon should be visible)
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -1552,110 +1671,127 @@ exports[`Story Snapshots: DM_Status should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#158D65",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "height": 16,
-                        "textAlign": "center",
-                        "textAlignVertical": "center",
-                        "width": 16,
+                        "color": "#158D65",
+                        "fontSize": 16,
                       },
                       [
                         {
-                          "marginRight": 4,
+                          "lineHeight": 16,
                         },
-                        undefined,
+                        [
+                          {
+                            "height": 16,
+                            "textAlign": "center",
+                            "textAlignVertical": "center",
+                            "width": 16,
+                          },
+                          [
+                            {
+                              "marginRight": 4,
+                            },
+                            undefined,
+                          ],
+                        ],
                       ],
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="John Doe"
-            >
-              John Doe
-            </Text>
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="John Doe"
+                >
+                  John Doe
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="In a meeting (past expiry — clock icon should be hidden)"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-In a meeting (past expiry — clock icon should be hidden)"
+              >
+                In a meeting (past expiry — clock icon should be hidden)
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="In a meeting (past expiry — clock icon should be hidden)"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-In a meeting (past expiry — clock icon should be hidden)"
-          >
-            In a meeting (past expiry — clock icon should be hidden)
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -1755,61 +1891,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="private channel"
-            >
-              private channel
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="private channel"
+                >
+                  private channel
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -1905,61 +2058,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="public channel"
-            >
-              public channel
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="public channel"
+                >
+                  public channel
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2055,77 +2225,94 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              accessibilityLabel="discussion"
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "fontFamily": "Inter",
-                    "fontSize": 16,
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "lineHeight": 22,
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#2F343D",
-                    "lineHeight": undefined,
-                  },
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="discussion"
-            >
-              discussion
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  accessibilityLabel="discussion"
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "fontFamily": "Inter",
+                        "fontSize": 16,
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "lineHeight": 22,
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#2F343D",
+                        "lineHeight": undefined,
+                      },
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="discussion"
+                >
+                  discussion
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2221,61 +2408,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#6C727A",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#6C727A",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="omnichannel"
-            >
-              omnichannel
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="omnichannel"
+                >
+                  omnichannel
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2371,61 +2575,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="private team"
-            >
-              private team
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="private team"
+                >
+                  private team
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2521,61 +2742,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="public team"
-            >
-              public team
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="public team"
+                >
+                  public team
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2671,61 +2909,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="group dm"
-            >
-              group dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="group dm"
+                >
+                  group dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2821,61 +3076,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="online dm"
-            >
-              online dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="online dm"
+                >
+                  online dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -2971,61 +3243,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="away dm"
-            >
-              away dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="away dm"
+                >
+                  away dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3121,61 +3410,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="busy dm"
-            >
-              busy dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="busy dm"
+                >
+                  busy dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3271,61 +3577,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="loading dm"
-            >
-              loading dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="loading dm"
+                >
+                  loading dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3421,61 +3744,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="offline dm"
-            >
-              offline dm
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="offline dm"
+                >
+                  offline dm
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3571,61 +3911,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="classified"
-            >
-              classified
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="classified"
+                >
+                  classified
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3721,61 +4078,78 @@ exports[`Story Snapshots: Icons should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="classified"
-            >
-              classified
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="classified"
+                >
+                  classified
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -3876,101 +4250,118 @@ exports[`Story Snapshots: Themes should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="subtitle"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-subtitle"
+              >
+                subtitle
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="subtitle"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-subtitle"
-          >
-            subtitle
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -4065,101 +4456,118 @@ exports[`Story Snapshots: Themes should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#F2F3F5",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#F2F3F5",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#F2F3F5",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#F2F3F5",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="subtitle"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#C1C7D0",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#9EA2A8",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-subtitle"
+              >
+                subtitle
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="subtitle"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#C1C7D0",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#9EA2A8",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-subtitle"
-          >
-            subtitle
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -4254,101 +4662,118 @@ exports[`Story Snapshots: Themes should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#F2F3F5",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#F2F3F5",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#F2F3F5",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#F2F3F5",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="subtitle"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#E4E7EA",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#9EA2A8",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-subtitle"
+              >
+                subtitle
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="subtitle"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#E4E7EA",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#9EA2A8",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-subtitle"
-          >
-            subtitle
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -4448,108 +4873,125 @@ exports[`Story Snapshots: Thread should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              accessibilityLabel="title"
-              numberOfLines={1}
+            <View
               style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "fontFamily": "Inter",
-                    "fontSize": 16,
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "lineHeight": 22,
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#2F343D",
-                    "lineHeight": undefined,
-                  },
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
+                {
+                  "flexShrink": 1,
+                }
               }
-              testID="markdown-preview-title"
             >
-              title
-            </Text>
-          </View>
-          <View
-            style={
-              {
-                "alignItems": "center",
-                "flexDirection": "row",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                [
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  accessibilityLabel="title"
+                  numberOfLines={1}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "backgroundColor": "transparent",
+                        "fontFamily": "Inter",
+                        "fontSize": 16,
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "lineHeight": 22,
+                        "textAlign": "left",
                       },
-                      undefined,
-                    ],
-                  ],
+                      {
+                        "color": "#2F343D",
+                        "lineHeight": undefined,
+                      },
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="markdown-preview-title"
+                >
+                  title
+                </Text>
+              </View>
+              <View
+                style={
                   {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#6C727A",
-                  },
-                ]
-              }
-            >
-              parent title
-            </Text>
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#6C727A",
+                      },
+                    ]
+                  }
+                >
+                  parent title
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -4649,112 +5091,129 @@ preview
               }
             }
           >
-            <Text
-              accessibilityLabel="markdown preview #3 4 5"
-              numberOfLines={1}
+            <View
               style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "fontFamily": "Inter",
-                    "fontSize": 16,
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "lineHeight": 22,
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#2F343D",
-                    "lineHeight": undefined,
-                  },
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
+                {
+                  "flexShrink": 1,
+                }
               }
-              testID="markdown
+            >
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  accessibilityLabel="markdown preview #3 4 5"
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "fontFamily": "Inter",
+                        "fontSize": 16,
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "lineHeight": 22,
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#2F343D",
+                        "lineHeight": undefined,
+                      },
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="markdown
 preview
 #3
 4
 5"
-            >
-              markdown preview #3 4 5
-            </Text>
-          </View>
-          <View
-            style={
-              {
-                "alignItems": "center",
-                "flexDirection": "row",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                [
+                >
+                  markdown preview #3 4 5
+                </Text>
+              </View>
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "400",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#6C727A",
-                  },
-                ]
-              }
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#6C727A",
+                      },
+                    ]
+                  }
+                >
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -4855,61 +5314,78 @@ exports[`Story Snapshots: TitleSubtitle should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="title"
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="title"
+                >
+                  title
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -5005,61 +5481,78 @@ exports[`Story Snapshots: TitleSubtitle should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+                >
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </RNGestureHandlerButton>
@@ -5155,101 +5648,118 @@ exports[`Story Snapshots: TitleSubtitle should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="subtitle"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-subtitle"
+              >
+                subtitle
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="subtitle"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-subtitle"
-          >
-            subtitle
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -5344,101 +5854,118 @@ exports[`Story Snapshots: TitleSubtitle should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -5533,102 +6060,119 @@ exports[`Story Snapshots: TitleSubtitle should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
+                {
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                style={
                   {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
                     [
                       {
-                        "marginRight": 4,
+                        "color": "#1F2329",
+                        "fontSize": 16,
                       },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-              testID="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-            </Text>
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                  testID="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+                >
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+                </Text>
+              </View>
+              <Text
+                accessibilityLabel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "lineHeight": 22,
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#2F343D",
+                      "lineHeight": undefined,
+                    },
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="markdown-preview-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+              </Text>
+            </View>
           </View>
-          <Text
-            accessibilityLabel="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "lineHeight": 22,
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#2F343D",
-                  "lineHeight": undefined,
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="markdown-preview-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-          </Text>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -5728,101 +6272,118 @@ exports[`Story Snapshots: Typing should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
-                    [
-                      {
-                        "marginRight": 4,
-                      },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
-          </View>
-          <Text
-            numberOfLines={1}
-            style={
-              [
                 {
-                  "backgroundColor": "transparent",
                   "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "600",
-                  "textAlign": "left",
                 }
               }
             >
-              user 1
-               
-            </Text>
-            is typing
-            ...
-          </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "600",
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  user 1
+                   
+                </Text>
+                is typing
+                ...
+              </Text>
+            </View>
+          </View>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -5917,101 +6478,118 @@ exports[`Story Snapshots: Typing should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
-                    [
-                      {
-                        "marginRight": 4,
-                      },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
-          </View>
-          <Text
-            numberOfLines={1}
-            style={
-              [
                 {
-                  "backgroundColor": "transparent",
                   "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "600",
-                  "textAlign": "left",
                 }
               }
             >
-              user 1 and user 2
-               
-            </Text>
-            are typing
-            ...
-          </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "600",
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  user 1 and user 2
+                   
+                </Text>
+                are typing
+                ...
+              </Text>
+            </View>
+          </View>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>
@@ -6106,101 +6684,118 @@ exports[`Story Snapshots: Typing should match snapshot 1`] = `
               }
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
+            <View
               style={
-                [
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                  [
-                    {
-                      "lineHeight": 16,
-                    },
-                    [
-                      {
-                        "marginRight": 4,
-                      },
-                      undefined,
-                    ],
-                  ],
-                  {
-                    "fontFamily": "custom",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  {},
-                ]
-              }
-            >
-              
-            </Text>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "backgroundColor": "transparent",
-                    "flexShrink": 1,
-                    "fontFamily": "Inter",
-                    "fontVariant": [
-                      "tabular-nums",
-                    ],
-                    "fontWeight": "600",
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#1F2329",
-                    "fontSize": 16,
-                  },
-                ]
-              }
-            >
-              title
-            </Text>
-          </View>
-          <Text
-            numberOfLines={1}
-            style={
-              [
                 {
-                  "backgroundColor": "transparent",
                   "flexShrink": 1,
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "400",
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#6C727A",
-                  "fontSize": 12,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                {
-                  "backgroundColor": "transparent",
-                  "fontFamily": "Inter",
-                  "fontVariant": [
-                    "tabular-nums",
-                  ],
-                  "fontWeight": "600",
-                  "textAlign": "left",
                 }
               }
             >
-              user 1, user 2, user 3, user 4, user 5
-               
-            </Text>
-            are typing
-            ...
-          </Text>
+              <View
+                style={
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    [
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                      [
+                        {
+                          "lineHeight": 16,
+                        },
+                        [
+                          {
+                            "marginRight": 4,
+                          },
+                          undefined,
+                        ],
+                      ],
+                      {
+                        "fontFamily": "custom",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "backgroundColor": "transparent",
+                        "flexShrink": 1,
+                        "fontFamily": "Inter",
+                        "fontVariant": [
+                          "tabular-nums",
+                        ],
+                        "fontWeight": "600",
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#1F2329",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  title
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "backgroundColor": "transparent",
+                      "flexShrink": 1,
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#6C727A",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    {
+                      "backgroundColor": "transparent",
+                      "fontFamily": "Inter",
+                      "fontVariant": [
+                        "tabular-nums",
+                      ],
+                      "fontWeight": "600",
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  user 1, user 2, user 3, user 4, user 5
+                   
+                </Text>
+                are typing
+                ...
+              </Text>
+            </View>
+          </View>
         </View>
       </RNGestureHandlerButton>
     </ExternalKeyboardView>

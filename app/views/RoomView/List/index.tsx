@@ -3,6 +3,8 @@ import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import { useDebounce } from '~/lib/methods/helpers';
 import EmptyRoom from './components/EmptyRoom';
 import List from './components/List';
+import ConversationStart from './components/ConversationStart';
+import { MESSAGE_TYPE_ANY_LOAD, type MessageTypeLoad } from '~/lib/constants/messageTypeLoad';
 import { MessageRow } from '../components/MessageRow';
 import { type IListContainerProps, type IListContainerRef, type IListProps } from '../definitions';
 import { useMessages } from './hooks/useMessages';
@@ -48,6 +50,10 @@ const ListContainer = forwardRef<IListContainerRef, IListContainerProps>(
 			/>
 		);
 
+		// The oldest message (last, the list is inverted) isn't a "load more" row: there is no older history to fetch
+		const oldest = messages[messages.length - 1];
+		const reachedStart = !tmid && !!oldest && !MESSAGE_TYPE_ANY_LOAD.includes(oldest.t as MessageTypeLoad);
+
 		return (
 			<>
 				<EmptyRoom rid={rid} length={messages.length} />
@@ -56,6 +62,7 @@ const ListContainer = forwardRef<IListContainerRef, IListContainerProps>(
 					data={messages}
 					renderItem={renderItem}
 					onEndReached={onEndReached}
+					ListFooterComponent={reachedStart ? <ConversationStart /> : null}
 					onScrollToIndexFailed={handleScrollToIndexFailed}
 					jumpToBottom={jumpToBottom}
 					isAnchored={highTs != null}

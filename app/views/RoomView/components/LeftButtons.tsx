@@ -1,4 +1,5 @@
-import { StyleSheet, useWindowDimensions } from 'react-native';
+import { Pressable, StyleSheet, useWindowDimensions } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 import { type ReactElement } from 'react';
 
 import Avatar from '~/containers/Avatar';
@@ -11,10 +12,16 @@ import { useUnreadsCount } from '../hooks/useUnreadsCount';
 import { useGoRoomActionsView } from '../hooks/useGoRoomActionsView';
 import { useStore } from 'zustand';
 import { type RoomStore } from '../definitions';
+import { headerChipStyles, HEADER_CHIP_ICON_SIZE, useHeaderChip } from '~/custom/talk/headerChips'; // TALK
+import I18n from '~/i18n';
 
 const styles = StyleSheet.create({
 	avatar: {
 		borderRadius: 10
+	},
+	// The glyph of arrow-back-ios sits to the left of its box
+	backIcon: {
+		marginLeft: 5
 	}
 });
 
@@ -36,6 +43,21 @@ const LeftButtons = ({ rid, tmid, roomStore }: ILeftButtonsProps): ReactElement 
 	const onPress = () => goRoomActionsView();
 	const { fontScale } = useWindowDimensions();
 	const unreadsCount = useUnreadsCount(rid);
+	const chip = useHeaderChip();
+
+	if (chip && (!isMasterDetail || tmid)) {
+		return (
+			<Pressable
+				onPress={goBack}
+				style={headerChipStyles.chip}
+				hitSlop={6}
+				accessibilityRole='button'
+				accessibilityLabel={I18n.t('Back')}
+				testID='header-back'>
+				<MaterialIcons name='arrow-back-ios' size={HEADER_CHIP_ICON_SIZE} color='#ffffff' style={styles.backIcon} />
+			</Pressable>
+		);
+	}
 
 	if (!isMasterDetail || tmid) {
 		let label: string | undefined;

@@ -39,6 +39,19 @@ dayjs.extend(localizedFormat);
 
 export const formatLongDate = (ts: Date | number | string): string => dayjs(ts).format('LL');
 
+/** Today / yesterday, the weekday name within the last 7 days, the long date otherwise (date separators) */
+export const formatSeparatorDate = (ts: Date | number | string, labels: { today: string; yesterday: string }): string => {
+	const day = dayjs(ts).startOf('day');
+	const daysAgo = dayjs().startOf('day').diff(day, 'day');
+	if (daysAgo === 0) return labels.today;
+	if (daysAgo === 1) return labels.yesterday;
+	if (daysAgo > 1 && daysAgo < 7) {
+		const weekday = day.format('dddd');
+		return weekday.charAt(0).toLocaleUpperCase() + weekday.slice(1);
+	}
+	return formatLongDate(ts);
+};
+
 // WatermelonDB hands a message `ts` back as Date, ms number, or ISO string depending on the read path;
 // dayjs parses all three where Number(ts) / new Date(ts) each NaN on one. Normalize to ms since epoch.
 export const tsToMs = (ts: Date | number | string): number => dayjs(ts).valueOf();

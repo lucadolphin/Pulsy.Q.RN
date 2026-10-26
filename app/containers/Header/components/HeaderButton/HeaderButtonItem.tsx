@@ -5,6 +5,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { CustomIcon, type TIconsName } from '~/containers/CustomIcon';
 import { useTheme } from '~/theme';
 import sharedStyles from '~/views/Styles';
+import { headerChipStyles, HEADER_CHIP_ICON_SIZE, useHeaderChip } from '~/custom/talk/headerChips'; // TALK
 
 export interface IHeaderButtonItem {
 	title?: string;
@@ -54,8 +55,14 @@ const Item = memo(
 		...props
 	}: IHeaderButtonItem): ReactElement => {
 		const { colors } = useTheme();
+		const chip = useHeaderChip();
 		return (
-			<BorderlessButton onPress={onPress} testID={testID} hitSlop={BUTTON_HIT_SLOP} enabled={!disabled} style={styles.container}>
+			<BorderlessButton
+				onPress={onPress}
+				testID={testID}
+				hitSlop={BUTTON_HIT_SLOP}
+				enabled={!disabled}
+				style={chip ? headerChipStyles.chip : styles.container}>
 				<View
 					accessible
 					accessibilityLabel={accessibilityLabel}
@@ -63,7 +70,7 @@ const Item = memo(
 						opacity: disabled ? 0.5 : 1
 					}}>
 					{iconName ? (
-						<CustomIcon name={iconName} size={24} color={color} {...props} />
+						<CustomIcon name={iconName} size={chip ? HEADER_CHIP_ICON_SIZE : 24} color={color} {...props} />
 					) : (
 						<Text style={[styles.title, { color: color || colors.fontDefault }]} {...props}>
 							{title}

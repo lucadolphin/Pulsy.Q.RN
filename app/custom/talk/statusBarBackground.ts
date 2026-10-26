@@ -16,6 +16,22 @@ export const setStatusBarBackground = (color: string | null) => {
 	listeners.forEach(listener => listener());
 };
 
+const claims: { color: string }[] = [];
+
+/**
+ * Claims the strip for a screen; the returned release gives it back. With several claims alive (a screen opened on
+ * top of another that still holds it) the latest one shows, and the order screens blur and focus in doesn't matter.
+ */
+export const claimStatusBarBackground = (color: string): (() => void) => {
+	const claim = { color };
+	claims.push(claim);
+	setStatusBarBackground(color);
+	return () => {
+		claims.splice(claims.indexOf(claim), 1);
+		setStatusBarBackground(claims.length ? claims[claims.length - 1].color : null);
+	};
+};
+
 export const getStatusBarBackground = () => current;
 
 const subscribe = (listener: () => void) => {
