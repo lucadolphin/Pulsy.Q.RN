@@ -10,6 +10,7 @@ import { SubscriptionType } from '~/definitions';
 import { type IAvatar } from './interfaces';
 import I18n from '~/i18n';
 import Touch from '../Touch';
+import { useExentriqAvatar } from '~/custom/talk/exentriqAvatar'; // TALK
 
 const Avatar = memo(
 	({
@@ -36,6 +37,8 @@ const Avatar = memo(
 		accessibilityLabel,
 		accessible = true
 	}: IAvatar) => {
+		// TALK: picture from Exentriq's AvatarService; without one, the letter avatar below stays
+		const exentriqAvatar = useExentriqAvatar({ type, text, rid }, !avatar && !isStatic && !emoji);
 		if ((!text && !avatar && !emoji && !rid) || !server) {
 			return null;
 		}
@@ -58,7 +61,9 @@ const Avatar = memo(
 			);
 		} else {
 			let uri = avatar;
-			if (!isStatic) {
+			if (exentriqAvatar) {
+				uri = exentriqAvatar;
+			} else if (!isStatic) {
 				uri = getAvatarURL({
 					type,
 					text,
