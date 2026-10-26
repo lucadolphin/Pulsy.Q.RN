@@ -702,7 +702,7 @@ describe('useMessages', () => {
 			(clause): clause is { type: 'take'; count: number } =>
 				!!clause && typeof clause === 'object' && (clause as { type?: string }).type === 'take'
 		);
-		expect(take?.count).toBe(QUERY_SIZE);
+		expect(take?.count).toBe(QUERY_SIZE + 1);
 	});
 
 	it('exposes highTs and setHighTs as the 4th tuple element', async () => {
@@ -774,7 +774,7 @@ describe('useMessages', () => {
 			expect(findBoundClause(queryCalls[queryCalls.length - 1])?.comparison.right.value).toBe(1500);
 		});
 		const takeBeforeRaise = findTakeClause(queryCalls[queryCalls.length - 1])?.count;
-		expect(takeBeforeRaise).toBe(QUERY_SIZE);
+		expect(takeBeforeRaise).toBe(QUERY_SIZE + 1);
 
 		fetchRows = [newerLoaderAt('loader-H2', 1900)];
 
@@ -787,7 +787,7 @@ describe('useMessages', () => {
 		});
 		const lastCall = queryCalls[queryCalls.length - 1];
 		expect(findBoundClause(lastCall)?.comparison.right.value).toBe(1900);
-		expect(findTakeClause(lastCall)?.count).toBe(QUERY_SIZE * 2);
+		expect(findTakeClause(lastCall)?.count).toBe(QUERY_SIZE * 2 + 1);
 	});
 
 	it('releases the anchor to a Live Window when the boundary Newer Loader is consumed and the Gap has closed', async () => {

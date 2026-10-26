@@ -180,7 +180,8 @@ export const useMessages = ({
 			...(highTs != null ? [Q.where('ts', Q.lte(highTs))] : []),
 			...(!tmid && !showMessageInMainThread ? [Q.or(Q.where('tmid', null), Q.where('tshow', Q.eq(true)))] : []),
 			Q.sortBy('ts', Q.desc),
-			Q.take(tmid ? windowSize + 1 : windowSize)
+			// One row more than the window shows, to know whether the local DB has older rows (the window is cut below)
+			Q.take(windowSize + 1)
 		];
 
 		const observable = db
