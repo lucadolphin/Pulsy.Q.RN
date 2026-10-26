@@ -132,14 +132,14 @@ describe('RoomHeaderContainer', () => {
 		expect(props.roomUserId).toBe('user-123');
 	});
 
-	it('should handle activeUser with offline status', () => {
+	it('should show no subtitle for an offline activeUser', () => {
 		connect();
 		mockedStore.dispatch(setActiveUsers({ 'user-123': { status: 'offline', statusText: '', statusExpiresAt: undefined } }));
 
 		renderContainer();
 
 		const props = mockChild.mock.calls[0][0];
-		expect(props.subtitle).toBe('Offline');
+		expect(props.subtitle).toBeUndefined();
 	});
 
 	it('should use statusText even when status is undefined', () => {

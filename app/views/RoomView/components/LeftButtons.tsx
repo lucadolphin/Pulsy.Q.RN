@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
 	avatar: {
 		borderRadius: 10
 	},
+	// Close to the edge of the device and to the room's picture, which leaves the room name more space
+	backChip: {
+		marginLeft: -2,
+		marginRight: -4
+	},
 	// The glyph of arrow-back-ios sits to the left of its box
 	backIcon: {
 		marginLeft: 5
@@ -49,7 +54,7 @@ const LeftButtons = ({ rid, tmid, roomStore }: ILeftButtonsProps): ReactElement 
 		return (
 			<Pressable
 				onPress={goBack}
-				style={headerChipStyles.chip}
+				style={[headerChipStyles.chip, styles.backChip]}
 				hitSlop={6}
 				accessibilityRole='button'
 				accessibilityLabel={I18n.t('Back')}

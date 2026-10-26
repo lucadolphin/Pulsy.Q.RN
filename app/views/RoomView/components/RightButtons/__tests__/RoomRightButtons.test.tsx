@@ -18,6 +18,11 @@ jest.mock('~/lib/hooks/useMasterDetail', () => ({
 	useMasterDetail: () => mockIsMasterDetail
 }));
 
+const mockShowActionSheet = jest.fn();
+jest.mock('~/containers/ActionSheet', () => ({
+	useActionSheet: () => ({ showActionSheet: mockShowActionSheet })
+}));
+
 jest.mock('~/theme', () => ({ useTheme: () => ({ colors: { fontDanger: '#f00' } }) }));
 jest.mock('~/lib/helpers/getRoomAccessibilityLabel', () => ({ __esModule: true, default: () => 'channel label' }));
 jest.mock('~/lib/methods/helpers', () => ({
@@ -110,9 +115,29 @@ const roomStore = { getState: () => mockRoomState } as unknown as RoomStore;
 
 const renderRoomRightButtons = () => render(<RoomRightButtons rid='rid-1' roomStore={roomStore} />);
 
+// Everything but the call lives in the action sheet the menu button opens
+type TMenuItem = {
+	testID: string;
+	title: string;
+	icon?: string;
+	accessibilityLabel?: string;
+	danger?: boolean;
+	enabled?: boolean;
+	onPress: () => void;
+};
+let menuOptions: TMenuItem[] | null = null;
+const menuItem = (id: string): TMenuItem | undefined => {
+	if (!menuOptions) {
+		fireEvent.press(screen.getByTestId('room-view-header-menu'));
+		menuOptions = mockShowActionSheet.mock.calls[0][0].options;
+	}
+	return menuOptions?.find(option => option.testID === id);
+};
+
 describe('RoomRightButtons', () => {
 	beforeEach(() => {
 		jest.clearAllMocks();
+		menuOptions = null;
 		mockIsMasterDetail = false;
 		mockThreadsEnabled = true;
 		mockAppState = {
@@ -128,10 +153,10 @@ describe('RoomRightButtons', () => {
 	it('renders the call, threads and search buttons for a regular channel', () => {
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('iconName', 'threads');
-		expect(screen.getByTestId('room-view-search')).toHaveProp('accessibilityLabel', 'Search messages');
-		expect(screen.queryByTestId('room-view-header-encryption')).not.toBeOnTheScreen();
-		expect(screen.queryByTestId('room-view-push-troubleshoot')).not.toBeOnTheScreen();
+		expect(menuItem('room-view-header-threads')?.icon).toBe('threads');
+		expect(menuItem('room-view-search')?.title).toBe('Search messages');
+		expect(menuItem('room-view-header-encryption')).toBeUndefined();
+		expect(menuItem('room-view-push-troubleshoot')).toBeUndefined();
 	});
 
 	it('labels the call button with the room accessibility name', () => {
@@ -147,7 +172,7 @@ describe('RoomRightButtons', () => {
 		renderRoomRightButtons();
 
 		expect(screen.queryByTestId('header-call-button-stub')).not.toBeOnTheScreen();
-		expect(screen.getByTestId('room-view-search')).toBeOnTheScreen();
+		expect(menuItem('room-view-search')).toBeDefined();
 	});
 
 	it('enables the encryption button and disables the others on an e2ee warning with permission', () => {
@@ -157,11 +182,11 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-encryption')).toHaveProp('disabled', false);
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('disabled', true);
-		expect(screen.getByTestId('room-view-search')).toHaveProp('disabled', true);
+		expect(menuItem('room-view-header-encryption')?.enabled).toBe(true);
+		expect(menuItem('room-view-header-threads')?.enabled).toBe(false);
+		expect(menuItem('room-view-search')?.enabled).toBe(false);
 		expect(screen.getByTestId('header-call-button-stub')).toHaveProp('disabled', true);
-		expect(screen.getByTestId('room-view-push-troubleshoot')).toHaveProp('disabled', true);
+		expect(menuItem('room-view-push-troubleshoot')?.enabled).toBe(false);
 	});
 
 	it('disables the encryption button on an e2ee warning without permission', () => {
@@ -169,7 +194,7 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-encryption')).toHaveProp('disabled', true);
+		expect(menuItem('room-view-header-encryption')?.enabled).toBe(false);
 	});
 
 	it.each([false, true])('routes notification issues to push troubleshooting (master-detail: %s)', isMasterDetail => {
@@ -179,8 +204,8 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-push-troubleshoot')).toHaveProp('color', '#f00');
-		fireEvent.press(screen.getByTestId('room-view-push-troubleshoot'));
+		expect(menuItem('room-view-push-troubleshoot')?.danger).toBe(true);
+		menuItem('room-view-push-troubleshoot')?.onPress();
 		expect(mockNavigation.navigate).toHaveBeenCalledWith(
 			...(isMasterDetail
 				? ['ModalStackNavigator', { screen: 'PushTroubleshootView', params: undefined }]
@@ -194,8 +219,8 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-push-troubleshoot')).toHaveProp('color', '');
-		fireEvent.press(screen.getByTestId('room-view-push-troubleshoot'));
+		expect(menuItem('room-view-push-troubleshoot')?.danger).toBe(false);
+		menuItem('room-view-push-troubleshoot')?.onPress();
 		const params = { rid: 'rid-1', room: mockRoomState.room };
 		expect(mockNavigation.navigate).toHaveBeenCalledWith(
 			...(isMasterDetail ? ['ModalStackNavigator', { screen: 'NotificationPrefView', params }] : ['NotificationPrefView', params])
@@ -207,7 +232,7 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		fireEvent.press(screen.getByTestId('room-view-push-troubleshoot'));
+		menuItem('room-view-push-troubleshoot')?.onPress();
 
 		expect(mockNavigation.navigate).not.toHaveBeenCalled();
 	});
@@ -217,14 +242,14 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.queryByTestId('room-view-header-threads')).not.toBeOnTheScreen();
-		expect(screen.getByTestId('room-view-search')).toBeOnTheScreen();
+		expect(menuItem('room-view-header-threads')).toBeUndefined();
+		expect(menuItem('room-view-search')).toBeDefined();
 	});
 
 	it('labels the threads button without unreads', () => {
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('accessibilityLabel', 'Threads');
+		expect(menuItem('room-view-header-threads')?.accessibilityLabel).toBe('Threads');
 	});
 
 	it('labels the threads button with the direct mention unread count', () => {
@@ -232,7 +257,7 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('accessibilityLabel', 'Threads, 1 unread, direct mention');
+		expect(menuItem('room-view-header-threads')?.accessibilityLabel).toBe('Threads, 1 unread, direct mention');
 	});
 
 	it('labels the threads button with the group mention unread count', () => {
@@ -240,7 +265,7 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('accessibilityLabel', 'Threads, 1 unread, group mention');
+		expect(menuItem('room-view-header-threads')?.accessibilityLabel).toBe('Threads, 1 unread, group mention');
 	});
 
 	it('labels the threads button with the plain unread count', () => {
@@ -248,7 +273,7 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('accessibilityLabel', 'Threads, 2 unread');
+		expect(menuItem('room-view-header-threads')?.accessibilityLabel).toBe('Threads, 2 unread');
 	});
 
 	it('navigates to the threads and search screens on stack mode', () => {
@@ -256,10 +281,10 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		fireEvent.press(screen.getByTestId('room-view-header-threads'));
+		menuItem('room-view-header-threads')?.onPress();
 		expect(mockNavigation.navigate).toHaveBeenCalledWith('ThreadMessagesView', { rid: 'rid-1', t: 'c' });
 
-		fireEvent.press(screen.getByTestId('room-view-search'));
+		menuItem('room-view-search')?.onPress();
 		expect(mockNavigation.navigate).toHaveBeenCalledWith('SearchMessagesView', { rid: 'rid-1', t: 'c', encrypted: true });
 	});
 
@@ -269,13 +294,13 @@ describe('RoomRightButtons', () => {
 
 		renderRoomRightButtons();
 
-		fireEvent.press(screen.getByTestId('room-view-header-threads'));
+		menuItem('room-view-header-threads')?.onPress();
 		expect(mockNavigation.navigate).toHaveBeenCalledWith('ModalStackNavigator', {
 			screen: 'ThreadMessagesView',
 			params: { rid: 'rid-1', t: 'c' }
 		});
 
-		fireEvent.press(screen.getByTestId('room-view-search'));
+		menuItem('room-view-search')?.onPress();
 		expect(mockNavigation.navigate).toHaveBeenCalledWith('ModalStackNavigator', {
 			screen: 'SearchMessagesView',
 			params: { rid: 'rid-1', t: 'c', encrypted: true, showCloseModal: true }
@@ -290,12 +315,12 @@ describe('RoomRightButtons', () => {
 		mockRoomState = { room: { id: 'rid-1', rid: 'rid-1', t: 'c', name: 'general' } };
 		renderRoomRightButtons();
 
-		expect(screen.getByTestId('room-view-header-threads')).toHaveProp('disabled', true);
-		expect(screen.getByTestId('room-view-search')).toHaveProp('disabled', true);
-		expect(screen.getByTestId('room-view-push-troubleshoot')).toHaveProp('disabled', true);
-		expect(screen.getByTestId('room-view-header-encryption')).toHaveProp('disabled', false);
+		expect(menuItem('room-view-header-threads')?.enabled).toBe(false);
+		expect(menuItem('room-view-search')?.enabled).toBe(false);
+		expect(menuItem('room-view-push-troubleshoot')?.enabled).toBe(false);
+		expect(menuItem('room-view-header-encryption')?.enabled).toBe(true);
 
-		fireEvent.press(screen.getByTestId('room-view-header-encryption'));
+		menuItem('room-view-header-encryption')?.onPress();
 		expect(logEvent).toHaveBeenCalledTimes(1);
 		expect(logEvent).toHaveBeenCalledWith(events.ROOM_GO_E2EE);
 		expect(mockNavigation.navigate).toHaveBeenCalledWith(

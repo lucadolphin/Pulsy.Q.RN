@@ -4,6 +4,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { useNavigation } from '@react-navigation/native';
 
 import * as HeaderButton from '~/containers/Header/components/HeaderButton';
+import { useActionSheet, type TActionSheetOptionsItem } from '~/containers/ActionSheet';
 import { type ISubscription, type SubscriptionType, type TSubscriptionModel, type TUserStatus } from '~/definitions';
 import i18n from '~/i18n';
 import { getRoomTitle, isGroupChat } from '~/lib/methods/helpers';
@@ -14,7 +15,6 @@ import { useMasterDetail } from '~/lib/hooks/useMasterDetail';
 import { usePermissions } from '~/lib/hooks/usePermissions';
 import { useSetting } from '~/lib/hooks/useSetting';
 import { getUserSelector } from '~/selectors/login';
-import { useTheme } from '~/theme';
 import { type RoomStore } from '~/views/RoomView/definitions';
 import { isSubscriptionModel } from '~/definitions/TRoom';
 import { fromSubscription } from '~/views/RoomView/stores/RoomStoreContext';
@@ -31,7 +31,7 @@ interface IRoomRightButtonsProps {
 export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): ReactElement => {
 	const navigation = useNavigation<TRoomStackNavigation>();
 	const isMasterDetail = useMasterDetail();
-	const { colors } = useTheme();
+	const { showActionSheet } = useActionSheet();
 
 	const userId = useAppSelector(state => getUserSelector(state).id);
 	const threadsEnabled = useSetting('Threads_enabled') as boolean;
@@ -111,25 +111,49 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 			? roomName
 			: getRoomAccessibilityLabel({ type: t, userId, isGroupChat: roomIsGroupChat, status: status as TUserStatus, teamMain });
 
+	// Call stays in the header; the rest (Talk26's header shows only the call and a menu) is in the menu
+	const menuOptions: TActionSheetOptionsItem[] = [];
+	if (hasE2EEWarning) {
+		menuOptions.push({
+			title: i18n.t('E2E_Encryption'),
+			icon: 'encrypted',
+			onPress: goE2EEToggleRoomView,
+			enabled: canToggleEncryption,
+			testID: 'room-view-header-encryption'
+		});
+	}
+	if (issuesWithNotifications || disableNotifications) {
+		menuOptions.push({
+			title: issuesWithNotifications ? i18n.t('Troubleshooting') : i18n.t('Notification_Preferences'),
+			icon: 'notification-disabled',
+			danger: !!issuesWithNotifications,
+			onPress: navigateToNotificationOrPushTroubleshoot,
+			enabled: !hasE2EEWarning,
+			testID: 'room-view-push-troubleshoot'
+		});
+	}
+	if (threadsEnabled) {
+		menuOptions.push({
+			title: i18n.t('Threads'),
+			accessibilityLabel: threadsAccessibilityLabel(),
+			icon: 'threads',
+			onPress: goThreadsView,
+			enabled: !hasE2EEWarning,
+			testID: 'room-view-header-threads'
+		});
+	}
+	menuOptions.push({
+		title: i18n.t('Search_Messages'),
+		icon: 'search',
+		onPress: goSearchView,
+		enabled: !hasE2EEWarning,
+		testID: 'room-view-search'
+	});
+
+	const openMenu = () => showActionSheet({ options: menuOptions });
+
 	return (
 		<HeaderButton.Container>
-			{hasE2EEWarning ? (
-				<HeaderButton.Item
-					iconName='encrypted'
-					onPress={goE2EEToggleRoomView}
-					disabled={!canToggleEncryption}
-					testID='room-view-header-encryption'
-				/>
-			) : null}
-			{issuesWithNotifications || disableNotifications ? (
-				<HeaderButton.Item
-					color={issuesWithNotifications ? colors.fontDanger : ''}
-					iconName='notification-disabled'
-					onPress={navigateToNotificationOrPushTroubleshoot}
-					testID='room-view-push-troubleshoot'
-					disabled={hasE2EEWarning}
-				/>
-			) : null}
 			{!isSelfDm ? (
 				<HeaderCallButton
 					accessibilityLabel={i18n.t('Call_room_name', { roomName: accessibilityRoomName })}
@@ -137,22 +161,12 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 					disabled={hasE2EEWarning}
 				/>
 			) : null}
-			{threadsEnabled ? (
-				<HeaderButton.Item
-					accessibilityLabel={threadsAccessibilityLabel()}
-					iconName='threads'
-					onPress={goThreadsView}
-					testID='room-view-header-threads'
-					badge={() => <HeaderButton.BadgeUnread tunread={tunread} tunreadUser={tunreadUser} tunreadGroup={tunreadGroup} />}
-					disabled={hasE2EEWarning}
-				/>
-			) : null}
 			<HeaderButton.Item
-				accessibilityLabel={i18n.t('Search_Messages')}
-				iconName='search'
-				onPress={goSearchView}
-				testID='room-view-search'
-				disabled={hasE2EEWarning}
+				accessibilityLabel={i18n.t('More')}
+				iconName='kebab'
+				onPress={openMenu}
+				testID='room-view-header-menu'
+				badge={() => <HeaderButton.BadgeUnread tunread={tunread} tunreadUser={tunreadUser} tunreadGroup={tunreadGroup} />}
 			/>
 		</HeaderButton.Container>
 	);

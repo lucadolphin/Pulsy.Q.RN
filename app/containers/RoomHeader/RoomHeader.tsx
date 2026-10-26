@@ -26,9 +26,9 @@ const HIT_SLOP = {
 };
 const TITLE_SIZE = 16;
 const SUBTITLE_SIZE = 12;
-// IOS/Talk26 ExHeaderDetailV2: avatar 40, name 20 bold
+// IOS/Talk26 ExHeaderDetailV2: avatar 40, name bold
 const AVATAR_SIZE = 40;
-const TALK_TITLE_SIZE = 20;
+const TALK_TITLE_SIZE = 17;
 
 const getSubTitleSize = (scale: number) => SUBTITLE_SIZE * scale;
 
