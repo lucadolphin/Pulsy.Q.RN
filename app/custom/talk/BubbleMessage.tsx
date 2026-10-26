@@ -7,7 +7,7 @@ import MessageAccessibleIndex from '~/containers/message/components/MessageAcces
 import { WidthAwareView } from '~/containers/message/components/WidthAwareView';
 import { ContentLayout } from '~/containers/message/components/Layout/ContentLayout';
 import Thread from '~/containers/message/components/Thread';
-import Reactions from '~/containers/message/components/Reactions';
+import BubbleReactions, { REACTIONS_OVERHANG } from './BubbleReactions';
 import Broadcast from '~/containers/message/components/Broadcast';
 import BubbleMeta from './BubbleMeta';
 import Avatar from '~/containers/Avatar';
@@ -22,7 +22,8 @@ import {
 	useIsOwnMessage,
 	useMessageAuthor,
 	useMessageField,
-	useMessageGrouping
+	useMessageGrouping,
+	useReactions
 } from '~/containers/message/stores/MessageStore';
 import TextWithInlineTime from './TextWithInlineTime';
 import { useTheme } from '~/theme';
@@ -97,6 +98,7 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const { theme } = useTheme();
 	const talk = getTalkColors(theme);
 	const isOwn = useIsOwnMessage();
+	const hasReactions = !!useReactions()?.length;
 	const isHeader = useMessageGrouping();
 	const id = useMessageField(item => item.id);
 	const type = useMessageField(item => item.t);
@@ -119,7 +121,9 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	}
 
 	return (
-		<View testID={`message-${id}`} style={[styles.row, isOwn ? styles.rowMine : styles.rowOther]}>
+		<View
+			testID={`message-${id}`}
+			style={[styles.row, isOwn ? styles.rowMine : styles.rowOther, hasReactions && { paddingBottom: 3 + REACTIONS_OVERHANG }]}>
 			{!isOwn ? <BubbleAvatar /> : null}
 			<MessageAccessibleIndex>
 				<View
@@ -146,7 +150,6 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 								<ContentLayout />
 							</TextWithInlineTime>
 							<Thread />
-							<Reactions />
 							<Broadcast />
 						</View>
 					) : (
@@ -155,13 +158,13 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 								<View style={styles.content}>
 									<ContentLayout />
 									<Thread />
-									<Reactions />
 									<Broadcast />
 								</View>
 							</WidthAwareView>
 							{audioHasMeta ? null : <View style={styles.meta}>{meta}</View>}
 						</>
 					)}
+					<BubbleReactions isOwn={isOwn} />
 				</View>
 			</MessageAccessibleIndex>
 		</View>
