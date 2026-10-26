@@ -10,6 +10,7 @@ import sdk from '../services/sdk';
 import { store } from '../store/auxStore';
 import updateMessages from './updateMessages';
 import { generateLoadMoreId } from './helpers/generateLoadMoreId';
+import { markHistoryLoaded } from './historyLoadedRooms';
 import { snapshotServerTimestamps, type TServerTimestamps, updateLastOpen } from './updateLastOpen';
 
 const COUNT = 50;
@@ -146,6 +147,7 @@ export async function loadMessagesForRoom(args: {
 		if (!args.latest && !args.loaderItem) {
 			await updateLastOpen(args.rid, serverTimestamps);
 		}
+		markHistoryLoaded(args.rid);
 	} catch (e) {
 		log(e);
 		throw e;

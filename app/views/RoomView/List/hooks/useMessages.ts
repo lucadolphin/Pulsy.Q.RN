@@ -27,9 +27,11 @@ const findFirstLoaderId = (messages: TAnyMessageModel[]): string | null => messa
 interface IObservedWindow {
 	rows: TAnyMessageModel[];
 	threadParent: TAnyMessageModel | null;
+	// There are older rows in the local DB than the window shows
+	hasOlderRows: boolean;
 }
 
-const EMPTY_WINDOW: IObservedWindow = { rows: [], threadParent: null };
+const EMPTY_WINDOW: IObservedWindow = { rows: [], threadParent: null, hasOlderRows: false };
 
 export const useMessages = ({
 	rid,
@@ -201,7 +203,7 @@ export const useMessages = ({
 			if (tmid) {
 				readThread();
 			}
-			setObservedWindow({ rows: hasOlderRows ? result.slice(0, windowSize) : result, threadParent });
+			setObservedWindow({ rows: hasOlderRows ? result.slice(0, windowSize) : result, threadParent, hasOlderRows });
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps -- readThread is omitted intentionally: useDebouncedCallback stores func in a ref so changes propagate without recreating fetchMessages; hideSystemMessages must stay so the DB re-queries for proper pagination
 	}, [rid, tmid, showMessageInMainThread, hideSystemMessages, highTs, unsubscribe, raiseOrReleaseAnchor]);
@@ -281,5 +283,10 @@ export const useMessages = ({
 		}
 	}, [highTs, serverVersion, rid, t, hideSystemMessages, messages, dispatch, store]);
 
-	return [messages, messagesIds, fetchMessages, { highTs, setHighTs, loadOlderMessages }] as const;
+	return [
+		messages,
+		messagesIds,
+		fetchMessages,
+		{ highTs, setHighTs, loadOlderMessages, hasOlderLocalRows: observedWindow.hasOlderRows }
+	] as const;
 };

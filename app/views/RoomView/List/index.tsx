@@ -4,6 +4,8 @@ import { useDebounce } from '~/lib/methods/helpers';
 import EmptyRoom from './components/EmptyRoom';
 import List from './components/List';
 import ConversationStart from './components/ConversationStart';
+import { useHistoryLoaded } from '~/lib/methods/historyLoadedRooms';
+import { useAppSelector } from '~/lib/hooks/useAppSelector';
 import { MESSAGE_TYPE_ANY_LOAD, type MessageTypeLoad } from '~/lib/constants/messageTypeLoad';
 import { MessageRow } from '../components/MessageRow';
 import { type IListContainerProps, type IListContainerRef, type IListProps } from '../definitions';
@@ -12,7 +14,7 @@ import { useScroll } from './hooks/useScroll';
 
 const ListContainer = forwardRef<IListContainerRef, IListContainerProps>(
 	({ rid, tmid, t, onLongPress, showMessageInMainThread, hideSystemMessages, flatListRef, serverVersion }, ref) => {
-		const [messages, messagesIds, fetchMessages, { highTs, setHighTs, loadOlderMessages }] = useMessages({
+		const [messages, messagesIds, fetchMessages, { highTs, setHighTs, loadOlderMessages, hasOlderLocalRows }] = useMessages({
 			rid,
 			tmid,
 			showMessageInMainThread,
@@ -30,6 +32,9 @@ const ListContainer = forwardRef<IListContainerRef, IListContainerProps>(
 				fetchMessages,
 				tmid
 			});
+
+		const historyLoaded = useHistoryLoaded(rid);
+		const historyLoading = useAppSelector(state => state.room.historyLoaders.length > 0);
 
 		const onEndReached = useDebounce(loadOlderMessages, 300);
 
@@ -50,9 +55,16 @@ const ListContainer = forwardRef<IListContainerRef, IListContainerProps>(
 			/>
 		);
 
-		// The oldest message (last, the list is inverted) isn't a "load more" row: there is no older history to fetch
+		// Nothing older to fetch: the history was loaded, none is loading, the window shows every local row and the
+		// oldest one isn't a "load more" row
 		const oldest = messages[messages.length - 1];
-		const reachedStart = !tmid && !!oldest && !MESSAGE_TYPE_ANY_LOAD.includes(oldest.t as MessageTypeLoad);
+		const reachedStart =
+			!tmid &&
+			historyLoaded &&
+			!historyLoading &&
+			!hasOlderLocalRows &&
+			!!oldest &&
+			!MESSAGE_TYPE_ANY_LOAD.includes(oldest.t as MessageTypeLoad);
 
 		return (
 			<>

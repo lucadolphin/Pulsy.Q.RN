@@ -5,6 +5,7 @@ import sdk from '../services/sdk';
 import { store } from '../store/auxStore';
 import { getSubscriptionByRoomId } from '../database/services/Subscription';
 import log from './helpers/log';
+import { markHistoryLoaded } from './historyLoadedRooms';
 import { snapshotServerTimestamps, type TServerTimestamps, updateLastOpen } from './updateLastOpen';
 import { loadMessagesForRoom } from './loadMessagesForRoom';
 import { isRoomType } from './roomTypeToApiType';
@@ -125,5 +126,7 @@ export async function loadMissedMessages(args: {
 		if (fetchedUpdatedPage && !updatedNext) {
 			await updateLastOpen(args.rid, serverTimestamps);
 		}
+		// A room synced from its cursor has its older history (or the loader row that stands for it) stored already
+		markHistoryLoaded(args.rid);
 	}
 }
