@@ -112,7 +112,9 @@ const styles = StyleSheet.create({
 		position: 'relative',
 		alignSelf: 'flex-start'
 	},
+	// Stretch to the bubble: when the sender's name makes it wider, the time stays at the right edge
 	wrapInlineRow: {
+		alignSelf: 'stretch',
 		flexDirection: 'row',
 		alignItems: 'flex-end'
 	},
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
 	},
 	infoInFlow: {
 		flexShrink: 0,
+		marginLeft: 'auto',
 		paddingLeft: INFO_PAD_LEFT
 	}
 });

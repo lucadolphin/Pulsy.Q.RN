@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { InteractionManager, View } from 'react-native';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import { useSharedValue } from 'react-native-reanimated';
@@ -27,6 +27,10 @@ interface IAudioPlayerProps {
 	msgId?: string;
 	// Amplitudes (0-1) of the recording, when known; otherwise the bars are a fixed pattern per message
 	waveformSamples?: number[];
+	// Own message: it sits on the green bubble
+	isOwn?: boolean;
+	// Time and status shown at the right of the duration (the bubble's meta, on one line with it)
+	meta?: ReactNode;
 }
 
 const AudioPlayer = ({
@@ -36,7 +40,9 @@ const AudioPlayer = ({
 	downloadState,
 	msgId,
 	rid,
-	waveformSamples
+	waveformSamples,
+	isOwn = false,
+	meta
 }: IAudioPlayerProps) => {
 	const isLoading = downloadState === 'loading';
 	const isDownloaded = downloadState === 'downloaded';
@@ -178,7 +184,9 @@ const AudioPlayer = ({
 				loaded={!disabled && isDownloaded}
 				onChangeTime={setPosition}
 				barHeights={barHeights}
-				trailing={<PlaybackSpeed />}
+				isOwn={isOwn}
+				accessory={<PlaybackSpeed isOwn={isOwn} />}
+				trailing={meta}
 			/>
 		</View>
 	);

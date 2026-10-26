@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import sharedStyles from '~/views/Styles';
-import { AUDIO_MIN_WIDTH, PLAY_BUTTON_SIZE, THUMB_SEEK_SIZE, WAVE_HEIGHT } from './constants';
+import { AUDIO_MIN_WIDTH, PLAY_BUTTON_SIZE, THUMB_SEEK_SIZE, WAVE_HEIGHT, SPEED_PILL } from './constants';
 
 const styles = StyleSheet.create({
 	audioContainer: {
@@ -9,26 +9,29 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'flex-start',
 		minWidth: AUDIO_MIN_WIDTH,
-		paddingVertical: 4
+		paddingTop: 6
 	},
+	// Just the triangle, no circle behind it
 	playPauseButton: {
 		alignItems: 'center',
 		marginLeft: 0,
 		height: PLAY_BUTTON_SIZE,
 		width: PLAY_BUTTON_SIZE,
-		borderRadius: PLAY_BUTTON_SIZE / 2,
 		justifyContent: 'center'
 	},
 	seekContainer: {
 		flex: 1,
-		// The waveform sits in the middle of the play button; time and speed hang below it
-		paddingTop: (PLAY_BUTTON_SIZE - WAVE_HEIGHT) / 2,
-		marginLeft: 8,
-		marginRight: 8
+		marginLeft: 4
+	},
+	seekRow: {
+		flexDirection: 'row',
+		alignItems: 'center'
 	},
 	seek: {
+		flex: 1,
 		height: WAVE_HEIGHT,
-		justifyContent: 'center'
+		justifyContent: 'center',
+		marginRight: 8
 	},
 	waveBars: {
 		flexDirection: 'row',
@@ -54,15 +57,23 @@ const styles = StyleSheet.create({
 		overflow: 'hidden'
 	},
 	footer: {
-		marginTop: 6,
 		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between'
+		alignItems: 'center'
 	},
 	duration: {
 		padding: 0,
-		fontSize: 12,
+		fontSize: 10,
+		minWidth: 36,
+		marginTop: -2,
+		marginRight: 'auto',
+		fontVariant: ['tabular-nums'],
 		...sharedStyles.textRegular
+	},
+	meta: {
+		paddingRight: 2,
+		flexShrink: 1,
+		flex: 1,
+		alignItems: 'flex-end'
 	},
 	thumbSeek: {
 		height: THUMB_SEEK_SIZE,
@@ -72,15 +83,16 @@ const styles = StyleSheet.create({
 		top: (WAVE_HEIGHT - THUMB_SEEK_SIZE) / 2
 	},
 	containerPlaybackSpeed: {
-		width: 34,
-		height: 20,
-		borderRadius: 10,
+		width: SPEED_PILL.width,
+		height: SPEED_PILL.height,
+		borderRadius: SPEED_PILL.height / 2,
 		justifyContent: 'center',
 		alignItems: 'center',
-		overflow: 'hidden'
+		overflow: 'hidden',
+		flexShrink: 0
 	},
 	playbackSpeedText: {
-		fontSize: 12,
+		fontSize: 10,
 		...sharedStyles.textBold
 	}
 });

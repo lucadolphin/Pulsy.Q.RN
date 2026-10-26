@@ -1,13 +1,15 @@
 import { type ReactElement } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 import { CustomIcon } from '../CustomIcon';
 import { useTheme } from '~/theme';
 import styles from './styles';
 import RCActivityIndicator from '../ActivityIndicator';
-import { AUDIO_BUTTON_HIT_SLOP } from './constants';
+import { AUDIO_BUTTON_HIT_SLOP, PLAY_ICON_SIZE } from './constants';
 import { type TAudioState } from './types';
 import NativeButton from '../NativeButton';
 import getPlayButtonAccessibilityLabel from './getPlayButtonAccessibilityLabel';
+import { getTalkColors } from '~/custom/talk/talkTheme';
 
 interface IButton {
 	disabled?: boolean;
@@ -15,41 +17,29 @@ interface IButton {
 	audioState: TAudioState;
 }
 
-type TCustomIconName = 'arrow-down' | 'play-shape-filled' | 'pause-shape-filled';
-
 const Icon = ({ audioState, disabled }: { audioState: TAudioState; disabled: boolean }) => {
-	const { colors } = useTheme();
+	const { theme, colors } = useTheme();
+	const talk = getTalkColors(theme);
 
 	if (audioState === 'loading') {
-		return <RCActivityIndicator size={24} color={colors.buttonFontPrimary} />;
+		return <RCActivityIndicator size={24} color={talk.primary} />;
 	}
 
-	let customIconName: TCustomIconName = 'arrow-down';
-	if (audioState === 'playing') {
-		customIconName = 'pause-shape-filled';
-	}
-	if (audioState === 'paused') {
-		customIconName = 'play-shape-filled';
+	const color = disabled ? colors.buttonBackgroundPrimaryDisabled : talk.primary;
+	if (audioState === 'playing' || audioState === 'paused') {
+		return <Ionicons name={audioState === 'playing' ? 'pause' : 'play'} size={PLAY_ICON_SIZE} color={color} />;
 	}
 
-	return (
-		<CustomIcon
-			name={customIconName}
-			size={24}
-			color={disabled ? colors.buttonBackgroundPrimaryDisabled : colors.buttonFontPrimary}
-		/>
-	);
+	return <CustomIcon name='arrow-down' size={24} color={color} />;
 };
 
 const PlayButton = ({ onPress, disabled = false, audioState }: IButton): ReactElement => {
-	const { colors } = useTheme();
-
 	return (
 		<NativeButton
 			testID='play-button'
 			accessible
 			accessibilityLabel={getPlayButtonAccessibilityLabel(audioState)}
-			style={[styles.playPauseButton, { backgroundColor: colors.buttonBackgroundPrimaryDefault }]}
+			style={styles.playPauseButton}
 			disabled={disabled}
 			onPress={onPress}
 			hitSlop={AUDIO_BUTTON_HIT_SLOP}>

@@ -9,9 +9,7 @@ import { ContentLayout } from '~/containers/message/components/Layout/ContentLay
 import Thread from '~/containers/message/components/Thread';
 import Reactions from '~/containers/message/components/Reactions';
 import Broadcast from '~/containers/message/components/Broadcast';
-import MessageTime from '~/containers/message/components/Time';
-import RightIcons from '~/containers/message/components/RightIcons';
-import MessageTicks from './MessageTicks';
+import BubbleMeta from './BubbleMeta';
 import Avatar from '~/containers/Avatar';
 import { SubscriptionType } from '~/definitions';
 import { useMessageUser, useNavToRoomInfo } from '~/containers/message/stores/MessageRoomStore';
@@ -108,17 +106,13 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const hasMedia = !!attachments?.some(file => file?.image_url || file?.video_url);
 	// Same for the audio player, which is as wide as its waveform needs
 	const hasAudio = !!attachments?.some(file => file?.audio_url);
+	// The audio player shows the time on its own duration line
+	const audioHasMeta = hasAudio && attachments?.length === 1;
 	const { isPlainText, messageText } = usePlainText(!!attachments?.length);
 	const { width: windowWidth } = useWindowDimensions();
 	const bubbleMaxWidth = (windowWidth - ROW_PADDING * 2 - (isOwn ? 0 : AVATAR_SIZE + AVATAR_MARGIN)) * BUBBLE_MAX_RATIO;
 
-	const meta = (
-		<View style={styles.metaInfo}>
-			<RightIcons hideReadReceipt />
-			<MessageTime />
-			<MessageTicks />
-		</View>
-	);
+	const meta = <BubbleMeta />;
 
 	if (isPreview || blocks?.length || (type && SPECIAL_LAYOUT_TYPES.includes(type))) {
 		return <FullMessage isPreview={isPreview} />;
@@ -136,6 +130,8 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 						// maxWidth is a % of the wrapper, which is itself sized by the bubble: it would shrink it to 84% of the box
 						hasMedia && { width: MEDIA_BOX + BUBBLE_PADDING_H * 2, maxWidth: undefined },
 						hasAudio && { width: AUDIO_MIN_WIDTH + BUBBLE_PADDING_H * 2, maxWidth: undefined },
+						// Talk26 audio-only bubble: 4px above the player, which adds its own 6
+						audioHasMeta && { paddingTop: 4 },
 						isOwn
 							? { backgroundColor: talk.bubbleSent, borderBottomRightRadius: BUBBLE_TAIL_RADIUS }
 							: { backgroundColor: talk.bubbleReceived, borderBottomLeftRadius: BUBBLE_TAIL_RADIUS }
@@ -163,7 +159,7 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 									<Broadcast />
 								</View>
 							</WidthAwareView>
-							<View style={styles.meta}>{meta}</View>
+							{audioHasMeta ? null : <View style={styles.meta}>{meta}</View>}
 						</>
 					)}
 				</View>
@@ -206,11 +202,6 @@ const styles = StyleSheet.create({
 		marginBottom: 2
 	},
 	content: {
-		gap: 4
-	},
-	metaInfo: {
-		flexDirection: 'row',
-		alignItems: 'center',
 		gap: 4
 	},
 	meta: {

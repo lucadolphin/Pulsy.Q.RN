@@ -13,7 +13,14 @@ import { scheduleOnRN } from 'react-native-worklets';
 
 import styles from './styles';
 import { useTheme } from '~/theme';
-import { SEEK_HIT_SLOP, THUMB_SEEK_SIZE, ACTIVE_OFFSET_X, DEFAULT_TIME_LABEL } from './constants';
+import {
+	SEEK_HIT_SLOP,
+	THUMB_SEEK_SIZE,
+	ACTIVE_OFFSET_X,
+	DEFAULT_TIME_LABEL,
+	SEEK_THUMB_COLOR,
+	getWaveColors
+} from './constants';
 import { fallbackBarHeights } from './waveform';
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
@@ -27,6 +34,10 @@ interface ISeek {
 	barHeights?: number[];
 	// Shown under the waveform, on the right of the time
 	trailing?: ReactNode;
+	// On the sent bubble (green) the bars are white
+	isOwn?: boolean;
+	// Right of the waveform (the speed pill)
+	accessory?: ReactNode;
 }
 
 const Bars = ({ heights, color }: { heights: number[]; color: string }) => (
@@ -51,12 +62,11 @@ const formatTime = (ms: number) => {
 
 	const minutes = Math.floor(ms / 60);
 	const remainingSeconds = Math.floor(ms % 60);
-	const formattedMinutes = String(minutes).padStart(2, '0');
 	const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-	return `${formattedMinutes}:${formattedSeconds}`;
+	return `${minutes}:${formattedSeconds}`;
 };
 
-const Seek = ({ currentTime, duration, loaded = false, onChangeTime, barHeights, trailing }: ISeek) => {
+const Seek = ({ currentTime, duration, loaded = false, onChangeTime, barHeights, trailing, isOwn = false, accessory }: ISeek) => {
 	const { colors } = useTheme();
 	const [trackWidth, setTrackWidth] = useState(0);
 	const heights = useMemo(() => barHeights ?? fallbackBarHeights('audio'), [barHeights]);
@@ -132,31 +142,35 @@ const Seek = ({ currentTime, duration, loaded = false, onChangeTime, barHeights,
 		} as TextInputProps;
 	}, [timeLabel, duration, currentTime]);
 
-	const thumbColor = loaded ? colors.buttonBackgroundPrimaryDefault : colors.buttonBackgroundPrimaryDisabled;
+	const waveColors = getWaveColors(isOwn);
+	const thumbColor = loaded ? SEEK_THUMB_COLOR : colors.buttonBackgroundPrimaryDisabled;
 
 	// TouchableNativeFeedback is avoiding do a long press message when seeking the audio
 	return (
 		<TouchableNativeFeedback>
 			<View style={styles.seekContainer}>
-				<View style={styles.seek} onLayout={onLayout}>
-					<Bars heights={heights} color={colors.strokeMedium} />
-					<Animated.View style={[styles.wavePlayed, styleLine]} pointerEvents='none'>
-						<View style={{ width: trackWidth }}>
-							<Bars heights={heights} color={colors.buttonBackgroundPrimaryDefault} />
-						</View>
-					</Animated.View>
-					<GestureDetector gesture={panGesture}>
-						<Animated.View hitSlop={SEEK_HIT_SLOP} style={[styles.thumbSeek, { backgroundColor: thumbColor }, styleThumb]} />
-					</GestureDetector>
+				<View style={styles.seekRow}>
+					<View style={styles.seek} onLayout={onLayout}>
+						<Bars heights={heights} color={waveColors.unplayed} />
+						<Animated.View style={[styles.wavePlayed, styleLine]} pointerEvents='none'>
+							<View style={{ width: trackWidth }}>
+								<Bars heights={heights} color={waveColors.played} />
+							</View>
+						</Animated.View>
+						<GestureDetector gesture={panGesture}>
+							<Animated.View hitSlop={SEEK_HIT_SLOP} style={[styles.thumbSeek, { backgroundColor: thumbColor }, styleThumb]} />
+						</GestureDetector>
+					</View>
+					{accessory}
 				</View>
 				<View style={styles.footer}>
 					<AnimatedTextInput
 						defaultValue={DEFAULT_TIME_LABEL}
 						editable={false}
-						style={[styles.duration, { color: colors.fontSecondaryInfo }]}
+						style={[styles.duration, { color: '#9b9ca4' }]}
 						animatedProps={timeLabelAnimatedProps}
 					/>
-					{trailing}
+					{trailing ? <View style={styles.meta}>{trailing}</View> : null}
 				</View>
 			</View>
 		</TouchableNativeFeedback>
