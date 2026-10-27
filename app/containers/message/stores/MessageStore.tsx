@@ -292,7 +292,7 @@ export const useIsEncrypted = (): boolean => useMessageField(item => item.t === 
 
 export const useIsInfoMessage = (): boolean =>
 	useMessageField(item => {
-		if (['e2e', 'discussion-created', 'jitsi_call_started', 'videoconf'].includes(item.t as string)) {
+		if (['e2e', 'discussion-created', 'jitsi_call_started', 'videoconf', 'sticker'].includes(item.t as string)) {
 			return false;
 		}
 		return !!item.t;

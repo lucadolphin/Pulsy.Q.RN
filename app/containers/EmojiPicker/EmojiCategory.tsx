@@ -51,7 +51,8 @@ const EmojiCategory = ({
 	category,
 	emojis,
 	onEmojiSelected,
-	bottomSheet = false
+	bottomSheet = false,
+	draggable = false
 }: IEmojiCategoryProps): ReactElement | null => {
 	const items = useEmojis(category);
 
@@ -63,7 +64,9 @@ const EmojiCategory = ({
 	const marginHorizontal = (parentWidth % EMOJI_BUTTON_SIZE) / 2;
 	const contentPaddingBottom = bottomSheet ? MIN_BOTTOM_SHEET_BREATHING_ROOM : undefined;
 
-	const renderItem = ({ item }: { item: IEmoji }) => <PressableEmoji emoji={item} onPress={onEmojiSelected} />;
+	const renderItem = ({ item }: { item: IEmoji }) => (
+		<PressableEmoji emoji={item} onPress={onEmojiSelected} draggable={draggable} />
+	);
 
 	return (
 		<FlatList

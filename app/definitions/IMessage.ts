@@ -276,6 +276,7 @@ export type MessageTypesValues =
 	| 'room-disallowed-reacting'
 	| 'command'
 	| 'videoconf'
+	| 'sticker'
 	| LivechatMessageTypes
 	| TeamMessageTypes
 	| VoipMessageTypesValues

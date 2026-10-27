@@ -45,6 +45,7 @@ const EmojiPicker = ({
 			onEmojiSelected={handleEmojiSelect}
 			category={route.key as any}
 			bottomSheet={bottomSheet}
+			draggable={isEmojiKeyboard}
 		/>
 	);
 
@@ -70,6 +71,7 @@ const EmojiPicker = ({
 					onEmojiSelected={(emoji: IEmoji) => handleEmojiSelect(emoji)}
 					parentWidth={parentWidth}
 					bottomSheet={bottomSheet}
+					draggable={isEmojiKeyboard}
 				/>
 			) : (
 				<TabView renderScene={renderScene} renderTabItem={renderTabItem} routes={routes} />

@@ -11,6 +11,7 @@ import { registerBubble } from './messageMenuStore';
 import BubbleReactions, { REACTIONS_OVERHANG } from './BubbleReactions';
 import Broadcast from '~/containers/message/components/Broadcast';
 import BubbleMeta from './BubbleMeta';
+import StickerMessage, { isSingleEmoji } from './StickerMessage';
 import Avatar from '~/containers/Avatar';
 import { SubscriptionType } from '~/definitions';
 import { useMessageUser, useNavToRoomInfo } from '~/containers/message/stores/MessageRoomStore';
@@ -112,7 +113,20 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 	const hasAudio = !!attachments?.some(file => file?.audio_url);
 	// The audio player shows the time on its own duration line
 	const audioHasMeta = hasAudio && attachments?.length === 1;
-	useEffect(() => registerBubble(id, bubbleRef), [id]);
+	// The menu of a long press lights the bubble with its corners, and the reactions hanging under it
+	useEffect(
+		() =>
+			registerBubble(id, bubbleRef, {
+				extraBottom: hasReactions ? REACTIONS_OVERHANG : 0,
+				radii: {
+					tl: BUBBLE_RADIUS,
+					tr: BUBBLE_RADIUS,
+					br: isOwn ? BUBBLE_TAIL_RADIUS : BUBBLE_RADIUS,
+					bl: isOwn ? BUBBLE_RADIUS : BUBBLE_TAIL_RADIUS
+				}
+			}),
+		[id, hasReactions, isOwn]
+	);
 	const { isPlainText, messageText } = usePlainText(!!attachments?.length);
 	const { width: windowWidth } = useWindowDimensions();
 	const bubbleMaxWidth = (windowWidth - ROW_PADDING * 2 - (isOwn ? 0 : AVATAR_SIZE + AVATAR_MARGIN)) * BUBBLE_MAX_RATIO;
@@ -121,6 +135,22 @@ const BubbleMessage = ({ isPreview }: { isPreview?: boolean }) => {
 
 	if (isPreview || blocks?.length || (type && SPECIAL_LAYOUT_TYPES.includes(type))) {
 		return <FullMessage isPreview={isPreview} />;
+	}
+
+	// A sticker, or a message that is just one emoji (the E2E ones lose the sticker type): the big picture without a bubble
+	if (
+		messageText &&
+		!attachments?.length &&
+		(type === 'sticker' || (!type || type === 'e2e' ? isSingleEmoji(messageText) : false))
+	) {
+		return (
+			<View testID={`message-${id}`} style={[styles.row, isOwn ? styles.rowMine : styles.rowOther]}>
+				{!isOwn ? <BubbleAvatar /> : null}
+				<MessageAccessibleIndex>
+					<StickerMessage ref={bubbleRef} emoji={messageText} isOwn={isOwn} />
+				</MessageAccessibleIndex>
+			</View>
+		);
 	}
 
 	return (

@@ -3,7 +3,10 @@ import { type View } from 'react-native';
 
 import { type TActionSheetOptionsItem } from '~/containers/ActionSheet';
 
-export type TMessageAnchor = { x: number; y: number; width: number; height: number };
+export type TCornerRadii = { tl: number; tr: number; br: number; bl: number };
+export type TMessageAnchor = { x: number; y: number; width: number; height: number; radii: TCornerRadii };
+
+const DEFAULT_RADII: TCornerRadii = { tl: 8, tr: 8, br: 8, bl: 8 };
 
 export type TMessageMenuPayload = {
 	anchor: TMessageAnchor;
@@ -16,13 +19,22 @@ export type TMessageMenuPayload = {
 	onClose?: () => void;
 };
 
-const bubbles = new Map<string, RefObject<View | null>>();
+type TBubble = { ref: RefObject<View | null>; extraBottom: number; radii: TCornerRadii };
+const bubbles = new Map<string, TBubble>();
 
-/** The bubble of a message, registered by its row so the menu can sit over it */
-export const registerBubble = (messageId: string, ref: RefObject<View | null>) => {
-	bubbles.set(messageId, ref);
+/**
+ * The bubble of a message, registered by its row so the menu can sit over it. `extraBottom` is what hangs under the
+ * bubble (the reactions), which stays lit with it; `radii` are the corners of the bubble.
+ */
+export const registerBubble = (
+	messageId: string,
+	ref: RefObject<View | null>,
+	{ extraBottom = 0, radii = DEFAULT_RADII }: { extraBottom?: number; radii?: TCornerRadii } = {}
+) => {
+	const bubble = { ref, extraBottom, radii };
+	bubbles.set(messageId, bubble);
 	return () => {
-		if (bubbles.get(messageId) === ref) {
+		if (bubbles.get(messageId) === bubble) {
 			bubbles.delete(messageId);
 		}
 	};
@@ -30,12 +42,15 @@ export const registerBubble = (messageId: string, ref: RefObject<View | null>) =
 
 export const measureBubble = (messageId: string): Promise<TMessageAnchor | null> =>
 	new Promise(resolve => {
-		const view = bubbles.get(messageId)?.current;
-		if (!view) {
+		const bubble = bubbles.get(messageId);
+		const view = bubble?.ref.current;
+		if (!bubble || !view) {
 			resolve(null);
 			return;
 		}
-		view.measureInWindow((x, y, width, height) => resolve(width > 0 && height > 0 ? { x, y, width, height } : null));
+		view.measureInWindow((x, y, width, height) =>
+			resolve(width > 0 && height > 0 ? { x, y, width, height: height + bubble.extraBottom, radii: bubble.radii } : null)
+		);
 	});
 
 let listener: ((payload: TMessageMenuPayload | null) => void) | null = null;

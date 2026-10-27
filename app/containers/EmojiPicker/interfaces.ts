@@ -30,6 +30,8 @@ export interface IEmojiCategoryProps {
 	category?: TEmojiCategory;
 	emojis?: IEmoji[];
 	bottomSheet?: boolean;
+	// Emojis can be dragged into the chat to send them as stickers
+	draggable?: boolean;
 }
 
 export interface IEmojiSearchBarProps {

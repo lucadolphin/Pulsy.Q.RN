@@ -91,7 +91,9 @@ export async function sendMessage(
 	msg: string,
 	tmid: string | undefined,
 	user: Partial<Pick<IUser, 'id' | 'username' | 'name'>>,
-	tshow?: boolean
+	tshow?: boolean,
+	// Type of the message when it is not a plain one (a sticker)
+	type?: MessageType
 ): Promise<void> {
 	try {
 		const db = database.active;
@@ -106,7 +108,8 @@ export async function sendMessage(
 			rid,
 			msg,
 			tmid,
-			tshow
+			tshow,
+			...(type && { t: type })
 		} as IMessage);
 
 		const messageDate = new Date();
