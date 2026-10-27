@@ -14,6 +14,7 @@ import { getSubscriptionByRoomId } from '../database/services/Subscription';
 import { Encryption } from '../encryption';
 import buildMessage from './helpers/buildMessage';
 import { generateLoadMoreId } from './helpers/generateLoadMoreId';
+import markMessagesReceived from './markMessagesReceived';
 import protectedFunction from './helpers/protectedFunction';
 
 interface IUpdateMessages {
@@ -58,6 +59,7 @@ export default async function updateMessages({
 			.fetch();
 
 		update = update.map(m => buildMessage(m)) as IMessage[];
+		markMessagesReceived(update);
 
 		// filter loaders to delete
 		let loadersToDelete: TMessageModel[] = allMessagesRecords.filter(i1 =>

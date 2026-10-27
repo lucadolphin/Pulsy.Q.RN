@@ -70,6 +70,8 @@ export default class Message extends Model {
 
 	@field('unread') unread;
 
+	@json('received', sanitizer, { memo: true }) received;
+
 	@field('auto_translate') autoTranslate;
 
 	@json('translations', sanitizer, { memo: true }) translations;
@@ -120,6 +122,7 @@ export default class Message extends Model {
 			mentions: this.mentions,
 			channels: this.channels,
 			unread: this.unread,
+			received: this.received,
 			autoTranslate: this.autoTranslate,
 			translations: this.translations,
 			tmsg: this.tmsg,

@@ -1,7 +1,7 @@
 import { appSchema, tableSchema } from '@nozbe/watermelondb';
 
 export default appSchema({
-	version: 32,
+	version: 33,
 	tables: [
 		tableSchema({
 			name: 'subscriptions',
@@ -128,6 +128,7 @@ export default appSchema({
 				{ name: 'mentions', type: 'string', isOptional: true },
 				{ name: 'channels', type: 'string', isOptional: true },
 				{ name: 'unread', type: 'boolean', isOptional: true },
+				{ name: 'received', type: 'string', isOptional: true },
 				{ name: 'auto_translate', type: 'boolean', isOptional: true },
 				{ name: 'translations', type: 'string', isOptional: true },
 				{ name: 'tmsg', type: 'string', isOptional: true },

@@ -37,6 +37,7 @@ import { getRoom } from '../getRoom';
 import { merge } from '../helpers/mergeSubscriptionsRooms';
 import { getRoomAvatar, getRoomTitle, getSenderName, random } from '../helpers';
 import { handleVideoConfIncomingWebsocketMessages } from '~/actions/videoConf';
+import markMessagesReceived from '../markMessagesReceived';
 
 const removeListener = (listener: { stop: () => void }) => listener.stop();
 
@@ -162,6 +163,10 @@ export const createOrUpdateSubscription = async (subscription: ISubscription, ro
 			const { subscribedRoom } = store.getState().room;
 			const lastMessage = tmp.lastMessage && subscribedRoom !== tmp.rid ? buildMessage(tmp.lastMessage) : null;
 			const messageRecord = lastMessage ? await getMessageById(lastMessage._id) : null;
+			// A message of a room that is not open reaches this device here
+			if (lastMessage) {
+				markMessagesReceived([lastMessage]);
+			}
 			const batch: Model[] = [];
 
 			try {

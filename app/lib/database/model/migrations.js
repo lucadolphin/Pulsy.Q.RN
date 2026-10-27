@@ -383,6 +383,15 @@ export default schemaMigrations({
 					columns: [{ name: 'typing_users', type: 'string', isOptional: true }]
 				})
 			]
+		},
+		{
+			toVersion: 33,
+			steps: [
+				addColumns({
+					table: 'messages',
+					columns: [{ name: 'received', type: 'string', isOptional: true }]
+				})
+			]
 		}
 	]
 });

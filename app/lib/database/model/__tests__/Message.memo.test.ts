@@ -13,7 +13,7 @@ describe('Message.js @json memo invariant', () => {
 
 	// Positive control: a regex that matches nothing would let every assertion below pass vacuously.
 	it('finds the expected number of @json fields', () => {
-		expect(jsonDeclarations.length).toBe(13);
+		expect(jsonDeclarations.length).toBe(14);
 	});
 
 	it('declares { memo: true } on every @json field', () => {

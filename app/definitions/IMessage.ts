@@ -81,6 +81,7 @@ export interface ILastMessage {
 	attachments?: IAttachment[];
 	reactions?: IReaction[];
 	unread?: boolean;
+	received?: { _id: string; ts?: string | Date }[];
 	pinned?: boolean;
 	status?: number;
 	token?: string;
@@ -176,6 +177,7 @@ export interface IMessage extends IMessageFromServer {
 	tlm?: string | Date | null;
 	replies?: string[];
 	unread?: boolean;
+	received?: { _id: string; ts?: string | Date }[];
 	autoTranslate?: boolean;
 	translations?: IMessageTranslations[];
 	tmsg?: string;
