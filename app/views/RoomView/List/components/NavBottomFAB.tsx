@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { CustomIcon } from '~/containers/CustomIcon';
 import { useTheme } from '~/theme';
+import { getTalkColors } from '~/custom/talk/talkTheme'; // TALK
 import Touch from '~/containers/Touch';
 import { EDGE_DISTANCE } from '../constants';
 import i18n from '~/i18n';
@@ -14,7 +15,12 @@ const styles = StyleSheet.create({
 		bottom: EDGE_DISTANCE
 	},
 	button: {
-		borderRadius: 25
+		borderRadius: 25,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5
 	},
 	content: {
 		width: 50,
@@ -27,7 +33,9 @@ const styles = StyleSheet.create({
 });
 
 const NavBottomFAB = ({ visible, onPress }: { visible: boolean; onPress: () => void }): ReactElement | null => {
-	const { colors } = useTheme();
+	const { theme, colors } = useTheme();
+	// The room's `surfaceRoom` is transparent (the chat pattern shows through): the button takes the bubble color
+	const background = getTalkColors(theme).bubbleReceived;
 
 	if (!visible) {
 		return null;
@@ -39,10 +47,10 @@ const NavBottomFAB = ({ visible, onPress }: { visible: boolean; onPress: () => v
 				accessible
 				accessibilityLabel={i18n.t('Jump_to_last_message')}
 				onPress={() => onPress()}
-				style={[styles.button, { backgroundColor: colors.surfaceRoom }]}
+				style={[styles.button, { backgroundColor: background }]}
 				testID='nav-jump-to-bottom'>
 				<View style={[styles.content, { borderColor: colors.strokeLight }]}>
-					<CustomIcon name='chevron-down' size={36} />
+					<CustomIcon name='chevron-down' size={36} color={colors.fontDefault} />
 				</View>
 			</Touch>
 		</View>
