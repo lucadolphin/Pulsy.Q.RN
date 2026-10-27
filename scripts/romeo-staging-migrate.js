@@ -195,7 +195,8 @@ db.exentriq_meet_calls.find({}).forEach(call => {
 		video.anonymousUsers = 0;
 		video.title = call.name || room.fname || room.name || '';
 	}
-	videoConferences.push({ replaceOne: { filter: { _id: call._id }, replacement: video, upsert: true } });
+	// Only inserted: a record that already exists keeps the link to the message romeo-staging-messages.js converted
+	videoConferences.push({ updateOne: { filter: { _id: call._id }, update: { $setOnInsert: video }, upsert: true } });
 });
 const written = videoConferences.length ? db.rocketchat_video_conference.bulkWrite(videoConferences, { ordered: false }) : null;
 print(`video conferences: upserted ${written ? written.upsertedCount : 0}, modified ${written ? written.modifiedCount : 0} of ${db.exentriq_meet_calls.countDocuments({})} calls`);
