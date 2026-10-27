@@ -2,10 +2,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import Svg, { Defs, Mask, Path, Rect } from 'react-native-svg';
 
 import { CustomIcon } from '~/containers/CustomIcon';
 import I18n from '~/i18n';
 import useShortnameToUnicode from '~/lib/hooks/useShortnameToUnicode';
+import { computeMenuTop } from './messageMenuLayout';
 import { setMessageMenuListener, type TMessageMenuPayload } from './messageMenuStore';
 
 // IOS/Talk26 MessageOptionsV2: a reaction bar and a short menu next to the pressed bubble, over a dimmed chat
@@ -17,13 +19,19 @@ const REACTION_ITEM_W = 34;
 const REACTION_BAR_PAD = 12;
 const STACK_GAP = 6;
 const HEADER_FALLBACK = 56;
-const COMPOSER_FALLBACK = 72;
+// The composer with its toolbar, which the menu must not cover
+const COMPOSER_FALLBACK = 100;
+// Rows shown before "More…": the rest is one tap away
+const PRIMARY_ROWS = 5;
 const MENU_ICON = '#54656F';
 const MENU_TEXT = '#111B21';
 const DESTRUCTIVE = '#E53935';
 
+type TMenuRow = TMessageMenuPayload['options'][number] & { keepOpen?: boolean };
+
 const MessageMenu = () => {
 	const [payload, setPayload] = useState<TMessageMenuPayload | null>(null);
+	const [expanded, setExpanded] = useState(false);
 	const insets = useSafeAreaInsets();
 	const { width: screenW, height: screenH } = useWindowDimensions();
 	const { formatShortnameToUnicode } = useShortnameToUnicode();
@@ -33,6 +41,7 @@ const MessageMenu = () => {
 
 	useEffect(() => {
 		if (payload) {
+			setExpanded(false);
 			opacity.setValue(0);
 			Animated.timing(opacity, { toValue: 1, duration: 140, useNativeDriver: true }).start();
 		}
@@ -49,7 +58,33 @@ const MessageMenu = () => {
 		return null;
 	}
 
-	const { anchor, isOwn, options, quickReactions, onReaction, onMoreReactions } = payload;
+	const { anchor, isOwn, options: allOptions, quickReactions, onReaction, onMoreReactions } = payload;
+	// The first rows, then "More…" for the rest; inside the rest, "Back" returns to the first ones
+	const splitList = allOptions.length > PRIMARY_ROWS + 1;
+	const rows: TMenuRow[] = !splitList
+		? allOptions
+		: expanded
+			? [
+					{
+						title: I18n.t('Back'),
+						icon: 'chevron-left',
+						keepOpen: true,
+						testID: 'message-actions-back',
+						onPress: () => setExpanded(false)
+					},
+					...allOptions.slice(PRIMARY_ROWS)
+				]
+			: [
+					...allOptions.slice(0, PRIMARY_ROWS),
+					{
+						title: I18n.t('More_options'),
+						icon: 'chevron-right',
+						keepOpen: true,
+						testID: 'message-actions-more',
+						onPress: () => setExpanded(true)
+					}
+				];
+	// The bar stays over "More…" too, and with it the width of the menu
 	const hasBar = !!quickReactions?.length && !!onReaction;
 	const barWidth = hasBar ? (quickReactions!.length + 1) * REACTION_ITEM_W + REACTION_BAR_PAD : 0;
 	const width = Math.min(Math.max(MENU_WIDTH, barWidth), screenW - SCREEN_MARGIN * 2);
@@ -57,54 +92,63 @@ const MessageMenu = () => {
 	const chatTop = insets.top + HEADER_FALLBACK + SCREEN_MARGIN;
 	const chatBottom = screenH - insets.bottom - COMPOSER_FALLBACK - SCREEN_MARGIN;
 	// A long list scrolls inside the card instead of leaving the chat area
-	const cardH = Math.min(options.length * ROW_H, chatBottom - chatTop - barBlock);
+	const cardH = Math.min(rows.length * ROW_H, chatBottom - chatTop - barBlock);
 	const totalH = barBlock + cardH;
-	// Below the bubble when it fits, otherwise above, otherwise squeezed into the chat area
-	let top: number;
-	if (chatBottom - (anchor.y + anchor.height) >= totalH + STACK_GAP) {
-		top = anchor.y + anchor.height + STACK_GAP;
-	} else if (anchor.y - chatTop >= totalH + STACK_GAP) {
-		top = anchor.y - totalH - STACK_GAP;
-	} else {
-		top = Math.max(chatTop, Math.min(anchor.y + anchor.height + STACK_GAP, chatBottom - totalH));
-	}
+	const top = computeMenuTop({
+		anchorY: anchor.y,
+		anchorHeight: anchor.height,
+		totalHeight: totalH,
+		chatTop,
+		chatBottom,
+		gap: STACK_GAP
+	});
 	const left = Math.max(
 		SCREEN_MARGIN,
 		Math.min(isOwn ? anchor.x + anchor.width - width : anchor.x, screenW - width - SCREEN_MARGIN)
 	);
 
-	// The bubble stays where it is, uncovered: the backdrop is four panels around it
-	const hole = {
-		top: Math.max(0, anchor.y),
-		bottom: Math.min(screenH, anchor.y + anchor.height),
-		left: Math.max(0, anchor.x),
-		right: Math.min(screenW, anchor.x + anchor.width)
-	};
-	const panels = [
-		{ top: 0, left: 0, right: 0, height: hole.top },
-		{ top: hole.bottom, left: 0, right: 0, bottom: 0 },
-		{ top: hole.top, left: 0, width: hole.left, height: hole.bottom - hole.top },
-		{ top: hole.top, left: hole.right, right: 0, height: hole.bottom - hole.top }
-	];
+	// The bubble stays where it is, uncovered: the backdrop is a dim layer with the shape of the bubble cut out of it
+	const { radii, x, y, width: bubbleW, height: bubbleH } = anchor;
+	const cutout = [
+		`M ${x + radii.tl} ${y}`,
+		`H ${x + bubbleW - radii.tr}`,
+		`A ${radii.tr} ${radii.tr} 0 0 1 ${x + bubbleW} ${y + radii.tr}`,
+		`V ${y + bubbleH - radii.br}`,
+		`A ${radii.br} ${radii.br} 0 0 1 ${x + bubbleW - radii.br} ${y + bubbleH}`,
+		`H ${x + radii.bl}`,
+		`A ${radii.bl} ${radii.bl} 0 0 1 ${x} ${y + bubbleH - radii.bl}`,
+		`V ${y + radii.tl}`,
+		`A ${radii.tl} ${radii.tl} 0 0 1 ${x + radii.tl} ${y}`,
+		'Z'
+	].join(' ');
 
-	const select = (run?: () => void) => {
-		close();
+	const select = (run?: () => void, keepOpen = false) => {
+		if (!keepOpen) {
+			close();
+		}
 		run?.();
 	};
 
 	return (
 		<Modal visible transparent animationType='none' onRequestClose={close} statusBarTranslucent>
 			<View style={StyleSheet.absoluteFill}>
-				{panels.map((panel, index) => (
-					<Animated.View key={index} style={[styles.panel, panel, { opacity }]}>
-						<Pressable
-							style={StyleSheet.absoluteFill}
-							onPress={close}
-							accessibilityRole='button'
-							accessibilityLabel={I18n.t('Close')}
-						/>
-					</Animated.View>
-				))}
+				<Animated.View style={[StyleSheet.absoluteFill, { opacity }]} pointerEvents='none'>
+					<Svg width={screenW} height={screenH}>
+						<Defs>
+							<Mask id='highlight'>
+								<Rect width={screenW} height={screenH} fill='white' />
+								<Path d={cutout} fill='black' />
+							</Mask>
+						</Defs>
+						<Rect width={screenW} height={screenH} fill='rgba(0, 0, 0, 0.45)' mask='url(#highlight)' />
+					</Svg>
+				</Animated.View>
+				<Pressable
+					style={StyleSheet.absoluteFill}
+					onPress={close}
+					accessibilityRole='button'
+					accessibilityLabel={I18n.t('Close')}
+				/>
 				<Animated.View style={[styles.menu, { top, left, width, opacity }]}>
 					{hasBar ? (
 						<View style={styles.bar}>
@@ -129,7 +173,7 @@ const MessageMenu = () => {
 						</View>
 					) : null}
 					<ScrollView style={[styles.card, { maxHeight: cardH }]} bounces={false}>
-						{options.map((option, index) => {
+						{rows.map((option, index) => {
 							const enabled = option.enabled !== false;
 							const color = option.danger ? DESTRUCTIVE : MENU_TEXT;
 							return (
@@ -137,7 +181,7 @@ const MessageMenu = () => {
 									key={`${option.title}-${index}`}
 									style={[styles.row, !enabled && styles.rowDisabled]}
 									disabled={!enabled}
-									onPress={() => select(option.onPress)}
+									onPress={() => select(option.onPress, option.keepOpen)}
 									testID={option.testID}
 									accessibilityRole='button'
 									accessibilityLabel={option.accessibilityLabel ?? option.title}>
@@ -147,7 +191,7 @@ const MessageMenu = () => {
 									{option.icon ? (
 										<CustomIcon name={option.icon} size={18} color={option.danger ? DESTRUCTIVE : MENU_ICON} />
 									) : null}
-									{index < options.length - 1 ? <View style={styles.divider} pointerEvents='none' /> : null}
+									{index < rows.length - 1 ? <View style={styles.divider} pointerEvents='none' /> : null}
 								</Pressable>
 							);
 						})}
@@ -159,10 +203,6 @@ const MessageMenu = () => {
 };
 
 const styles = StyleSheet.create({
-	panel: {
-		position: 'absolute',
-		backgroundColor: 'rgba(0, 0, 0, 0.45)'
-	},
 	menu: {
 		position: 'absolute'
 	},
