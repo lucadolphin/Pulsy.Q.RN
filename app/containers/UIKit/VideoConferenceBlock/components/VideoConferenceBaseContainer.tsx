@@ -7,7 +7,7 @@ import { CustomIcon, type TIconsName } from '~/containers/CustomIcon';
 import useStyle from './styles';
 
 type VideoConfMessageIconProps = {
-	variant: 'ended' | 'incoming' | 'outgoing' | 'issue';
+	variant: 'ended' | 'incoming' | 'outgoing' | 'issue' | 'meet';
 	children: ReactElement | ReactElement[];
 };
 
@@ -33,6 +33,12 @@ export const VideoConferenceBaseContainer = ({ variant, children }: VideoConfMes
 			color: colors.buttonBackgroundSuccessDefault,
 			backgroundColor: colors.buttonBackgroundSuccessDisabled,
 			label: i18n.t('Call_ongoing')
+		},
+		meet: {
+			icon: 'phone',
+			color: colors.buttonBackgroundSuccessDefault,
+			backgroundColor: colors.buttonBackgroundSuccessDisabled,
+			label: i18n.t('Meet_call')
 		},
 		issue: {
 			icon: 'phone-issue',

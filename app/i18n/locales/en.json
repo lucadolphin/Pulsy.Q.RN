@@ -125,6 +125,7 @@
   "Call_ended_bold": "*Voice call ended*",
   "Call_failed_bold": "*Voice call failed*",
   "Call_issue": "Call issue",
+  "Meet_call": "Meet call",
   "Call_not_answered_bold": "*Voice call not answered*",
   "Call_ongoing": "Call ongoing",
   "Call_rejected": "Call rejected",

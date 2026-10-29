@@ -6,12 +6,15 @@ import VideoConferenceEnded from './components/VideoConferenceEnded';
 import VideoConferenceOutgoing from './components/VideoConferenceOutgoing';
 import VideoConferenceSkeletonLoading from './components/VideoConferenceSkeletonLoading';
 import VideoConferenceIssue from './components/VideoConferenceIssue';
+import VideoConferenceRomeo from './components/VideoConferenceRomeo';
 
 export default function VideoConferenceBlock({ callId, blockId }: { callId: string; blockId: string }): ReactElement {
 	const { result, error } = useEndpointData('video-conference.info', { callId });
 
 	if (result?.success) {
-		const { users, type, status, createdBy, rid } = result;
+		const { users, type, status, createdBy, rid, providerName } = result;
+
+		if (providerName === 'romeo') return <VideoConferenceRomeo callId={callId} rid={rid} users={users} />;
 
 		if ('endedAt' in result) return <VideoConferenceEnded createdBy={createdBy} rid={rid} type={type} users={users} />;
 
