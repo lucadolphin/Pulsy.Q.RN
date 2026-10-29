@@ -99,6 +99,10 @@ export const merge = (
 		if (room && 'usersCount' in room) {
 			mergedSubscription.usersCount = room.usersCount;
 		}
+		const cardId = (room as { cardId?: string } | undefined)?.cardId;
+		if (cardId) {
+			mergedSubscription.cardId = cardId;
+		}
 
 		if (room && 'federation' in room) {
 			mergedSubscription.federation = room.federation;

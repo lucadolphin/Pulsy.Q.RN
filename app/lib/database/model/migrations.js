@@ -392,6 +392,15 @@ export default schemaMigrations({
 					columns: [{ name: 'received', type: 'string', isOptional: true }]
 				})
 			]
+		},
+		{
+			toVersion: 34,
+			steps: [
+				addColumns({
+					table: 'subscriptions',
+					columns: [{ name: 'card_id', type: 'string', isOptional: true }]
+				})
+			]
 		}
 	]
 });

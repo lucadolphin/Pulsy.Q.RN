@@ -37,7 +37,7 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 	const threadsEnabled = useSetting('Threads_enabled') as boolean;
 	const issuesWithNotifications = useAppSelector(state => state.troubleshootingNotification.issuesWithNotifications);
 
-	const { t, status, roomName, roomIsGroupChat, teamMain, encrypted, disableNotifications } = useStore(
+	const { t, status, roomName, roomIsGroupChat, teamMain, encrypted, disableNotifications, cardId } = useStore(
 		roomStore,
 		useShallow(s => {
 			const room = s.room;
@@ -48,7 +48,8 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 				roomIsGroupChat: isGroupChat(room as ISubscription),
 				teamMain: fromSubscription(r => !!r.teamMain, false)(s),
 				encrypted: fromSubscription(r => r.encrypted, undefined)(s),
-				disableNotifications: (room as ISubscription).disableNotifications
+				disableNotifications: (room as ISubscription).disableNotifications,
+				cardId: fromSubscription(r => r.cardId, undefined)(s)
 			};
 		})
 	);
@@ -152,6 +153,9 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 
 	const openMenu = () => showActionSheet({ options: menuOptions });
 
+	// TALK: rooms that belong to an EMA card open its task panel
+	const goCardDetails = () => (navigation as any).navigate('CardDetailsView', { rid, cardId });
+
 	return (
 		<HeaderButton.Container>
 			{!isSelfDm ? (
@@ -159,6 +163,14 @@ export const RoomRightButtons = ({ rid, roomStore }: IRoomRightButtonsProps): Re
 					accessibilityLabel={i18n.t('Call_room_name', { roomName: accessibilityRoomName })}
 					rid={rid}
 					disabled={hasE2EEWarning}
+				/>
+			) : null}
+			{cardId ? (
+				<HeaderButton.Item
+					accessibilityLabel={i18n.t('Card_details')}
+					iconName='check'
+					onPress={goCardDetails}
+					testID='room-view-header-card'
 				/>
 			) : null}
 			<HeaderButton.Item

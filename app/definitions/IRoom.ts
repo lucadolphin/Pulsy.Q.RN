@@ -186,6 +186,7 @@ export interface IServerRoom extends IRocketChatRecord {
 	lastMessage?: IMessage;
 	lm?: Date;
 	usersCount: number;
+	cardId?: string;
 	jitsiTimeout?: Date;
 	webRtcCallStartTime?: Date;
 	servedBy?: {

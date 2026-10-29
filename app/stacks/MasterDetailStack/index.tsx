@@ -73,6 +73,7 @@ import { SupportedVersionsWarning } from '~/containers/SupportedVersions';
 import AttachmentView from '~/views/AttachmentView';
 import ModalBlockView from '~/views/ModalBlockView';
 import JitsiMeetView from '~/views/JitsiMeetView';
+import CardDetailsView from '~/custom/talk/ema/CardDetailsView'; // TALK
 import ShareView from '~/views/ShareView';
 import CallView from '~/views/CallView';
 
@@ -283,6 +284,7 @@ const InsideStack = createNativeStackNavigator({
 				animation: isIOS ? 'default' : 'none'
 			}
 		}),
+		CardDetailsView, // TALK
 		ShareView: ShareViewScreen,
 		CallView: createNativeStackScreen({
 			screen: CallView,

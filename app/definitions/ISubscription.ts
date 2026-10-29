@@ -115,6 +115,8 @@ export interface ISubscription {
 	source?: IOmnichannelSource;
 	hideMentionStatus?: boolean;
 	usersCount?: number;
+	/** The EMA card the room belongs to (Exentriq tasks). */
+	cardId?: string;
 	// https://nozbe.github.io/WatermelonDB/Relation.html#relation-api
 	messages: RelationModified<TMessageModel>;
 	threads: RelationModified<TThreadModel>;

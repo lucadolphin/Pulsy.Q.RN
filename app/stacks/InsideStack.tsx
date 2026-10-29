@@ -40,6 +40,7 @@ import ReadReceiptsView from '../views/ReadReceiptView';
 import CannedResponsesListView from '../views/CannedResponsesListView';
 import CannedResponseDetail from '../views/CannedResponseDetail';
 import JitsiMeetView from '../views/JitsiMeetView';
+import CardDetailsView from '../custom/talk/ema/CardDetailsView'; // TALK
 import DiscussionsView from '../views/DiscussionsView';
 import ChangeAvatarView from '../views/ChangeAvatarView';
 import AddChannelTeamView from '../views/AddChannelTeamView';
@@ -200,7 +201,8 @@ const ChatsStack = createNativeStackNavigator({
 		JitsiMeetView: createNativeStackScreen({
 			screen: JitsiMeetViewScreen,
 			options: { headerShown: false, animation: isIOS ? 'default' : 'none' }
-		})
+		}),
+		CardDetailsView // TALK
 	}
 }).with(({ Navigator }) => {
 	const { theme } = useContext(ThemeContext);

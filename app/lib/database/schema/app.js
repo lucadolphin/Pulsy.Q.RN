@@ -1,7 +1,7 @@
 import { appSchema, tableSchema } from '@nozbe/watermelondb';
 
 export default appSchema({
-	version: 33,
+	version: 34,
 	tables: [
 		tableSchema({
 			name: 'subscriptions',
@@ -65,6 +65,7 @@ export default appSchema({
 				{ name: 'team_id', type: 'string', isIndexed: true },
 				{ name: 'team_main', type: 'boolean', isOptional: true }, // Use `Q.notEq(true)` to get false or null
 				{ name: 'on_hold', type: 'boolean', isOptional: true },
+				{ name: 'card_id', type: 'string', isOptional: true },
 				{ name: 'source', type: 'string', isOptional: true },
 				{ name: 'hide_mention_status', type: 'boolean', isOptional: true },
 				{ name: 'users_count', type: 'number', isOptional: true },

@@ -147,6 +147,8 @@ export default class Subscription extends Model {
 
 	@field('users_count') usersCount;
 
+	@field('card_id') cardId;
+
 	@json('source', sanitizer, { memo: true }) source;
 
 	@field('disable_notifications') disableNotifications;
@@ -231,6 +233,7 @@ export default class Subscription extends Model {
 			teamMain: this.teamMain,
 			onHold: this.onHold,
 			usersCount: this.usersCount,
+			cardId: this.cardId,
 			source: this.source,
 			disableNotifications: this.disableNotifications,
 			federated: this.federated,

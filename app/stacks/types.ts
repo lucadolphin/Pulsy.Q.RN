@@ -172,6 +172,10 @@ export type ChatsStackParamList = {
 		cannedResponse: ICannedResponse;
 		room: ISubscription;
 	};
+	CardDetailsView: {
+		rid: string;
+		cardId: string;
+	};
 	JitsiMeetView: {
 		rid: string;
 		url: string;
