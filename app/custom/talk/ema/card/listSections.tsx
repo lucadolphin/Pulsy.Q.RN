@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Image, Linking, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import * as DocumentPicker from 'expo-document-picker';
+import log from '~/lib/methods/helpers/log';
+import { chooseFile, chooseFromLibrary, takePhoto, takeVideo, type PickedFile } from './pickAttachment';
 
 import I18n from '~/i18n';
 import { CustomIcon } from '~/containers/CustomIcon';
 import { useActionSheet } from '~/containers/ActionSheet';
-import { sortBetween, attachmentUrl, type EventFields } from '../emaActions';
+import { attachmentUrl, previewAttachmentFile, shareAttachment, sortBetween, type EventFields } from '../emaActions';
+import { AttachmentPreview } from './AttachmentPreview';
 import { type EmaAttachment, type EmaCard, type EmaEvent, type EmaLabel, type EmaListWithItems } from '../types';
 import { formatCardDate } from './headerSections';
 import {
@@ -19,17 +21,19 @@ import {
 	TextSheet,
 	WideButton,
 	cardText,
+	KebabButton,
 	inputStyle,
 	ConfirmSheet
 } from './ui';
 
 const styles = StyleSheet.create({
 	list: { backgroundColor: COLORS.white, borderRadius: 6, padding: 10, marginTop: 8 },
-	listHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+	listHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 },
 	task: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8 },
 	done: { textDecorationLine: 'line-through', color: COLORS.textLight },
 	addRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 6 },
-	chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },
+	chips: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },
+	areaRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
 	labelChip: { flexDirection: 'row', alignItems: 'center', gap: 6, borderRadius: 14, paddingHorizontal: 10, paddingVertical: 4 },
 	event: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8 },
 	attachment: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 8 },
@@ -133,14 +137,12 @@ export const CardTasks = (props: TTasksProps) => {
 					? [
 							{
 								title: `${list.meta?.isBacklog ? '✓ ' : ''}${I18n.t('Exentriq_Card_List_default')}`,
-								icon: 'check' as const,
 								onPress: () => props.onSetListKind(list._id, 'default', true)
 							},
 							...(!list.meta?.isBacklog
 								? [
 										{
 											title: `${list.meta?.isDone ? '✓ ' : ''}${I18n.t('Exentriq_Card_List_done')}`,
-											icon: 'check' as const,
 											onPress: () => props.onSetListKind(list._id, 'done', !list.meta?.isDone)
 										}
 									]
@@ -186,9 +188,7 @@ export const CardTasks = (props: TTasksProps) => {
 					/>
 				</TouchableOpacity>
 				<Text style={[cardText.normal, { flex: 1 }, closed && styles.done]}>{task.title}</Text>
-				<TouchableOpacity onPress={() => taskMenu(task, list)} accessibilityLabel={task.title} hitSlop={8}>
-					<CustomIcon name='kebab' size={20} color={COLORS.textLight} />
-				</TouchableOpacity>
+				<KebabButton onPress={() => taskMenu(task, list)} label={task.title} />
 			</View>
 		);
 	};
@@ -199,7 +199,7 @@ export const CardTasks = (props: TTasksProps) => {
 	const addLabel = approval ? I18n.t('Exentriq_Card_Add_group') : I18n.t('Exentriq_Card_Add_tasklist');
 
 	return (
-		<CardBlock label={label}>
+		<CardBlock id={approval ? 'approvals' : 'tasks'} label={label}>
 			{!lists.length ? <Text style={cardText.light}>{I18n.t('Exentriq_Card_No_tasks_yet')}</Text> : null}
 			{lists.map(list => {
 				const open = list.items.filter(task => !isClosed(task, list._id));
@@ -213,11 +213,7 @@ export const CardTasks = (props: TTasksProps) => {
 									({list.meta?.completedItemsCount ?? closed.length}/{list.meta?.itemsCount ?? list.items.length})
 								</Text>
 							</Text>
-							{canEdit ? (
-								<TouchableOpacity onPress={() => listMenu(list)} accessibilityLabel={list.title} hitSlop={8}>
-									<CustomIcon name='kebab' size={20} color={COLORS.textLight} />
-								</TouchableOpacity>
-							) : null}
+							{canEdit ? <KebabButton onPress={() => listMenu(list)} label={list.title} /> : null}
 						</View>
 						{open.map(task => renderTask(task, list))}
 						{closed.map(task => renderTask(task, list))}
@@ -311,19 +307,24 @@ export const CardLabels = ({
 	const selected = labels.map(label => label._id);
 
 	return (
-		<CardBlock label={I18n.t('Exentriq_Card_Labels')}>
-			<View style={styles.chips}>
-				{labels.map(label => (
-					<TouchableOpacity
-						key={label._id}
-						disabled={!canEdit}
-						onPress={() => onToggle(label._id)}
-						style={[styles.labelChip, { backgroundColor: colorOfLabel(label.color) }]}
-						accessibilityLabel={`${I18n.t('Exentriq_Card_Remove_label')} ${label.title ?? ''}`}>
-						<Text style={{ color: COLORS.white, fontSize: 14 }}>{label.title || label.color}</Text>
-						{canEdit ? <CustomIcon name='close' size={14} color={COLORS.white} /> : null}
-					</TouchableOpacity>
-				))}
+		<CardBlock id='labels' label={I18n.t('Exentriq_Card_Labels')}>
+			<View style={styles.areaRow}>
+				<View style={styles.chips}>
+					{labels.map(label => (
+						<View key={label._id} style={[styles.labelChip, { backgroundColor: colorOfLabel(label.color) }]}>
+							<Text style={{ color: COLORS.white, fontSize: 14 }}>{label.title || label.color}</Text>
+							{canEdit ? (
+								<TouchableOpacity
+									onPress={() => onToggle(label._id)}
+									hitSlop={12}
+									accessibilityRole='button'
+									accessibilityLabel={`${I18n.t('Exentriq_Card_Remove_label')} ${label.title ?? ''}`}>
+									<CustomIcon name='close' size={16} color={COLORS.white} />
+								</TouchableOpacity>
+							) : null}
+						</View>
+					))}
+				</View>
 				{canEdit ? <PlusButton label={I18n.t('Exentriq_Card_Add_label')} onPress={() => setManaging(true)} /> : null}
 			</View>
 			{managing && !editing ? (
@@ -450,7 +451,7 @@ export const CardCalendar = ({
 	);
 
 	return (
-		<CardBlock label={I18n.t('Exentriq_Card_Calendar')}>
+		<CardBlock id='calendar' label={I18n.t('Exentriq_Card_Calendar')}>
 			{events.map(event => (
 				<View key={event._id} style={styles.event}>
 					<CustomIcon name='calendar' size={20} color={COLORS.text} />
@@ -460,11 +461,7 @@ export const CardCalendar = ({
 							{[formatEventDate(event.startDate), formatEventDate(event.dueDate)].filter(Boolean).join(' → ')}
 						</Text>
 					</View>
-					{canEdit ? (
-						<TouchableOpacity onPress={() => menu(event)} accessibilityLabel={I18n.t('Exentriq_Card_Event_actions')} hitSlop={8}>
-							<CustomIcon name='kebab' size={20} color={COLORS.textLight} />
-						</TouchableOpacity>
-					) : null}
+					{canEdit ? <KebabButton onPress={() => menu(event)} label={I18n.t('Exentriq_Card_Event_actions')} /> : null}
 				</View>
 			))}
 			{canEdit ? <WideButton label={I18n.t('Exentriq_Card_Add_event')} onPress={() => open('new')} /> : null}
@@ -518,36 +515,64 @@ export const CardAttachments = ({
 	canEdit: boolean;
 	coverId?: string;
 	urlOf: (attachment: EmaAttachment) => string | undefined;
-	onUpload: (file: { uri: string; name: string; type: string; size: number }) => Promise<void>;
+	onUpload: (file: PickedFile) => Promise<void>;
 	onRemove: (attachment: EmaAttachment) => void;
 	onCover: (attachmentId: string | undefined) => void;
 }) => {
-	const { showActionSheet } = useActionSheet();
+	const { showActionSheet, hideActionSheet } = useActionSheet();
 	const [uploading, setUploading] = useState(0);
 	const [removing, setRemoving] = useState<EmaAttachment>();
+	const [previewing, setPreviewing] = useState<EmaAttachment>();
 
-	const pick = async () => {
-		const result = await DocumentPicker.getDocumentAsync({ multiple: true, copyToCacheDirectory: true });
-		if (result.canceled) {
+	const upload = async (pick: () => Promise<PickedFile[]>) => {
+		let files: PickedFile[];
+		try {
+			files = await pick();
+		} catch (e) {
+			// The camera or the library closed without a choice
+			log(e);
 			return;
 		}
-		setUploading(count => count + result.assets.length);
-		await Promise.all(
-			result.assets.map(asset =>
-				onUpload({
-					uri: asset.uri,
-					name: asset.name,
-					type: asset.mimeType ?? 'application/octet-stream',
-					size: asset.size ?? 0
-				}).finally(() => setUploading(count => count - 1))
-			)
-		);
+		setUploading(count => count + files.length);
+		await Promise.all(files.map(file => onUpload(file).finally(() => setUploading(count => count - 1))));
+	};
+
+	// The chat's attach menu: take a photo or a video, choose from the library or a file
+	const pick = () => {
+		const later = (pick: () => Promise<PickedFile[]>) => () => {
+			hideActionSheet();
+			// The action sheet does not close properly on Android
+			setTimeout(() => upload(pick), 550);
+		};
+		showActionSheet({
+			options: [
+				{ title: I18n.t('Take_a_photo'), icon: 'camera-photo', onPress: later(takePhoto) },
+				{ title: I18n.t('Take_a_video'), icon: 'video', onPress: later(takeVideo) },
+				{ title: I18n.t('Choose_from_library'), icon: 'image', onPress: later(chooseFromLibrary) },
+				{ title: I18n.t('Choose_file'), icon: 'attach', onPress: later(chooseFile) }
+			]
+		});
+	};
+
+	// Images and videos open in the app; any other file goes to the system's preview
+	const preview = (attachment: EmaAttachment) => {
+		if (attachment.isImage || attachment.isVideo) {
+			setPreviewing(attachment);
+		} else {
+			previewAttachmentFile(attachment).catch(failed);
+		}
+	};
+	const download = (attachment: EmaAttachment) => shareAttachment(attachment).catch(failed);
+	const failed = (e: unknown) => {
+		log(e);
+		Alert.alert(I18n.t('Oops'), (e as Error).message);
 	};
 
 	const menu = (attachment: EmaAttachment) =>
 		showActionSheet({
 			options: [
-				{ title: I18n.t('Open'), icon: 'link', onPress: () => Linking.openURL(urlOf(attachment) ?? '') },
+				{ title: I18n.t('Exentriq_Card_Preview'), icon: 'search', onPress: () => preview(attachment) },
+				{ title: I18n.t('Exentriq_Card_Download'), icon: 'download', onPress: () => download(attachment) },
 				...(canEdit
 					? [
 							...(attachment.isImage
@@ -571,12 +596,15 @@ export const CardAttachments = ({
 		});
 
 	return (
-		<CardBlock label={`${I18n.t('Exentriq_Card_Attachments')} (${attachments.length})`}>
+		<CardBlock id='attachments' label={`${I18n.t('Exentriq_Card_Attachments')} (${attachments.length})`}>
 			{canEdit ? (
-				<WideButton label={uploading ? I18n.t('Exentriq_Card_Uploading') : I18n.t('Exentriq_Card_Drop_a_file')} onPress={pick} />
+				<WideButton
+					label={uploading ? I18n.t('Exentriq_Card_Uploading') : I18n.t('Exentriq_Card_Add_attachment')}
+					onPress={pick}
+				/>
 			) : null}
 			{attachments.map(attachment => (
-				<TouchableOpacity key={attachment._id} onPress={() => menu(attachment)} style={styles.attachment}>
+				<TouchableOpacity key={attachment._id} onPress={() => preview(attachment)} style={styles.attachment}>
 					{attachment.isImage ? (
 						<Image source={{ uri: urlOf(attachment) }} style={styles.thumb} />
 					) : (
@@ -588,8 +616,18 @@ export const CardAttachments = ({
 						{attachment.name}
 					</Text>
 					{attachment._id === coverId ? <CustomIcon name='star' size={16} color={COLORS.primary} /> : null}
+					<KebabButton onPress={() => menu(attachment)} label={attachment.name} />
 				</TouchableOpacity>
 			))}
+			{previewing ? (
+				<AttachmentPreview
+					name={previewing.name}
+					uri={urlOf(previewing) ?? ''}
+					kind={previewing.isVideo ? 'video' : 'image'}
+					onDownload={() => download(previewing)}
+					onClose={() => setPreviewing(undefined)}
+				/>
+			) : null}
 			{removing ? (
 				<ConfirmSheet
 					title={I18n.t('Exentriq_Card_Remove')}

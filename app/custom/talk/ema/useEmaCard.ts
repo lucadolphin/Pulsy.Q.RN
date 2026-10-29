@@ -36,6 +36,11 @@ export const connectEma = (): Promise<{ ema: EmaDdp; userId: string }> => {
 				throw new Error('error-exentriq-no-session');
 			}
 			const ema = new EmaDdp(url);
+			ema.onClosed = () => {
+				if (shared?.ready === open) {
+					shared = undefined;
+				}
+			};
 			try {
 				const userId = await ema.loginWithSessionToken(sessionToken);
 				return { ema, userId };

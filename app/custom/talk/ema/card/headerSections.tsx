@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { type ReactNode, useEffect, useState } from 'react';
+import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+import { MaterialIcons } from '@expo/vector-icons';
 
 import I18n from '~/i18n';
+import { headerChipStyles, HEADER_CHIP_ICON_SIZE } from '~/custom/talk/headerChips';
 import { CustomIcon } from '~/containers/CustomIcon';
 import { useActionSheet } from '~/containers/ActionSheet';
 import { addActivity, getActivitiesTotal } from '../emaActions';
@@ -22,7 +25,6 @@ import {
 } from './ui';
 
 type THeaderProps = {
-	color?: string;
 	billable: boolean;
 	canEdit: boolean;
 	completed: boolean;
@@ -34,9 +36,26 @@ type THeaderProps = {
 	onArchive: () => void;
 };
 
-/** The bar of ROMEO's card detail: billable, activity, link and the card's menu. */
+/** The bar of ROMEO's card detail, as the navigation header: back on the left, the buttons on the right, on the card's colour. */
+export const CardNavHeader = ({ color, onBack, children }: { color: string; onBack: () => void; children?: ReactNode }) => {
+	return (
+		<View style={[styles.nav, { backgroundColor: color }]}>
+			{/* The same round chip and arrow as the chat's header */}
+			<Pressable
+				onPress={onBack}
+				style={[headerChipStyles.chip, styles.backChip]}
+				hitSlop={6}
+				accessibilityLabel={I18n.t('Back')}
+				accessibilityRole='button'>
+				<MaterialIcons name='arrow-back-ios' size={HEADER_CHIP_ICON_SIZE} color={COLORS.white} style={styles.backIcon} />
+			</Pressable>
+			<View style={styles.navActions}>{children}</View>
+		</View>
+	);
+};
+
+/** The buttons of ROMEO's card detail bar (billable, activity, link, card menu), for the navigation header. */
 export const CardHeaderBar = ({
-	color,
 	billable,
 	canEdit,
 	completed,
@@ -67,22 +86,25 @@ export const CardHeaderBar = ({
 		});
 
 	return (
-		<View style={[styles.header, { backgroundColor: color || COLORS.headerTeal }]}>
+		<View style={styles.header}>
 			<TouchableOpacity
 				disabled={!canEdit}
 				onPress={onToggleBillable}
-				style={[styles.button, billable && styles.buttonActive]}
+				style={[headerChipStyles.chip, billable && styles.buttonActive]}
 				accessibilityLabel={I18n.t('Exentriq_Card_Billable')}
 				accessibilityState={{ selected: billable }}>
 				<Text style={styles.dollar}>$</Text>
 			</TouchableOpacity>
-			<TouchableOpacity onPress={onOpenActivity} style={styles.button} accessibilityLabel={I18n.t('Exentriq_Card_Activity')}>
+			<TouchableOpacity
+				onPress={onOpenActivity}
+				style={headerChipStyles.chip}
+				accessibilityLabel={I18n.t('Exentriq_Card_Activity')}>
 				<CustomIcon name='clock' size={22} color={COLORS.white} />
 			</TouchableOpacity>
-			<TouchableOpacity onPress={onCopyLink} style={styles.button} accessibilityLabel={I18n.t('Exentriq_Card_Copy_link')}>
+			<TouchableOpacity onPress={onCopyLink} style={headerChipStyles.chip} accessibilityLabel={I18n.t('Exentriq_Card_Copy_link')}>
 				<CustomIcon name='link' size={22} color={COLORS.white} />
 			</TouchableOpacity>
-			<TouchableOpacity onPress={openMenu} style={styles.button} accessibilityLabel={I18n.t('Exentriq_Card_Card_menu')}>
+			<TouchableOpacity onPress={openMenu} style={headerChipStyles.chip} accessibilityLabel={I18n.t('Exentriq_Card_Card_menu')}>
 				<CustomIcon name='kebab' size={22} color={COLORS.white} />
 			</TouchableOpacity>
 		</View>
@@ -90,12 +112,33 @@ export const CardHeaderBar = ({
 };
 
 const styles = StyleSheet.create({
-	header: { flexDirection: 'row', justifyContent: 'flex-end', gap: 4, paddingHorizontal: 8, paddingVertical: 6 },
-	button: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
+	header: { flexDirection: 'row', alignItems: 'center' },
+	// The glyph of arrow-back-ios sits to the left of its box
+	// Close to the edge of the device, as in the chat's header
+	backChip: { marginLeft: -2, marginRight: -4 },
+	backIcon: { marginLeft: 5 },
+	nav: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		// 10 on the left, as the chat's header gives a screen with its own back button
+		paddingLeft: 10,
+		paddingRight: 12,
+		paddingVertical: 6
+	},
+	navActions: { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end' },
 	buttonActive: { backgroundColor: '#ffffff40' },
 	dollar: { color: COLORS.white, fontSize: 20, fontWeight: '700' },
-	top: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },
-	wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
+	// The chips reach past the content column by their own padding, so the text in them lines up with the title
+	top: {
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		gap: 8,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		marginHorizontal: -10
+	},
+	wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12, marginLeft: -10 },
 	swatches: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
 	swatch: { width: 44, height: 44, borderRadius: 22 },
 	activityLine: { paddingVertical: 8, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: COLORS.border }
@@ -124,7 +167,7 @@ export const CardTop = ({
 				{hasCustomer ? (
 					<Text style={cardText.normal}>{customerName ?? '…'}</Text>
 				) : canEdit ? (
-					<PlusButton label={I18n.t('Exentriq_Card_Add_customer')} onPress={() => setPicking(true)} />
+					<PlusButton size={22} label={I18n.t('Exentriq_Card_Add_customer')} onPress={() => setPicking(true)} />
 				) : null}
 			</Chip>
 			<Chip
@@ -156,7 +199,7 @@ const CustomerPicker = ({ onPick, onClose }: { onPick: (customerId: number | str
 	const [limit, setLimit] = useState(PAGE);
 	const { customers, total, loading } = useEmaCustomerSearch(useDebounced(term), limit);
 	return (
-		<Sheet title={I18n.t('Exentriq_Card_Add_customer')} onClose={onClose}>
+		<Sheet title={I18n.t('Exentriq_Card_Add_customer')} onClose={onClose} fixed>
 			<TextInput
 				autoFocus
 				value={term}

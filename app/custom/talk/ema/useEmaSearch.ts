@@ -33,7 +33,13 @@ const useEasySearch = <T>(collection: string, term: string, limit: number, map: 
 						.sort((a, b) => (a.__sortPosition ?? 0) - (b.__sortPosition ?? 0));
 					const count = ema.findOne(collection, `searchCount${definition}`) as { count?: number } | undefined;
 					const ready = ema.findOne(collection, `ready${definition}`) as { ready?: boolean } | undefined;
-					setResult({ found: docs.map(map), total: count?.count ?? docs.length, loading: !ready?.ready });
+					const loading = !ready?.ready;
+					// While the new search has not answered, the previous list stays instead of emptying and filling again
+					setResult(current =>
+						loading && !docs.length
+							? { ...current, loading }
+							: { found: docs.map(map), total: count?.count ?? docs.length, loading }
+					);
 				};
 				unlisten = ema.onChange(read);
 				const subscription = await ema.subscribe(collection, term, { limit, skip: 0, props: {} });

@@ -1,4 +1,7 @@
 import { File } from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
+import ExpoQuickLook from '@magrinj/expo-quick-look';
+import { Share } from 'react-native';
 
 import { random } from '~/lib/methods/helpers';
 import sdk from '~/lib/services/sdk';
@@ -306,4 +309,28 @@ export const getCustomerName = async (customerId: number | string): Promise<stri
 		sessionToken
 	);
 	return customer ? customer.label || customer.companyName || customer.firstname || customer.contact : undefined;
+};
+
+const safeName = (name: string) => name.replace(/[^\w.\- ]+/g, '_');
+
+/** Downloads an attachment of the card to the app's cache and answers with its local path. */
+export const downloadAttachment = async (attachment: { _id: string; name: string; extension?: string }): Promise<string> => {
+	const url = attachmentUrl(attachment);
+	if (!url) {
+		throw new Error('error-ema-not-configured');
+	}
+	const file = await FileSystem.downloadAsync(url, `${FileSystem.cacheDirectory}${safeName(attachment.name)}`);
+	return file.uri;
+};
+
+/** Hands the file to the system share sheet, where it can be saved to Files or sent elsewhere. */
+export const shareAttachment = async (attachment: { _id: string; name: string; extension?: string }) => {
+	const uri = await downloadAttachment(attachment);
+	await Share.share({ url: uri, message: attachment.name });
+};
+
+/** Opens a file that is neither an image nor a video in the system's preview (Quick Look). */
+export const previewAttachmentFile = async (attachment: { _id: string; name: string; extension?: string }) => {
+	const uri = await downloadAttachment(attachment);
+	await ExpoQuickLook.previewFile({ uri, editingMode: 'createCopy' });
 };

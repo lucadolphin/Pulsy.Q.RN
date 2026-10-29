@@ -25,6 +25,11 @@ export class EmaDdp {
 
 	private opened?: Promise<void>;
 
+	private closed = false;
+
+	/** Called once when the socket closes: the session is gone with it (login and subscriptions), so the owner opens a new one. */
+	onClosed?: () => void;
+
 	constructor(private readonly url: string) {}
 
 	private get endpoint(): string {
@@ -36,6 +41,9 @@ export class EmaDdp {
 	}
 
 	connect(): Promise<void> {
+		if (this.closed) {
+			return Promise.reject(new Error('error-ema-closed'));
+		}
 		if (!this.opened) {
 			this.opened = new Promise<void>((resolve, reject) => {
 				const ws = new WebSocket(this.endpoint);
@@ -43,7 +51,9 @@ export class EmaDdp {
 				ws.onopen = () => this.send({ msg: 'connect', version: '1', support: ['1'] });
 				ws.onerror = () => reject(new Error('error-ema-unreachable'));
 				ws.onclose = () => {
+					this.closed = true;
 					this.opened = undefined;
+					this.onClosed?.();
 					this.pending.forEach(({ reject: fail }) => fail(new Error('error-ema-closed')));
 					this.pending.clear();
 				};
@@ -57,6 +67,7 @@ export class EmaDdp {
 			});
 			this.opened.catch(() => {
 				this.opened = undefined;
+				this.closed = true;
 			});
 		}
 		return this.opened;
